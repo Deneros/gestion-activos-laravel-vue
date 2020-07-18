@@ -12,6 +12,48 @@
                         @csrf
 
                         <div class="form-group row">
+                            <label for="tipoUsuario" class="col-md-4 col-form-label text-md-right">{{ __('Tipo Usuario') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="tipoUsuario" type="text" class="form-control @error('tipoUsuario') is-invalid @enderror" name="tipoUsuario" value="{{ old('tipoUsuario') }}" required autocomplete="tipoUsuario" autofocus>
+
+                                @error('tipoUsuario')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="tipoId" class="col-md-4 col-form-label text-md-right">{{ __('Tipo Identificacion') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="tipoId" type="text" class="form-control @error('tipoId') is-invalid @enderror" name="tipoId" value="{{ old('tipoId') }}" required autocomplete="tipoId" autofocus>
+
+                                @error('tipoId')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="Noidentificacion" class="col-md-4 col-form-label text-md-right">{{ __('Numero identificacion') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="Noidentificacion" type="text" class="form-control @error('Noidentificacion') is-invalid @enderror" name="Noidentificacion" value="{{ old('Noidentificacion') }}" required autocomplete="Noidentificacion" autofocus>
+
+                                @error('Noidentificacion')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">

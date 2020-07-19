@@ -17,13 +17,13 @@ class CreateUsuariosTable extends Migration
             $table->bigIncrements('Id_Usuario');
             $table->string('Tipo_Usuario');
             $table->string('Tipo_Identificacion');
-            $table->string('No_Identificacion');
+            $table->bigInteger('No_Identificacion');
             $table->string('Nombre');
             $table->string('Apellido');
             $table->string('Cargo');
-            $table->string('Telefono');
-            $table->string('Correo');
-            $table->string('Contraseña');
+            $table->bigInteger('Telefono');
+            $table->string('Email')->unique();
+            $table->string('Contrasena');
             $table->timestamps();
         });
     }

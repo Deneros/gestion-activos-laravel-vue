@@ -8,15 +8,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="examples/icons.html">
+              <a class="nav-link" href="{{ route('vista') }}">
                 <i class="ni ni-planet text-orange"></i>
-                <span class="nav-link-text">Icons</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="examples/map.html">
-                <i class="ni ni-pin-3 text-primary"></i>
-                <span class="nav-link-text">Google</span>
+                <span class="nav-link-text">Usuarios</span>
               </a>
             </li>
             <li class="nav-item">
@@ -26,7 +20,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="examples/tables.html">
+              <a class="nav-link" href="pages/tables">
                 <i class="ni ni-bullet-list-67 text-default"></i>
                 <span class="nav-link-text">Tables</span>
               </a>

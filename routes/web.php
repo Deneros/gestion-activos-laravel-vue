@@ -22,3 +22,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::resource('/usuarios', 'usuarioController')->middleware('auth');
+Route::get('vista', 'usuarioController@vista')->name('vista');

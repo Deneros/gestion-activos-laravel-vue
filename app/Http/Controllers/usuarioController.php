@@ -12,6 +12,11 @@ class usuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function vista()
+    {
+        return view('pages.Usuario');
+    }
+
     public function index(Request $request)
     {
 

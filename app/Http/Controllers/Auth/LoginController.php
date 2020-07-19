@@ -16,11 +16,11 @@ class LoginController extends Controller
         ]);
 
          
-        // if(Auth::attempt($credentials)) 
-        // {
-        //     return redirect()->route('home');
-        // }
-        // return 'Error en la autenticacion';
+        if(Auth::attempt($credentials)) 
+        {
+            return redirect()->route('home');
+        }
+        return 'Error en la autenticacion';
        
      }
  }

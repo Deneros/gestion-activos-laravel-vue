@@ -1,9 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <example></example>
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
 

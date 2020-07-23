@@ -1,4 +1,4 @@
-@extends('layouts.argon')
+@extends('layouts.plantilla')
 
 @section('content')
 <div class="container">
@@ -20,4 +20,6 @@
         </div>
     </div>
 </div>
+<example-component></example-component>
+
 @endsection

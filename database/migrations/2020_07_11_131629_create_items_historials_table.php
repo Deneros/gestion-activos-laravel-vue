@@ -14,11 +14,11 @@ class CreateItemsHistorialsTable extends Migration
     public function up()
     {
         Schema::create('items_historial', function (Blueprint $table) {
-            $table->bigIncrements('Id');
-            $table->unsignedBigInteger('Id_Item');
-            $table->foreign('Id_Item')->references('Id_Item')->on('items');
-            $table->unsignedBigInteger('Id_Historial');
-            $table->foreign('Id_Historial')->references('Id_Historial')->on('historiales');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_item');
+            $table->foreign('id_item')->references('id_item')->on('items');
+            $table->unsignedBigInteger('id_historial');
+            $table->foreign('id_historial')->references('id_historial')->on('historiales');
             $table->timestamps();
         });
     }

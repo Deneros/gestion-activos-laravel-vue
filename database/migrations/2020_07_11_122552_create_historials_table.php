@@ -14,9 +14,9 @@ class CreateHistorialsTable extends Migration
     public function up()
     {
         Schema::create('historiales', function (Blueprint $table) {
-            $table->bigIncrements('Id_Historial');
-            $table->date('Fecha_Inscripcion');
-            $table->date('Fecha_Traspaso');
+            $table->bigIncrements('id_historial');
+            $table->date('fecha_inscripcion');
+            $table->date('fecha_traspaso');
             $table->timestamps();
         });
     }

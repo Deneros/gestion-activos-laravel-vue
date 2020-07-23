@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\usuario;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class usuarioController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,7 @@ class usuarioController extends Controller
      */
     public function vista()
     {
-        return view('pages.Usuario');
+        return view('auth.register');
     }
 
     public function index(Request $request)
@@ -47,7 +51,7 @@ class usuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $usuario = new usuario();
+        $usuario = new User();
         $usuario->Tipo_Usuario = $request->Tipo_Usuario;
         $usuario->Tipo_Identificacion = $request->Tipo_Identificacion;
         $usuario->No_Identificacion = $request->No_Identificacion;
@@ -56,10 +60,12 @@ class usuarioController extends Controller
         $usuario->Cargo = $request->Cargo;
         $usuario->Telefono = $request->Telefono;
         $usuario->Email = $request->Email;
-        $usuario->Contrasena = bcrypt($request->Contrasena);
+        $usuario->password = bcrypt($request->Contrasena);
         $usuario->save();
-        return $usuario;
+    
+         
     }
+    
 
     /**
      * Display the specified resource.

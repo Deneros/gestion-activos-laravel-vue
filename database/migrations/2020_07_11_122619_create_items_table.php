@@ -14,13 +14,13 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->bigIncrements('Id_Item');
-            $table->string('Nombre_Item');
-            $table->string('Descripcion_Item');
-            $table->string('Estado');
-            $table->string('Ubicacion');
-            $table->unsignedBigInteger('Id_Subcategoria');
-            $table->foreign('Id_Subcategoria')->references('Id_Subcategoria')->on('subcategorias');
+            $table->bigIncrements('id_item');
+            $table->string('nombre_item');
+            $table->string('descripcion_item');
+            $table->string('estado');
+            $table->string('ubicacion');
+            $table->unsignedBigInteger('id_subcategoria');
+            $table->foreign('id_subcategoria')->references('id_subcategoria')->on('subcategorias');
             $table->timestamps();
         });
     }

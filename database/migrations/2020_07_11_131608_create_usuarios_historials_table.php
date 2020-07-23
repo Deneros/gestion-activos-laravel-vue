@@ -14,11 +14,11 @@ class CreateUsuariosHistorialsTable extends Migration
     public function up()
     {
         Schema::create('usuarios_historial', function (Blueprint $table) {
-            $table->bigIncrements('Id');
-            $table->unsignedBigInteger('Id_Usuario');
-            $table->foreign('Id_Usuario')->references('Id_Usuario')->on('usuarios');
-            $table->unsignedBigInteger('Id_Historial');
-            $table->foreign('Id_Historial')->references('Id_Historial')->on('historiales');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_usuario');
+            $table->foreign('id_usuario')->references('id')->on('users');
+            $table->unsignedBigInteger('id_historial');
+            $table->foreign('id_historial')->references('id_historial')->on('historiales');
             $table->timestamps();
         });
     }

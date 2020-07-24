@@ -21,5 +21,6 @@
     </div>
 </div>
 <example-component></example-component>
+<card></card>
 
 @endsection

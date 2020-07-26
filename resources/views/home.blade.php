@@ -20,6 +20,7 @@
         </div>
     </div>
 </div>
+<pestanas></pestanas>
 <example-component></example-component>
 <card></card>
 <table></table>

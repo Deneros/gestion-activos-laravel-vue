@@ -24,13 +24,18 @@ class usuarioController extends Controller
     public function index(Request $request)
     {
 
-        return usuario::where('Id_Usuario', auth()->id())->get();
+        $users = User::paginate(10);
+        return view(user.index, compact('users'));
 
-        if ($request->wantsJson()) {
-            return usuario::where('user_id', auth()->id())->get();
-        } else {
-            return view('home');
-        }
+
+
+        // return usuario::where('Id_Usuario', auth()->id())->get();
+
+        // if ($request->wantsJson()) {
+        //     return usuario::where('user_id', auth()->id())->get();
+        // } else {
+        //     return view('home');
+        // }
     }
 
     /**

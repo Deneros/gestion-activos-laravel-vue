@@ -22,6 +22,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('card', require('./components/Card.vue').default);
 Vue.component('upload', require('./components/Upload.vue').default);
+Vue.component('table', require('./components/Table.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

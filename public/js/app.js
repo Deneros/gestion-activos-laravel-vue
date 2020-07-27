@@ -2015,6 +2015,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2306,9 +2307,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      modal: false,
       usuarios: [],
       usuario: {
         tipo_usuario: "",
@@ -2366,7 +2369,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("/usuarios", params).then(function (res) {
         _this.usuarios.push(res.data);
       });
-      alert("Usuario registrado con exito");
+      toastr.info('usuario registrado');
     }
   }
 });
@@ -38194,7 +38197,9 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(item.telefono))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(item.email))])
+                    _c("td", [_vm._v(_vm._s(item.email))]),
+                    _vm._v(" "),
+                    _c("td")
                   ])
                 }),
                 0
@@ -38908,7 +38913,11 @@ var staticRenderFns = [
         _c(
           "button",
           { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [_vm._v("\n                    Registrar\n                ")]
+          [
+            _vm._v(
+              "\n                    Registrar\n                    \n                "
+            )
+          ]
         )
       ])
     ])

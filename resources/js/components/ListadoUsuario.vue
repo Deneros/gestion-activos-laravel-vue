@@ -39,7 +39,8 @@
                 <td>{{item.apellido}}</td>
                 <td>{{item.cargo}}</td>
                 <td>{{item.telefono}}</td>   
-                <td>{{item.email}}</td>             
+                <td>{{item.email}}</td> 
+                <td></td>            
               </tr>
           </tbody>
         </table>

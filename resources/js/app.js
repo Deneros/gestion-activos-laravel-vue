@@ -22,7 +22,6 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('card', require('./components/Card.vue').default);
 Vue.component('upload', require('./components/Upload.vue').default);
-Vue.component('table', require('./components/Table.vue').default);
 Vue.component('pestanas', require('./components/Pestanas.vue').default);
 Vue.component('listadoUsuario', require('./components/ListadoUsuario.vue').default);
 Vue.component('registrarUsuario', require('./components/RegistrarUsuario.vue').default);

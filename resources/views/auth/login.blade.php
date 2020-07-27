@@ -73,7 +73,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input id="Email" type="Email" class="form-control @error('Email') is-invalid @enderror" name="Email" value="{{ old('Email') }}" required autocomplete="Email" autofocus>
+                    <input id="Email" type="Email" class="form-control @error('Email') is-invalid @enderror" placeholder="Correo" name="Email" value="{{ old('Email') }}" required autocomplete="Email" autofocus>
                     @error('email')
                        <span class="invalid-feedback" role="alert">
                        <strong>{{ $message }}</strong>
@@ -86,7 +86,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Contraseña" name="password" required>
                     @error('password')
                       <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>

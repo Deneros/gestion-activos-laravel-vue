@@ -24,8 +24,9 @@ Vue.component('card', require('./components/Card.vue').default);
 Vue.component('upload', require('./components/Upload.vue').default);
 Vue.component('table', require('./components/Table.vue').default);
 Vue.component('pestanas', require('./components/Pestanas.vue').default);
-Vue.component('listadoUsu', require('./components/ListadoUsu.vue').default);
-Vue.component('registrarUsu', require('./components/RegistrarUsu.vue').default);
+Vue.component('listadoUsuario', require('./components/ListadoUsuario.vue').default);
+Vue.component('registrarUsuario', require('./components/RegistrarUsuario.vue').default);
+Vue.component('alerta', require('./components/Alerta.vue').default);
 
 
 /**

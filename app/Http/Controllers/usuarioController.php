@@ -18,24 +18,25 @@ class usuarioController extends Controller
      */
     public function vista()
     {
-        return view('auth.register');
+        return view('usuario');
     }
 
     public function index(Request $request)
     {
 
-        $users = User::paginate(10);
-        return view(user.index, compact('users'));
+        // $users = User::paginate(10);
+        // return view(user.index, compact('users'));
 
 
+        $users = \DB::table('users')->select('tipo_usuario', 'tipo_identificacion', 'no_identificacion', 'nombre', 'apellido', 'cargo', 'telefono', 'email')->get();
+        return $users;
 
-        // return usuario::where('Id_Usuario', auth()->id())->get();
-
-        // if ($request->wantsJson()) {
-        //     return usuario::where('user_id', auth()->id())->get();
-        // } else {
-        //     return view('home');
-        // }
+        if ($request->wantsJson()) {
+            return User::where('id', auth()->id())->get();
+        } else {
+            // return view('home');
+            return 'error al mostrar datos';
+        }
     }
 
     /**
@@ -57,16 +58,18 @@ class usuarioController extends Controller
     public function store(Request $request)
     {
         $usuario = new User();
-        $usuario->Tipo_Usuario = $request->Tipo_Usuario;
-        $usuario->Tipo_Identificacion = $request->Tipo_Identificacion;
-        $usuario->No_Identificacion = $request->No_Identificacion;
-        $usuario->Nombre = $request->Nombre;
-        $usuario->Apellido = $request->Apellido;
-        $usuario->Cargo = $request->Cargo;
-        $usuario->Telefono = $request->Telefono;
-        $usuario->Email = $request->Email;
-        $usuario->password = bcrypt($request->Contrasena);
+        $usuario->tipo_usuario = $request->tipo_usuario;
+        $usuario->tipo_identificacion = $request->tipo_identificacion;
+        $usuario->no_identificacion = $request->no_identificacion;
+        $usuario->nombre = $request->nombre;
+        $usuario->apellido = $request->apellido;
+        $usuario->cargo = $request->cargo;
+        $usuario->telefono = $request->telefono;
+        $usuario->email = $request->email;
+        $usuario->password = bcrypt($request->password);
         $usuario->save();
+
+        return $usuario;
     
          
     }
@@ -103,7 +106,18 @@ class usuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuario = Nota::find($id);
+        $usuario->tipo_usuario = $request->tipo_usuario;
+        $usuario->tipo_identificacion = $request->tipo_identificacion;
+        $usuario->no_identificacion = $request->no_identificacion;
+        $usuario->nombre = $request->nombre;
+        $usuario->apellido = $request->apellido;
+        $usuario->cargo = $request->cargo;
+        $usuario->telefono = $request->telefono;
+        $usuario->email = $request->email;
+        $usuario->save();
+        
+        return $usuario;
     }
 
     /**

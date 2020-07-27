@@ -200,8 +200,9 @@
 
             <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" >
                         Registrar
+                        
                     </button>
                 </div>
             </div>
@@ -213,6 +214,7 @@
 export default {
     data() {
         return {
+            modal:false,
             usuarios: [],
             usuario: {
                 tipo_usuario: "",
@@ -281,7 +283,8 @@ export default {
                 this.usuarios.push(res.data);
             });
 
-             alert("Usuario registrado con exito");
+             toastr.info('usuario registrado');
+             
         }
     }
 };

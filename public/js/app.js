@@ -2300,14 +2300,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2338,38 +2330,38 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       //Validaciones
-      if (this.usuario.tipo_usuario.trim() === "" && this.usuario.tipo_identificacion.trim() === "" && this.usuario.no_identificacion.trim() === "" && this.usuario.nombre.trim() === "" && this.usuario.apellido.trim() === "" && this.usuario.cargo.trim() === "" && this.usuario.telefono.trim() === "" && this.usuario.email.trim() === "" && this.usuario.password.trim() === "" && this.usuario.Confirmar_Contrasena.trim() === "") {
-        alert("Debes completar todos los campos antes de guardar");
-      } // Registro del Sistema
+      if (this.usuario.tipo_usuario.trim() === "" || this.usuario.tipo_identificacion.trim() === "" || this.usuario.no_identificacion.trim() === "" || this.usuario.nombre.trim() === "" || this.usuario.apellido.trim() === "" || this.usuario.cargo.trim() === "" || this.usuario.telefono.trim() === "" || this.usuario.email.trim() === "" || this.usuario.password.trim() === "" || this.usuario.Confirmar_Contrasena.trim() === "") {
+        toastr.error('Debe rellenar todos los campos');
+      } else {
+        // Registro del Sistema
+        var params = {
+          tipo_usuario: this.usuario.tipo_usuario,
+          tipo_identificacion: this.usuario.tipo_identificacion,
+          no_identificacion: this.usuario.no_identificacion,
+          nombre: this.usuario.nombre,
+          apellido: this.usuario.apellido,
+          cargo: this.usuario.cargo,
+          telefono: this.usuario.telefono,
+          email: this.usuario.email,
+          password: this.usuario.password
+        }; //Limpiar los campos
 
+        this.usuario.tipo_usuario = "";
+        this.usuario.tipo_identificacion = "";
+        this.usuario.no_identificacion = "";
+        this.usuario.nombre = "";
+        this.usuario.apellido = "";
+        this.usuario.cargo = "";
+        this.usuario.telefono = "";
+        this.usuario.email = "";
+        this.usuario.password = "";
+        this.usuario.Confirmar_Contrasena = ""; //Envio de los datos a traves de Axios
 
-      var params = {
-        tipo_usuario: this.usuario.tipo_usuario,
-        tipo_identificacion: this.usuario.tipo_identificacion,
-        no_identificacion: this.usuario.no_identificacion,
-        nombre: this.usuario.nombre,
-        apellido: this.usuario.apellido,
-        cargo: this.usuario.cargo,
-        telefono: this.usuario.telefono,
-        email: this.usuario.email,
-        password: this.usuario.password
-      }; //Limpiar los campos
-
-      this.usuario.tipo_usuario = "";
-      this.usuario.tipo_identificacion = "";
-      this.usuario.no_identificacion = "";
-      this.usuario.nombre = "";
-      this.usuario.apellido = "";
-      this.usuario.cargo = "";
-      this.usuario.telefono = "";
-      this.usuario.email = "";
-      this.usuario.password = "";
-      this.usuario.Confirmar_Contrasena = ""; //Envio de los datos a traves de Axios
-
-      axios.post("/usuarios", params).then(function (res) {
-        _this.usuarios.push(res.data);
-      });
-      toastr.info('usuario registrado');
+        axios.post("/usuarios", params).then(function (res) {
+          _this.usuarios.push(res.data);
+        });
+        toastr.success('Usuario Registrado');
+      }
     }
   }
 });
@@ -38599,8 +38591,7 @@ var render = function() {
               attrs: {
                 id: "no_identificacion",
                 type: "text",
-                name: "no_identificacion",
-                required: ""
+                name: "no_identificacion"
               },
               domProps: { value: _vm.usuario.no_identificacion },
               on: {
@@ -38640,12 +38631,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: {
-                id: "nombre",
-                type: "text",
-                name: "nombre",
-                required: ""
-              },
+              attrs: { id: "nombre", type: "text", name: "nombre" },
               domProps: { value: _vm.usuario.nombre },
               on: {
                 input: function($event) {
@@ -38680,12 +38666,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: {
-                id: "apellido",
-                type: "text",
-                name: "apellido",
-                required: ""
-              },
+              attrs: { id: "apellido", type: "text", name: "apellido" },
               domProps: { value: _vm.usuario.apellido },
               on: {
                 input: function($event) {
@@ -38720,7 +38701,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { id: "cargo", type: "text", name: "cargo", required: "" },
+              attrs: { id: "cargo", type: "text", name: "cargo" },
               domProps: { value: _vm.usuario.cargo },
               on: {
                 input: function($event) {
@@ -38755,12 +38736,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: {
-                id: "telefono",
-                type: "text",
-                name: "telefono",
-                required: ""
-              },
+              attrs: { id: "telefono", type: "text", name: "telefono" },
               domProps: { value: _vm.usuario.telefono },
               on: {
                 input: function($event) {
@@ -38795,12 +38771,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: {
-                id: "email",
-                type: "email",
-                name: "email",
-                required: ""
-              },
+              attrs: { id: "email", type: "email", name: "email" },
               domProps: { value: _vm.usuario.email },
               on: {
                 input: function($event) {
@@ -38835,12 +38806,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: {
-                id: "password",
-                type: "password",
-                name: "password",
-                required: ""
-              },
+              attrs: { id: "password", type: "password", name: "password" },
               domProps: { value: _vm.usuario.password },
               on: {
                 input: function($event) {
@@ -38878,8 +38844,7 @@ var render = function() {
               attrs: {
                 id: "Confirmar_Contrasena",
                 type: "password",
-                name: "Confirmar_Contrasena",
-                required: ""
+                name: "Confirmar_Contrasena"
               },
               domProps: { value: _vm.usuario.Confirmar_Contrasena },
               on: {

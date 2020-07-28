@@ -64,7 +64,6 @@
                         name="no_identificacion"
                         v-model="usuario.no_identificacion"
                         class="form-control"
-                        required
                     />
                 </div>
             </div>
@@ -83,7 +82,6 @@
                         name="nombre"
                         class="form-control"
                         v-model="usuario.nombre"
-                        required
                     />
                 </div>
             </div>
@@ -102,7 +100,6 @@
                         name="apellido"
                         v-model="usuario.apellido"
                         class="form-control"
-                        required
                     />
                 </div>
             </div>
@@ -119,7 +116,6 @@
                         name="cargo"
                         v-model="usuario.cargo"
                         class="form-control"
-                        required
                     />
                 </div>
             </div>
@@ -138,7 +134,6 @@
                         name="telefono"
                         v-model="usuario.telefono"
                         class="form-control"
-                        required
                     />
                 </div>
             </div>
@@ -155,7 +150,6 @@
                         name="email"
                         v-model="usuario.email"
                         class="form-control"
-                        required
                     />
                 </div>
             </div>
@@ -174,7 +168,6 @@
                         name="password"
                         v-model="usuario.password"
                         class="form-control"
-                        required
                     />
                 </div>
             </div>
@@ -192,8 +185,7 @@
                         type="password"
                         name="Confirmar_Contrasena"
                         v-model="usuario.Confirmar_Contrasena"
-                        class="form-control"
-                        required
+                        class="form-control"   
                     />
                 </div>
             </div>
@@ -241,19 +233,19 @@ export default {
         agregar() {
             //Validaciones
             if (
-                this.usuario.tipo_usuario.trim() === "" &&
-                this.usuario.tipo_identificacion.trim() === "" &&
-                this.usuario.no_identificacion.trim() === "" &&
-                this.usuario.nombre.trim() === "" &&
-                this.usuario.apellido.trim() === "" &&
-                this.usuario.cargo.trim() === "" &&
-                this.usuario.telefono.trim() === "" &&
-                this.usuario.email.trim() === "" &&
-                this.usuario.password.trim() === "" &&
+                this.usuario.tipo_usuario.trim() === "" ||
+                this.usuario.tipo_identificacion.trim() === "" ||
+                this.usuario.no_identificacion.trim() === "" ||
+                this.usuario.nombre.trim() === "" ||
+                this.usuario.apellido.trim() === "" ||
+                this.usuario.cargo.trim() === "" ||
+                this.usuario.telefono.trim() === "" ||
+                this.usuario.email.trim() === "" ||
+                this.usuario.password.trim() === "" ||
                 this.usuario.Confirmar_Contrasena.trim() === "" 
             ) {
-                alert("Debes completar todos los campos antes de guardar");
-            }
+                toastr.error('Debe rellenar todos los campos');
+            }else {
             // Registro del Sistema
             const params = {
                 tipo_usuario: this.usuario.tipo_usuario,
@@ -283,8 +275,9 @@ export default {
                 this.usuarios.push(res.data);
             });
 
-             toastr.info('usuario registrado');
+             toastr.success('Usuario Registrado');
              
+        }
         }
     }
 };

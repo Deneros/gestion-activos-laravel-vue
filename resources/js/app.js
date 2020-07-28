@@ -26,6 +26,7 @@ Vue.component('pestanas', require('./components/Pestanas.vue').default);
 Vue.component('listadoUsuario', require('./components/ListadoUsuario.vue').default);
 Vue.component('registrarUsuario', require('./components/RegistrarUsuario.vue').default);
 Vue.component('alerta', require('./components/Alerta.vue').default);
+Vue.component('editarDatos', require('./components/EditarDatos.vue').default);
 
 
 /**

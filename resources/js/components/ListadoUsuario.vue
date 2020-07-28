@@ -45,7 +45,7 @@
                 <div class="row">
 
                   <div class="col-md-4">
-                    <button type="button" class="btn btn-block btn-primary mb-3" data-toggle="modal" data-target="#modal-default"><span class="btn-inner--icon"><i class="ni ni-atom"></i></span></button>
+                    <button type="button" class="btn btn-block btn-primary mb-3" data-toggle="modal" data-target="#modal-default"><i class="ni ni-ruler-pencil"></i></button>
                       <div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
                         <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
                           <div class="modal-content">
@@ -58,9 +58,9 @@
                             </div>
             
                             <div class="modal-body">
-                              <form>
-  
-                              </form>
+                              
+                              <editarDatos></editarDatos>
+
                             </div>
             
                             <div class="modal-footer">

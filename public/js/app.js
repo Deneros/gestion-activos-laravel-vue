@@ -38284,7 +38284,11 @@ var staticRenderFns = [
                 "data-target": "#modal-default"
               }
             },
-            [_vm._v("Default")]
+            [
+              _c("span", { staticClass: "btn-inner--icon" }, [
+                _c("i", { staticClass: "ni ni-atom" })
+              ])
+            ]
           ),
           _vm._v(" "),
           _c(

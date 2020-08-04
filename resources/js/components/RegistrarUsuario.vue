@@ -5,7 +5,7 @@
         <form @submit.prevent="agregar">
             <div class="form-group row">
                 <label
-                    for="Tipo_Usuario"
+                    for="tipo_usuario"
                     class="col-md-4 col-form-label text-md-right"
                     >Tipo Usuario</label
                 >
@@ -245,7 +245,7 @@ export default {
                 this.usuario.Confirmar_Contrasena.trim() === "" 
             ) {
                 toastr.error('Debe rellenar todos los campos');
-            }else {
+            }else{
             // Registro del Sistema
             const params = {
                 tipo_usuario: this.usuario.tipo_usuario,

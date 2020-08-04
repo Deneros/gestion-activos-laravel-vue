@@ -2,7 +2,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" href="examples/dashboard.html">
+              <a class="nav-link active" href="{{ route('vistaeditar') }}">
                 <i class="ni ni-circle-08 text-primary"></i>
                 <span class="nav-link-text">Mi cuenta</span>
               </a>
@@ -63,25 +63,6 @@
               </a>
             </li>
             </ul>
-
-            <li class="nav-item">
-              <a class="nav-link" href="examples/login.html">
-                <i class="ni ni-key-25 text-info"></i>
-                <span class="nav-link-text">Login</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="examples/register.html">
-                <i class="ni ni-circle-08 text-pink"></i>
-                <span class="nav-link-text">Register</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="examples/upgrade.html">
-                <i class="ni ni-send text-dark"></i>
-                <span class="nav-link-text">Upgrade</span>
-              </a>
-            </li>
           </ul>
           
         </div>

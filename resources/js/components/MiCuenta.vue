@@ -152,7 +152,6 @@
 </template>
 
 <script>
-import EventBus from "../eventBus";
 export default {
     data() {
         return {
@@ -170,15 +169,25 @@ export default {
         };
     },
     created() {
-        EventBus.$on("modificarUsuario", data => {
-            this.usuario = data;
-            console.log(this.usuario);
+        axios.get("/usuario/usuario").then(res => {
+            // this.usuario.tipo_usuario = res.data.tipo_usuario;
+            // this.usuario.tipo_identificacion = res.data.tipo_identificacion;
+            // this.usuario.no_identificacion = res.data.no_identificacion;
+            // this.usuario.nombre = res.data.nombre;
+            // this.usuario.apellido = res.data.apellido;
+            // this.usuario.cargo = res.data.cargo;
+            // this.usuario.telefono = res.data.telefono;
+            // this.usuario.email = res.data.email;
+            this.usuario = res.data[0];
+            console.log(res.data[0]);
+
+            
         });
     },
     methods: {
         editarFormulario() {
             axios.put(`/usuarios/${this.usuario.id}`, this.usuario);
-            
+
         }
     }
 };

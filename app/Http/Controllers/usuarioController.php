@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 
+
 class usuarioController extends Controller
 {
 
@@ -20,6 +21,12 @@ class usuarioController extends Controller
     {
         return view('usuario');
     }
+    public function vistaeditar()
+    {
+        return view('micuenta');
+    }
+
+
 
     public function index(Request $request)
     {
@@ -28,15 +35,15 @@ class usuarioController extends Controller
         // return view(user.index, compact('users'));
 
 
-        $users = \DB::table('users')->select('tipo_usuario', 'tipo_identificacion', 'no_identificacion', 'nombre', 'apellido', 'cargo', 'telefono', 'email')->get();
+        $users = \DB::table('users')->select('id','tipo_usuario', 'tipo_identificacion', 'no_identificacion', 'nombre', 'apellido', 'cargo', 'telefono', 'email')->get();
         return $users;
 
-        if ($request->wantsJson()) {
-            return User::where('id', auth()->id())->get();
-        } else {
-            // return view('home');
-            return 'error al mostrar datos';
-        }
+        // if ($request->wantsJson()) {
+        //     return User::where('id', auth()->id())->get();
+        // } else {
+        //     // return view('home');
+        //     return 'error al mostrar datos';
+        // }
     }
 
     /**
@@ -81,9 +88,16 @@ class usuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        // if ($request->wantsJson()) {
+        //     return User::where('id', auth()->id())->get();
+        // } else {
+        //     return view('home');
+        // }
+
+        $users = \DB::table('users')->select('id','tipo_usuario', 'tipo_identificacion', 'no_identificacion', 'nombre', 'apellido', 'cargo', 'telefono', 'email')->where('id', auth()->id())->get();
+        return $users;
     }
 
     /**
@@ -106,7 +120,7 @@ class usuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $usuario = Nota::find($id);
+        $usuario = User::find($id);
         $usuario->tipo_usuario = $request->tipo_usuario;
         $usuario->tipo_identificacion = $request->tipo_identificacion;
         $usuario->no_identificacion = $request->no_identificacion;

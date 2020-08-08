@@ -20,6 +20,6 @@
         </div>
     </div>
 </div>
-<agregarCategorias></agregarCategorias>
+<agregarcategorias></agregarcategorias>
 <categorias></categorias>
 @endsection

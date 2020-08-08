@@ -52858,7 +52858,7 @@ Vue.component('alerta', __webpack_require__(/*! ./components/Alerta.vue */ "./re
 Vue.component('editarDatos', __webpack_require__(/*! ./components/EditarDatos.vue */ "./resources/js/components/EditarDatos.vue")["default"]);
 Vue.component('micuenta', __webpack_require__(/*! ./components/MiCuenta.vue */ "./resources/js/components/MiCuenta.vue")["default"]);
 Vue.component('categorias', __webpack_require__(/*! ./components/Categorias.vue */ "./resources/js/components/Categorias.vue")["default"]);
-Vue.component('agregarCategorias', __webpack_require__(/*! ./components/AgregarCategorias.vue */ "./resources/js/components/AgregarCategorias.vue")["default"]);
+Vue.component('agregarcategorias', __webpack_require__(/*! ./components/AgregarCategorias.vue */ "./resources/js/components/AgregarCategorias.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -53692,8 +53692,8 @@ var bus = new Vue();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.3\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.3\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

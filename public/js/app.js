@@ -1942,6 +1942,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -38580,14 +38584,22 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-primary",
+          staticClass: "btn btn-icon btn-primary",
           attrs: {
             type: "button",
             "data-toggle": "modal",
             "data-target": "#exampleModal"
           }
         },
-        [_vm._v("\r\n    Launch demo modal\r\n    ")]
+        [
+          _c("span", { staticClass: "btn-inner--icon" }, [
+            _c("i", { staticClass: "ni ni-bullet-list-67" })
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "btn-inner--text" }, [
+            _vm._v("Crear categoria")
+          ])
+        ]
       ),
       _vm._v(" "),
       _c(
@@ -38618,7 +38630,7 @@ var staticRenderFns = [
                       staticClass: "modal-title",
                       attrs: { id: "exampleModalLabel" }
                     },
-                    [_vm._v("Modal title")]
+                    [_vm._v("Crear categoria")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -38640,7 +38652,25 @@ var staticRenderFns = [
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-body" }, [
-                  _vm._v("\r\n                    ...\r\n                ")
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "form-control-label",
+                        attrs: { for: "example-text-input" }
+                      },
+                      [_vm._v("Nombre: ")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        value: "",
+                        id: "example-text-input"
+                      }
+                    })
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-footer" }, [
@@ -38650,7 +38680,7 @@ var staticRenderFns = [
                       staticClass: "btn btn-secondary",
                       attrs: { type: "button", "data-dismiss": "modal" }
                     },
-                    [_vm._v("Close")]
+                    [_vm._v("Cerrar")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -38659,7 +38689,7 @@ var staticRenderFns = [
                       staticClass: "btn btn-primary",
                       attrs: { type: "button" }
                     },
-                    [_vm._v("Save changes")]
+                    [_vm._v("Guardar")]
                   )
                 ])
               ])
@@ -53692,8 +53722,8 @@ var bus = new Vue();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.3\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.3\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

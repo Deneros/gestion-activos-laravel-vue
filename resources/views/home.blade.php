@@ -20,5 +20,6 @@
         </div>
     </div>
 </div>
-<card></card>
+<agregarCategorias></agregarCategorias>
+<categorias></categorias>
 @endsection

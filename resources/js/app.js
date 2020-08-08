@@ -29,6 +29,8 @@ Vue.component('registrarUsuario', require('./components/RegistrarUsuario.vue').d
 Vue.component('alerta', require('./components/Alerta.vue').default);
 Vue.component('editarDatos', require('./components/EditarDatos.vue').default);
 Vue.component('micuenta', require('./components/MiCuenta.vue').default);
+Vue.component('categorias', require('./components/Categorias.vue').default);
+Vue.component('agregarCategorias', require('./components/AgregarCategorias.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

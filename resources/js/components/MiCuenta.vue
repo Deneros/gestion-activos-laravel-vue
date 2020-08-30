@@ -1,4 +1,5 @@
 <template>
+<div class="container">
     <form @submit.prevent="editarFormulario()">
         <h6 class="heading-small text-muted mb-4">Informacion de Usuario</h6>
         <div class="pl-lg-4">
@@ -149,6 +150,7 @@
             </button>
         </div>
     </form>
+    </div>
 </template>
 
 <script>

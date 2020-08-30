@@ -9,6 +9,12 @@
                         <div class="col">
                             <h3 class="mb-0">Usuarios</h3>
                         </div>
+                        <div class="col">
+                            <h3 class="mb-0"></h3>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Buscar Usuarios" v-model="nombre"/>
+                        </div>
                         <!-- <div class="col text-right">
             <a href="" class="btn btn-sm btn-primary">Nuevo usuario</a>
           </div> -->
@@ -34,7 +40,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(item, index) in usuarios" :key="index">
+                            <tr v-for="(item, index) in buscarUsuarios" :key="index">
                                 <td>{{ item.tipo_usuario }}</td>
                                 <td>{{ item.tipo_identificacion }}</td>
                                 <td>{{ item.no_identificacion }}</td>
@@ -128,27 +134,27 @@ import EventBus from '../eventBus'
 export default {
     data() {
         return {
-            
+            nombre:'',
             usuarios: []
         };
     },
     created() {
         axios.get("/usuarios").then(res => {
             this.usuarios = res.data;
+            console.log(res.data);
         
         });
     },
-    // updated(){
-    //     axios.get("/usuarios").then(res => {
-    //         this.usuarios = res.data;
-    //     });
-    // },
     methods:{
       boton(item){
-
         EventBus.$emit('modificarUsuario', item)
-        
       }
+    },
+    computed:{
+        buscarUsuarios: function(){
+            return this.usuarios.filter((item)=> item.nombre.includes(this.nombre));
+        }
+
     }
    
 };

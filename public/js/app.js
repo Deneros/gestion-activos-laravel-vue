@@ -2017,6 +2017,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -38847,35 +38854,81 @@ var staticRenderFns = [
               _c("span", { staticClass: "h2 font-weight-bold mb-0" }, [
                 _vm._v("Nombre")
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-auto" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-icon btn-primary btn-sm rounded-circle",
-                  attrs: { type: "button" }
-                },
-                [
-                  _c("span", { staticClass: "btn-inner--icon" }, [
-                    _c("i", { staticClass: "ni ni-atom" })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-icon btn-primary btn-sm rounded-circle",
-                  attrs: { type: "button" }
-                },
-                [
-                  _c("span", { staticClass: "btn-inner--icon" }, [
-                    _c("i", { staticClass: "ni ni-atom" })
-                  ])
-                ]
-              )
             ])
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "mt-3 mb-0 text-sm" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-icon btn-primary btn-sm rounded-circle",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "tooltip",
+                  "data-placement": "bottom",
+                  title: "Nombre"
+                }
+              },
+              [
+                _c("span", { staticClass: "btn-inner--icon" }, [
+                  _c("i", { staticClass: "bi bi-plus-circle" })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-icon btn-primary btn-sm rounded-circle",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "tooltip",
+                  "data-placement": "bottom",
+                  title: "Nombre"
+                }
+              },
+              [
+                _c("span", { staticClass: "btn-inner--icon" }, [
+                  _c("i", { staticClass: "ni ni-atom" })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-icon btn-primary btn-sm rounded-circle",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "tooltip",
+                  "data-placement": "bottom",
+                  title: "Nombre"
+                }
+              },
+              [
+                _c("span", { staticClass: "btn-inner--icon" }, [
+                  _c("i", { staticClass: "ni ni-atom" })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-icon btn-primary btn-sm rounded-circle",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "tooltip",
+                  "data-placement": "bottom",
+                  title: "Nombre"
+                }
+              },
+              [
+                _c("span", { staticClass: "btn-inner--icon" }, [
+                  _c("i", { staticClass: "ni ni-atom" })
+                ])
+              ]
+            )
           ])
         ])
       ])

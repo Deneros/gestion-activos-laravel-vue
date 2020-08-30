@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
                 'apellido' => 'Piedrahita',
                 'cargo' => 'Profesora',
                 'telefono' => 6543218,
-                'email' => 'kami199924@gmail.com',
+                'email' => 'kami199924maria@gmail.com',
                 'password' => bcrypt('camila'),
 
         ]);

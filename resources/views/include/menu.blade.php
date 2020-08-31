@@ -33,7 +33,7 @@
 
             <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
-              <a class="nav-link" href="examples/map.html">
+              <a class="nav-link" href="{{ route('home') }}">
                 <i class="ni ni-bullet-list-67 text-primary"></i>
                 <span class="nav-link-text">Categorias</span>
               </a>

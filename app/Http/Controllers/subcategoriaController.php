@@ -11,9 +11,10 @@ class SubcategoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $subcategorias = \DB::table('subcategorias')->select('id','nombre_sub', 'id_categoria')->get();
+        return $subcategorias;
     }
 
     /**
@@ -34,7 +35,11 @@ class SubcategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $subcategorias = new Subcategoria();
+        $subcategorias->nombre_cat = $request->tipo_identificacion;
+        $subcategorias->save();
+
+        return $subcategorias;
     }
 
     /**

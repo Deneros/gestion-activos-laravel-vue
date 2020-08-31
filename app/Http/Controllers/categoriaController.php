@@ -13,8 +13,11 @@ class categoriaController extends Controller
      */
     public function index()
     {
-        //
+        $categoria = \DB::table('categorias')->select('nombre_cat')->get();
+        return $categoria;
     }
+
+   
 
     /**
      * Show the form for creating a new resource.
@@ -34,7 +37,11 @@ class categoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categoria = new Categoria();
+        $categoria->nombre_cat = $request->tipo_identificacion;
+        $categoria->save();
+
+        return $categoria;
     }
 
     /**
@@ -43,9 +50,9 @@ class categoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -54,7 +61,7 @@ class categoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function unable(Request $request, $id)
     {
         //
     }
@@ -68,7 +75,10 @@ class categoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $categoria = Categoria::find($id);
+        $categoria->nombre_cat = $request->nombre_cat;
+        $categoria->save();
+        return $categoria;
     }
 
     /**

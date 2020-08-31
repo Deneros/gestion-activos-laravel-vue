@@ -16,8 +16,11 @@ Route::resource('/usuarios', 'usuarioController');
 
 Route::get('/usuario/usuario', 'usuarioController@show');
 
+
+//Retornar vistas 
 Route::get('/admin/usuarios', 'usuarioController@vista')->name('vista');
 Route::get('/usuario/usuarios', 'usuarioController@vistaeditar')->name('vistaeditar');
+Route::get('/categoria/categorias','categoriaController@vistacategoria')->name('vistacategoria');
 
 
 

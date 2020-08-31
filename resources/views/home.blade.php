@@ -21,13 +21,7 @@
     </div>
 </div>
 
-<agregarcategorias>
-</agregarcategorias>
 
-<br>
-
-<categorias>
-</categorias>
 
 
 

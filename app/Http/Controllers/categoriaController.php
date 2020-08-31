@@ -17,7 +17,10 @@ class categoriaController extends Controller
         return $categoria;
     }
 
-   
+    public function vistacategoria()
+    {
+        return view('categorias');
+    }
 
     /**
      * Show the form for creating a new resource.

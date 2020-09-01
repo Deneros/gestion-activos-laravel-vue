@@ -17,17 +17,14 @@
         </div>
     </div>
     <p class="mt-3 mb-0 text-sm">
-        <button class="btn btn-icon btn-primary btn-sm rounded-circle" type="button" data-toggle="tooltip" data-placement="bottom" title="Nombre">
-	        <span class="btn-inner--icon"><i class="bi bi-plus-circle"></i></span>
+        <button class="btn btn-icon btn-primary btn-sm rounded-circle" type="button" data-toggle="tooltip" data-placement="bottom" title="Editar">
+	        <span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
         </button>
-        <button class="btn btn-icon btn-primary btn-sm rounded-circle" type="button" data-toggle="tooltip" data-placement="bottom" title="Nombre">
-	        <span class="btn-inner--icon"><i class="ni ni-atom"></i></span>
+        <button class="btn btn-icon btn-primary btn-sm rounded-circle" type="button" data-toggle="tooltip" data-placement="bottom" title="Agregar subcategoria">
+	        <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
         </button>
-        <button class="btn btn-icon btn-primary btn-sm rounded-circle" type="button" data-toggle="tooltip" data-placement="bottom" title="Nombre">
-	        <span class="btn-inner--icon"><i class="ni ni-atom"></i></span>
-        </button>
-        <button class="btn btn-icon btn-primary btn-sm rounded-circle" type="button" data-toggle="tooltip" data-placement="bottom" title="Nombre">
-	        <span class="btn-inner--icon"><i class="ni ni-atom"></i></span>
+        <button class="btn btn-icon btn-primary btn-sm rounded-circle" type="button" data-toggle="tooltip" data-placement="bottom" title="Listar">
+	        <span class="btn-inner--icon"><i class="ni ni-single-copy-04"></i></span>
         </button>
     </p>
 

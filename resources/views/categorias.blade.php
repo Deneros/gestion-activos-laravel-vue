@@ -8,7 +8,6 @@
 
 <br>
 
-<categorias>
-</categorias>
+<subcategoria></subcategoria> 
 
 @endsection

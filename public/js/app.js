@@ -1976,7 +1976,69 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      categorias: [],
+      categoria: {
+        nombre_cat: ''
+      }
+    };
+  },
+  methods: {
+    guardarCategoria: function guardarCategoria() {
+      console.log(this.categoria.nombre_cat);
+    }
+  }
+});
 
 /***/ }),
 
@@ -38697,211 +38759,428 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "exampleModal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c(
+                  "form",
+                  {
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.guardarCategoria()
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-control-label",
+                          attrs: { for: "example-text-input" }
+                        },
+                        [_vm._v("Nombre: ")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.categoria.nombre_cat,
+                            expression: "categoria.nombre_cat"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "text", value: "Nombre Categoria" },
+                        domProps: { value: _vm.categoria.nombre_cat },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.categoria,
+                              "nombre_cat",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Guardar")]
+                    )
+                  ]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _vm._m(2),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _vm._m(4)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-icon btn-primary",
+        attrs: {
+          type: "button",
+          "data-toggle": "modal",
+          "data-target": "#exampleModal"
+        }
+      },
+      [
+        _c("span", { staticClass: "btn-inner--icon" }, [
+          _c("i", { staticClass: "ni ni-bullet-list-67" })
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "btn-inner--text" }, [
+          _vm._v("Crear categoria")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Crear categoria")]
+      ),
+      _vm._v(" "),
       _c(
         "button",
         {
-          staticClass: "btn btn-icon btn-primary",
+          staticClass: "close",
           attrs: {
             type: "button",
-            "data-toggle": "modal",
-            "data-target": "#exampleModal"
+            "data-dismiss": "modal",
+            "aria-label": "Close"
           }
         },
-        [
-          _c("span", { staticClass: "btn-inner--icon" }, [
-            _c("i", { staticClass: "ni ni-bullet-list-67" })
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticStyle: { width: "18rem" } }, [
+      _c("div", { staticClass: "card card-stats" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }, [
+              _c(
+                "h5",
+                { staticClass: "card-title text-uppercase text-muted mb-0" },
+                [_vm._v("Categoria")]
+              ),
+              _vm._v(" "),
+              _c("span", { staticClass: "h2 font-weight-bold mb-0" }, [
+                _vm._v("Nombre")
+              ])
+            ])
           ]),
           _vm._v(" "),
-          _c("span", { staticClass: "btn-inner--text" }, [
-            _vm._v("Crear categoria")
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "modal fade",
-          attrs: {
-            id: "exampleModal",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "exampleModalLabel",
-            "aria-hidden": "true"
-          }
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass: "modal-dialog modal-dialog-centered",
-              attrs: { role: "document" }
-            },
-            [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c(
-                    "h5",
-                    {
-                      staticClass: "modal-title",
-                      attrs: { id: "exampleModalLabel" }
-                    },
-                    [_vm._v("Crear categoria")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-label": "Close"
-                      }
-                    },
-                    [
-                      _c("span", { attrs: { "aria-hidden": "true" } }, [
-                        _vm._v("×")
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c(
-                      "label",
-                      {
-                        staticClass: "form-control-label",
-                        attrs: { for: "example-text-input" }
-                      },
-                      [_vm._v("Nombre: ")]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        value: "",
-                        id: "example-text-input"
-                      }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("Cerrar")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "button" }
-                    },
-                    [_vm._v("Guardar")]
-                  )
+          _c("p", { staticClass: "mt-3 mb-0 text-sm" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-icon btn-primary btn-sm rounded-circle",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "modal",
+                  "data-target": "#modal-editar",
+                  "data-placement": "bottom",
+                  title: "Editar"
+                }
+              },
+              [
+                _c("span", { staticClass: "btn-inner--icon" }, [
+                  _c("i", { staticClass: "ni ni-settings" })
                 ])
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", { staticStyle: { width: "18rem" } }, [
-        _c("div", { staticClass: "card card-stats" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col" }, [
-                _c(
-                  "h5",
-                  { staticClass: "card-title text-uppercase text-muted mb-0" },
-                  [_vm._v("Categoria")]
-                ),
-                _vm._v(" "),
-                _c("span", { staticClass: "h2 font-weight-bold mb-0" }, [
-                  _vm._v("Nombre")
-                ])
-              ])
-            ]),
+              ]
+            ),
             _vm._v(" "),
-            _c("p", { staticClass: "mt-3 mb-0 text-sm" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-icon btn-primary btn-sm rounded-circle",
-                  attrs: {
-                    type: "button",
-                    "data-toggle": "tooltip",
-                    "data-placement": "bottom",
-                    title: "Editar"
-                  }
-                },
-                [
-                  _c("span", { staticClass: "btn-inner--icon" }, [
-                    _c("i", { staticClass: "ni ni-settings" })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-icon btn-primary btn-sm rounded-circle",
-                  attrs: {
-                    type: "button",
-                    "data-toggle": "tooltip",
-                    "data-placement": "bottom",
-                    title: "Agregar subcategoria"
-                  }
-                },
-                [
-                  _c("span", { staticClass: "btn-inner--icon" }, [
-                    _c("i", { staticClass: "ni ni-fat-add" })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-icon btn-primary btn-sm rounded-circle",
-                  attrs: {
-                    type: "button",
-                    "data-toggle": "tooltip",
-                    "data-placement": "bottom",
-                    title: "Listar"
-                  }
-                },
-                [
-                  _c("span", { staticClass: "btn-inner--icon" }, [
-                    _c("i", { staticClass: "ni ni-single-copy-04" })
-                  ])
-                ]
-              )
-            ])
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-icon btn-primary btn-sm rounded-circle",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "modal",
+                  "data-target": "#modal-agregar-subcategoria",
+                  "data-placement": "bottom",
+                  title: "Agregar subcategoria"
+                }
+              },
+              [
+                _c("span", { staticClass: "btn-inner--icon" }, [
+                  _c("i", { staticClass: "ni ni-fat-add" })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-icon btn-primary btn-sm rounded-circle",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "modal",
+                  "data-target": "#",
+                  "data-placement": "bottom",
+                  title: "Listar"
+                }
+              },
+              [
+                _c("span", { staticClass: "btn-inner--icon" }, [
+                  _c("i", { staticClass: "ni ni-single-copy-04" })
+                ])
+              ]
+            )
           ])
         ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "modal-editar",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "exampleModalLabel" }
+                  },
+                  [_vm._v("Editar categoria")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-control-label",
+                      attrs: { for: "example-text-input" }
+                    },
+                    [_vm._v("Nombre: ")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: { type: "text", value: "", id: "example-text-input" }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Cerrar")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Guardar")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "modal-agregar-subcategoria",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "exampleModalLabel" }
+                  },
+                  [_vm._v("Agregar subcategoria")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "form-control-label",
+                      attrs: { for: "example-text-input" }
+                    },
+                    [_vm._v("Nombre de la subcategoria: ")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: { type: "text", value: "", id: "example-text-input" }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Cerrar")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Guardar")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true

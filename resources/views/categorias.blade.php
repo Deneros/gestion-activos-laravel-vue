@@ -6,8 +6,8 @@
 <agregarcategorias>
 </agregarcategorias>
 
-<br>
 
-<subcategoria></subcategoria> 
+
+
 
 @endsection

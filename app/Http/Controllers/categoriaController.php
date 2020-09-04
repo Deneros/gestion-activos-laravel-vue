@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categoria;
 use Illuminate\Http\Request;
 
 class categoriaController extends Controller
@@ -13,7 +14,7 @@ class categoriaController extends Controller
      */
     public function index()
     {
-        $categoria = \DB::table('categorias')->select('nombre_cat')->get();
+        $categoria = \DB::table('categorias')->select('id_categoria','nombre_cat')->get();
         return $categoria;
     }
 
@@ -41,7 +42,7 @@ class categoriaController extends Controller
     public function store(Request $request)
     {
         $categoria = new Categoria();
-        $categoria->nombre_cat = $request->tipo_identificacion;
+        $categoria->nombre_cat = $request->nombre_cat;
         $categoria->save();
 
         return $categoria;

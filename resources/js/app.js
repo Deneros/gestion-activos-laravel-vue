@@ -20,13 +20,11 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('card', require('./components/Card.vue').default);
+Vue.component('listarsubcategorias', require('./components/ListarSubcategorias.vue').default);
 Vue.component('upload', require('./components/Upload.vue').default);
 Vue.component('pestanas', require('./components/Pestanas.vue').default);
 Vue.component('listadoUsuario', require('./components/ListadoUsuario.vue').default);
 Vue.component('registrarUsuario', require('./components/RegistrarUsuario.vue').default);
-Vue.component('alerta', require('./components/Alerta.vue').default);
 Vue.component('editarDatos', require('./components/EditarDatos.vue').default);
 Vue.component('micuenta', require('./components/MiCuenta.vue').default);
 Vue.component('categorias', require('./components/Categorias.vue').default);

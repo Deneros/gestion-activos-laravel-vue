@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Subcategoria;
 use Illuminate\Http\Request;
 
 class SubcategoriaController extends Controller
@@ -36,7 +36,8 @@ class SubcategoriaController extends Controller
     public function store(Request $request)
     {
         $subcategorias = new Subcategoria();
-        $subcategorias->nombre_cat = $request->tipo_identificacion;
+        $subcategorias->nombre_sub = $request->nombre_sub;
+        $subcategorias->id_categoria = $request->id_categoria;
         $subcategorias->save();
 
         return $subcategorias;

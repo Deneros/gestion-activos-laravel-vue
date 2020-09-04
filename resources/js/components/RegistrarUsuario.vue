@@ -222,13 +222,6 @@ export default {
             }
         };
     },
-
-    // created(){
-    //     axios.get('/usuarios')
-    //         .then(res => {
-    //             this.usuarios = res.data;
-    //         })
-    // },
     methods: {
         agregar() {
             //Validaciones
@@ -246,7 +239,7 @@ export default {
             ) {
                 toastr.error('Debe rellenar todos los campos');
             }else{
-            // Registro del Sistema
+            // Guardar datos de los campos
             const params = {
                 tipo_usuario: this.usuario.tipo_usuario,
                 tipo_identificacion: this.usuario.tipo_identificacion,

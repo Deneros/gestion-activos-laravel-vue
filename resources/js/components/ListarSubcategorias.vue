@@ -2,7 +2,7 @@
     <div class="table-responsive">
         <div>
             <table class="table align-items-center">
-                <thead class="thead-light">
+                <thead class="thead-light"> 
                     <tr>
                         <th scope="col">Id Subcategoria</th>
                         <th scope="col">Nombre Subcategoria</th>
@@ -31,14 +31,12 @@ export default {
         };
     },
     created() {
-        //Trae los datos de categoria para el Id_categoria
-        const params = {
+        const params={
             id_categoria:item.id_categoria
         }
-        console.log(params);
-        axios.get("/subcategorias", params).then(res => {
-            this.subcategorias = res.data;
-            
+        console.log(item.id_categoria);
+        axios.get("/subcategorias",params).then(res => {
+            this.subcategorias = res.data; 
         });
     },
     methods:{

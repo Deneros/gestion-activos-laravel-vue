@@ -29,6 +29,8 @@ Route::resource('/subcategorias', 'subcategoriaController');
 Route::get('/admin/usuarios', 'usuarioController@vista')->name('vista');
 Route::get('/usuario/usuarios', 'usuarioController@vistaeditar')->name('vistaeditar');
 Route::get('/categoria/categorias','categoriaController@vistacategoria')->name('vistacategoria');
+Route::get('/categoria/items','itemController@vistaInventarioTotal')->name('vistainventariototal');
+
 
 
 

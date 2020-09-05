@@ -12,9 +12,6 @@
                         <div class="col">
                             <h3 class="mb-0"></h3>
                         </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Buscar Usuarios" v-model="nombre"/>
-                        </div>
                         <!-- <div class="col text-right">
             <a href="" class="btn btn-sm btn-primary">Nuevo usuario</a>
           </div> -->
@@ -25,6 +22,7 @@
                     <table
                         class="table align-items-center table-flush"
                         id="user-table"
+                        
                     >
                         <thead class="thead-light">
                             <tr>
@@ -40,7 +38,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(item, index) in buscarUsuarios" :key="index">
+                            <tr v-for="(item, index) in usuarios" :key="index">
                                 <td>{{ item.tipo_usuario }}</td>
                                 <td>{{ item.tipo_identificacion }}</td>
                                 <td>{{ item.no_identificacion }}</td>
@@ -105,7 +103,6 @@
                                                         <div
                                                             class="modal-footer"
                                                         >
-                                                            
                                                             <button
                                                                 type="button"
                                                                 class="btn btn-link  ml-auto"
@@ -130,30 +127,31 @@
 </template>
 
 <script>
-import EventBus from '../eventBus'
+import EventBus from "../eventBus";
+import datables from "datatables";
 export default {
     data() {
         return {
-            nombre:'',
             usuarios: []
         };
     },
     created() {
         axios.get("/usuarios").then(res => {
             this.usuarios = res.data;
+            this.mytable()
         });
+        
     },
-    methods:{
-      boton(item){
-        EventBus.$emit('modificarUsuario', item)
-      }
-    },
-    computed:{
-        buscarUsuarios: function(){
-            return this.usuarios.filter((item)=> item.nombre.includes(this.nombre));
-        }
+    methods: {
+        boton(item) {
+            EventBus.$emit("modificarUsuario", item);
+        },
 
+        mytable() {
+            $(document).ready(function() {
+                $("#user-table").DataTable();
+            });
+        }
     }
-   
 };
 </script>

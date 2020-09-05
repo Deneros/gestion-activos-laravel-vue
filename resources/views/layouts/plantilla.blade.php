@@ -45,7 +45,7 @@
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Search form -->
-            @include('include.search')
+            <!-- @include('include.search') -->
             <!-- Navbar links -->
             @include('include.navbar')
           </div>
@@ -61,7 +61,7 @@
       
       <!-- Footer -->
       <footer class="footer pt-0">
-        @include('include.footer')
+        <!-- @include('include.footer') -->
       </footer>
     </div>
   </div>

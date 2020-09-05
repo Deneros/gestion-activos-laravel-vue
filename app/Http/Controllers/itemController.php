@@ -11,6 +11,11 @@ class itemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function vistaInventarioTotal()
+    {
+        return view('inventariototal');
+    }
+
     public function index()
     {
         //

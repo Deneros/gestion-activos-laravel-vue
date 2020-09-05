@@ -1,15 +1,34 @@
 
 <template>
-
 <div>
     <div>
-    <!-- Button crear categoria -->
-    <button type="button" class="btn btn-icon btn-primary" data-toggle="modal" data-target="#exampleModal">
-        <span class="btn-inner--icon"><i class="ni ni-bullet-list-67"></i></span>
-        <span class="btn-inner--text">Crear categoria</span>
-    </button>
-
-    <br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-auto">
+                    <!-- Button crear categoria -->
+                    <button type="button" class="btn btn-icon btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        <span class="btn-inner--icon"><i class="ni ni-bullet-list-67"></i></span>
+                            <span class="btn-inner--text">Crear categoria</span>
+                    </button>
+                </div>
+                <div class="col">
+                    <!-- Buscador de categoria -->
+                    <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+                        <div class="form-group mb-0">
+                            <div class="input-group input-group-alternative input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>                   
+                            <input type="text" class="form-control" placeholder="Buscar Usuarios" v-model="nombre_categoria"/>
+                            </div>
+                        </div>
+                           
+                    </form> 
+                </div>
+            </div>
+        </div>
+    
+        <br>
 
     <!-- Modal boton crear categoria-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -38,7 +57,7 @@
     <br>
     <!-- Categoria -->
     <div class="row justify-content-around">
-        <div class="col-2" v-for="(item,index) in categorias" :key="index">
+        <div class="col-3" v-for="(item,index) in buscarCategorias" :key="index">
             <div style="width: 18rem;">
                 <div class="card card-stats">
                     <div class="card-body">      
@@ -128,7 +147,8 @@ export default {
     data() {
         return{
             categorias:[],
-            categoria:{nombre_cat:''}
+            categoria:{nombre_cat:''},
+            nombre_categoria:''
         };
     },
     created(){
@@ -168,6 +188,11 @@ export default {
         boton(item){
         EventBus.$emit('guardarsubcategoria', item)
       }
+    },
+    computed:{
+        buscarCategorias: function(){
+            return this.categorias.filter((item)=> item.nombre_cat.includes(this.nombre_categoria));
+        }
 
     }
 };

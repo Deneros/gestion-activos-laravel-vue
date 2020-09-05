@@ -8,22 +8,24 @@
                     <img alt="Image placeholder" src="{{asset('assets/img/theme/team-4.jpg')}}">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold">{{auth()->user()->nombre}}</span>
+                    <span class="mb-0 text-md  font-weight-bold">{{auth()->user()->nombre}} {{auth()->user()->apellido}}</span>
                   </div>
                 </div>
               </a>
               <div class="dropdown-menu  dropdown-menu-right ">
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-user-run"></i>
-                  <span>Logout</span>
-                </a>
+                <form method="POST" action="{{ route('logout') }}">
+                  @csrf 
+                  <button type="submit" class="btn btn-primary">
+                    Cerrar Sesion
+                  </button>
+                </form>
               </div>
             </li>
-            <form method="POST" action="{{ route('logout') }}">
+            <!-- <form method="POST" action="{{ route('logout') }}">
                @csrf 
                <button type="submit" class="btn btn-primary">
                Cerrar Sesion
                </button>
-            </form>
+            </form> -->
           </ul>
           

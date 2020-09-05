@@ -40,7 +40,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="examples/profile.html">
+              <a class="nav-link" href="{{ route('vistainventariototal') }}">
                 <i class="ni ni-archive-2 text-yellow"></i>
                 <span class="nav-link-text">Inventario total</span>
               </a>

@@ -3,13 +3,35 @@
 
 <div>
     <div>
-    <!-- Button crear categoria -->
-    <button type="button" class="btn btn-icon btn-primary" data-toggle="modal" data-target="#exampleModal">
-        <span class="btn-inner--icon"><i class="ni ni-bullet-list-67"></i></span>
-        <span class="btn-inner--text">Crear categoria</span>
-    </button>
-
-    <br>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <!-- Button crear categoria -->
+                    <button type="button" class="btn btn-icon btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        <span class="btn-inner--icon"><i class="ni ni-bullet-list-67"></i></span>
+                            <span class="btn-inner--text">Crear categoria</span>
+                    </button>
+                </div>
+                <div class="col">
+                    <!-- Buscador de categoria -->
+                    <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+                        <div class="form-group mb-0">
+                            <div class="input-group input-group-alternative input-group-merge">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" placeholder="Buscar" type="text">
+                            </div>
+                        </div>
+                            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    
+        <br>
 
     <!-- Modal boton crear categoria-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

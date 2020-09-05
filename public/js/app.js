@@ -2046,6 +2046,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -39020,26 +39042,84 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-icon btn-primary",
-        attrs: {
-          type: "button",
-          "data-toggle": "modal",
-          "data-target": "#exampleModal"
-        }
-      },
-      [
-        _c("span", { staticClass: "btn-inner--icon" }, [
-          _c("i", { staticClass: "ni ni-bullet-list-67" })
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-icon btn-primary",
+              attrs: {
+                type: "button",
+                "data-toggle": "modal",
+                "data-target": "#exampleModal"
+              }
+            },
+            [
+              _c("span", { staticClass: "btn-inner--icon" }, [
+                _c("i", { staticClass: "ni ni-bullet-list-67" })
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "btn-inner--text" }, [
+                _vm._v("Crear categoria")
+              ])
+            ]
+          )
         ]),
         _vm._v(" "),
-        _c("span", { staticClass: "btn-inner--text" }, [
-          _vm._v("Crear categoria")
+        _c("div", { staticClass: "col" }, [
+          _c(
+            "form",
+            {
+              staticClass:
+                "navbar-search navbar-search-light form-inline mr-sm-3",
+              attrs: { id: "navbar-search-main" }
+            },
+            [
+              _c("div", { staticClass: "form-group mb-0" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "input-group input-group-alternative input-group-merge"
+                  },
+                  [
+                    _c("div", { staticClass: "input-group-prepend" }, [
+                      _c("span", { staticClass: "input-group-text" }, [
+                        _c("i", { staticClass: "fas fa-search" })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { placeholder: "Buscar", type: "text" }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "close",
+                  attrs: {
+                    type: "button",
+                    "data-action": "search-close",
+                    "data-target": "#navbar-search-main",
+                    "aria-label": "Close"
+                  }
+                },
+                [
+                  _c("span", { attrs: { "aria-hidden": "true" } }, [
+                    _vm._v("×")
+                  ])
+                ]
+              )
+            ]
+          )
         ])
-      ]
-    )
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -54335,8 +54415,8 @@ var bus = new Vue();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.4 Tratar de acomodar subcategorias\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.4 Tratar de acomodar subcategorias\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

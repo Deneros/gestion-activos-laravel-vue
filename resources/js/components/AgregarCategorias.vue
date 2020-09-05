@@ -77,10 +77,6 @@
                             <input class="form-control" type="text" value="" id="example-text-input">
                         </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Guardar</button>
-                </div>
             </div>
         </div>
     </div>
@@ -100,10 +96,6 @@
                             <subcategoria/>
                         </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Guardar</button>
-                </div>
             </div>
         </div>
     </div>
@@ -119,12 +111,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <listarsubcategorias/>
-                        
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Guardar</button>
+                    <listarsubcategorias/>    
                 </div>
             </div>
         </div>
@@ -159,13 +146,12 @@ export default {
             {
                 toastr.error('Debe rellenar todos los campos');
             }else {
-                //Guardar datos de los campos
+            //Guardar datos de los campos
             const params = {
                 nombre_cat: this.categoria.nombre_cat
             }
             //Limpiar campos
             this.categoria.nombre_cat="";
-
             //Envio de los datos a traves de Axios
             axios.post("/categorias", params).then(res => {
                 this.categorias.push(res.data);

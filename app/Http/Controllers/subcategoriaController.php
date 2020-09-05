@@ -11,9 +11,9 @@ class SubcategoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index($id)
     {
-        $subcategorias = \DB::table('subcategorias')->select('id','nombre_sub', 'id_categoria')->get();
+        $subcategorias = \DB::table('subcategorias')->select('id_subcategoria','nombre_sub', 'id_categoria')->where('id_categoria', $request->$id)->get();
         return $subcategorias;
     }
 

@@ -141,8 +141,6 @@ export default {
     created() {
         axios.get("/usuarios").then(res => {
             this.usuarios = res.data;
-            console.log(res.data);
-        
         });
     },
     methods:{

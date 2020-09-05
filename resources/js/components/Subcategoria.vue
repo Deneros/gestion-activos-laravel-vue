@@ -10,12 +10,8 @@
             </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
-    </div>
-
-
-                  
-</div>
-    
+    </div>             
+</div>   
 </template>
 
 <script>
@@ -47,7 +43,6 @@ export default {
             }
             //Limpiar campos
             this.subcategoria.nombre_sub="";
-
             //Envio de los datos a traves de Axios
             axios.post("/subcategorias", params).then(res => {
                 this.subcategorias.push(res.data);
@@ -59,9 +54,7 @@ export default {
             
         },
         actualizarCategoria(){
-
-        }
-
+        },
     }
 };
 </script>

@@ -3,8 +3,8 @@
 @section('content')
 <br>
 
-<agregarcategorias>
-</agregarcategorias>
+<categorias>
+</categorias>
 
 
 

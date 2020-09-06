@@ -13,7 +13,13 @@ class SubcategoriaController extends Controller
      */
     public function index(Request $request)
     {
-        $subcategorias = \DB::table('subcategorias')->select('id_subcategoria','nombre_sub', 'id_categoria')->where('id_categoria',$request->id_categoria)->get();
+        $subcategorias = \DB::table('subcategorias')->select('id_subcategoria','nombre_sub', 'id_categoria')->get();
+        return $subcategorias;
+    }
+
+    public function parametro(Request $request,$id)
+    {
+        $subcategorias = \DB::table('subcategorias')->select('id_subcategoria','nombre_sub', 'id_categoria')->where('id_categoria','=',$request->id_categoria)->get();
         return $subcategorias;
     }
 

@@ -21,6 +21,7 @@ Route::resource('/categorias', 'categoriaController');
 
 //Rutas Subcategorias
 Route::resource('/subcategorias', 'subcategoriaController');
+// Route::post('/subcategorias/id_cat','subcategoriaController@parametro');
 
 //Rutas Items
 

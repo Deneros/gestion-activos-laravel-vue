@@ -20,7 +20,6 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('listarsubcategorias', require('./components/ListarSubcategorias.vue').default);
 Vue.component('upload', require('./components/Upload.vue').default);
 Vue.component('pestanas', require('./components/Pestanas.vue').default);
 Vue.component('listadoUsuario', require('./components/ListadoUsuario.vue').default);

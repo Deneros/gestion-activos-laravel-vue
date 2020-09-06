@@ -28,6 +28,8 @@ Vue.component('editarDatos', require('./components/EditarDatos.vue').default);
 Vue.component('micuenta', require('./components/MiCuenta.vue').default);
 Vue.component('categorias', require('./components/Categorias.vue').default);
 Vue.component('subcategoria', require('./components/Subcategoria.vue').default);
+Vue.component('invetariototal', require('./components/InventarioTotal.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

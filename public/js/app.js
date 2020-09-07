@@ -2740,7 +2740,7 @@ __webpack_require__.r(__webpack_exports__);
       _this2.subcategorias = res.data;
     });
   },
-  beforeUpdate: function beforeUpdate() {
+  updated: function updated() {
     var _this3 = this;
 
     axios.get("/subcategorias/".concat(this.id_cat)).then(function (res) {
@@ -55614,7 +55614,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre Subcategoria")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Id Categoria")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Id Categoria")]),
+        _vm._v(" "),
+        _c("th")
       ])
     ])
   }

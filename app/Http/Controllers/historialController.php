@@ -16,6 +16,11 @@ class historialController extends Controller
         //
     }
 
+    public function vistahistorial()
+    {
+        return view('historial');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

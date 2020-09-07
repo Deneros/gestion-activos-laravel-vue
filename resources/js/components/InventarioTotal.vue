@@ -1,4 +1,8 @@
 <template>
+
+    <div class="card">
+    <div class="card-header border-0">
+
     <div class="table-responsive">
         <div>
             <table class="table align-items-center">
@@ -28,6 +32,10 @@
             </table>
         </div>
     </div>
+
+    </div>
+    </div>
+
 </template>
 
 <script>

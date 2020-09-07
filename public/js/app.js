@@ -2500,6 +2500,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -55262,48 +55270,54 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "table-responsive" }, [
-      _c("div", [
-        _c("table", { staticClass: "table align-items-center" }, [
-          _c("thead", { staticClass: "thead-light" }, [
-            _c("tr", [
-              _c(
-                "th",
-                { staticClass: "text-center", attrs: { colspan: "6" } },
-                [_vm._v("Categoria")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c(
-                "th",
-                { staticClass: "text-center", attrs: { colspan: "6" } },
-                [_vm._v("Subcategoria")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-header border-0" }, [
+        _c("div", { staticClass: "table-responsive" }, [
+          _c("div", [
+            _c("table", { staticClass: "table align-items-center" }, [
+              _c("thead", { staticClass: "thead-light" }, [
+                _c("tr", [
+                  _c(
+                    "th",
+                    { staticClass: "text-center", attrs: { colspan: "6" } },
+                    [_vm._v("Categoria")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c(
+                    "th",
+                    { staticClass: "text-center", attrs: { colspan: "6" } },
+                    [_vm._v("Subcategoria")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [
+                    _vm._v("Descripción")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Ubicación")]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [_vm._v("A cargo")]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
+                  _vm._v(" "),
+                  _c("th", { attrs: { scope: "col" } })
+                ])
+              ]),
               _vm._v(" "),
-              _c("th", { attrs: { scope: "col" } }, [_vm._v("Descripción")]),
-              _vm._v(" "),
-              _c("th", { attrs: { scope: "col" } }, [_vm._v("Ubicación")]),
-              _vm._v(" "),
-              _c("th", { attrs: { scope: "col" } }, [_vm._v("A cargo")]),
-              _vm._v(" "),
-              _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
-              _vm._v(" "),
-              _c("th", { attrs: { scope: "col" } })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("tbody", { staticClass: "list" }, [
-            _c("tr", [
-              _c("th", { attrs: { scope: "row" } }),
-              _vm._v(" "),
-              _c("td"),
-              _vm._v(" "),
-              _c("td")
+              _c("tbody", { staticClass: "list" }, [
+                _c("tr", [
+                  _c("th", { attrs: { scope: "row" } }),
+                  _vm._v(" "),
+                  _c("td"),
+                  _vm._v(" "),
+                  _c("td")
+                ])
+              ])
             ])
           ])
         ])

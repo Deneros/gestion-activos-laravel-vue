@@ -30,6 +30,7 @@ Vue.component('categorias', require('./components/Categorias.vue').default);
 Vue.component('subcategoria', require('./components/Subcategoria.vue').default);
 Vue.component('invetariototal', require('./components/InventarioTotal.vue').default);
 Vue.component('listarsubcategorias', require('./components/Listarsubcategorias.vue').default);
+Vue.component('items', require('./components/Items.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

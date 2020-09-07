@@ -31,19 +31,8 @@ class usuarioController extends Controller
     public function index(Request $request)
     {
 
-        // $users = User::paginate(10);
-        // return view(user.index, compact('users'));
-
-
         $users = \DB::table('users')->select('id','tipo_usuario', 'tipo_identificacion', 'no_identificacion', 'nombre', 'apellido', 'cargo', 'telefono', 'email')->get();
         return $users;
-
-        // if ($request->wantsJson()) {
-        //     return User::where('id', auth()->id())->get();
-        // } else {
-        //     // return view('home');
-        //     return 'error al mostrar datos';
-        // }
     }
 
     /**
@@ -90,12 +79,6 @@ class usuarioController extends Controller
      */
     public function show(Request $request)
     {
-        // if ($request->wantsJson()) {
-        //     return User::where('id', auth()->id())->get();
-        // } else {
-        //     return view('home');
-        // }
-
         $users = \DB::table('users')->select('id','tipo_usuario', 'tipo_identificacion', 'no_identificacion', 'nombre', 'apellido', 'cargo', 'telefono', 'email')->where('id', auth()->id())->get();
         return $users;
     }

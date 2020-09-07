@@ -5,8 +5,7 @@
             <div class="form-group">
                 <label for="example-text-input" class="form-control-label">Nombre: </label>
                 <input class="form-control" type="text" value="Nombre Subcategoria" id="nombre_sub" name="nombre_sub" v-model="subcategoria.nombre_sub">
-                <label for="example-text-input" class="form-control-label">Id Categoria: </label>
-                <input class="form-control" type="text" value="Nombre Subcategoria" id="id_categoria" name="id_categoria" v-model="subcategoria.id_categoria">
+                <input class="form-control" type="hidden" value="Nombre Subcategoria"  id="id_categoria" name="id_categoria" v-model="subcategoria.id_categoria" >
             </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
@@ -18,9 +17,10 @@
 import EventBus from "../eventBus";
 export default {
     data() {
-        return{
+        return{   
             subcategorias:[],
             subcategoria:{nombre_sub:'',id_categoria:''}
+            
         };
     },
     created(){

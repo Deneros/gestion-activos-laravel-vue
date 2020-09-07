@@ -1,7 +1,7 @@
 <template>
     <div class="table-responsive">
         <div>
-            <table class="table align-items-center">
+            <table class="table align-items-center" id="subcategoriastabla">
                 <thead class="thead-light"> 
                     <tr>
                         <th scope="col">Id Subcategoria</th>
@@ -10,10 +10,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(item, index) in subcategorias" :key="index">
+                    <tr v-for="(item, index) in subcategorias" :key="index" >
                         <td>{{ item.id_subcategoria }}</td>
                         <td>{{ item.nombre_sub }}</td>
                         <td>{{ item.id_categoria }}</td>
+                        
                     </tr>
                 </tbody>
             </table>
@@ -24,23 +25,31 @@
 <script>
 import EventBus from "../eventBus";
 export default {
-    data() {
-        return {
-            subcategorias: [],
-            id_categoria:""
+     data() {
+        return{
+            id_cat:0,
+            subcategorias:[],
         };
+        
     },
     created() {
-        const params={
-            id_categoria:item.id_categoria
-        }
-        console.log(item.id_categoria);
-        axios.get("/subcategorias",params).then(res => {
-            this.subcategorias = res.data; 
+        EventBus.$on("guardarsubcategoria", data => {
+            this.id_cat=data.id_categoria;
+            console.log(this.id_cat)
+        });   
+    },
+    mounted(){
+        axios.get(`/subcategorias`).then(res => {
+            this.subcategorias = res.data;    
+        });
+        
+    },
+    beforeUpdate(){
+        axios.get(`/subcategorias/${this.id_cat}`).then(res => {
+            this.subcategorias = res.data;
         });
     },
     methods:{
-        
 
     }
 };

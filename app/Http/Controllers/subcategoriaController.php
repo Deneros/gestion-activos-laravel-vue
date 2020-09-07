@@ -11,17 +11,12 @@ class SubcategoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $subcategorias = \DB::table('subcategorias')->select('id_subcategoria','nombre_sub', 'id_categoria')->get();
-        return $subcategorias;
+        $subcategoria = \DB::table('subcategorias')->select('id_subcategoria','nombre_sub','id_categoria')->get();
+        return $subcategoria;
     }
 
-    public function parametro(Request $request,$id)
-    {
-        $subcategorias = \DB::table('subcategorias')->select('id_subcategoria','nombre_sub', 'id_categoria')->where('id_categoria','=',$request->id_categoria)->get();
-        return $subcategorias;
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -57,7 +52,8 @@ class SubcategoriaController extends Controller
      */
     public function show($id)
     {
-        //
+        $subcategoria = \DB::table('subcategorias')->select('id_subcategoria','nombre_sub','id_categoria')->where('id_categoria','=',$id)->get();
+        return $subcategoria;
     }
 
     /**

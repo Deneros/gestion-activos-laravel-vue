@@ -7,14 +7,14 @@
                         <th scope="col">Id Subcategoria</th>
                         <th scope="col">Nombre Subcategoria</th>
                         <th scope="col">Id Categoria</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="(item, index) in subcategorias" :key="index" >
                         <td>{{ item.id_subcategoria }}</td>
                         <td>{{ item.nombre_sub }}</td>
-                        <td>{{ item.id_categoria }}</td>
-                        
+                        <td>{{ item.id_categoria }}</td>         
                     </tr>
                 </tbody>
             </table>
@@ -44,7 +44,7 @@ export default {
         });
         
     },
-    beforeUpdate(){
+    updated(){
         axios.get(`/subcategorias/${this.id_cat}`).then(res => {
             this.subcategorias = res.data;
         });

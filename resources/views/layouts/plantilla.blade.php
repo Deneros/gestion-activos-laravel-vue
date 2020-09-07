@@ -9,7 +9,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Favicon -->
-  <!-- <link rel="icon" href="{{asset('assets/img/brand/favicon.png')}}" type="image/png"> -->
+  <!-- <link rel="icon" href="{{asset('assets/img/brand/blue.png')}}" type="image/png"> -->
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <!-- Icons -->
@@ -29,7 +29,7 @@
         <!-- Brand -->
         <div class="sidenav-header  align-items-center">
           <a class="navbar-brand" href="javascript:void(0)">
-            <img src="{{asset('assets/img/brand/blue.png')}}" class="navbar-brand-img" alt="..." width = "100px" height= "100px" />
+            <img src="{{asset('assets/img/brand/blue.png')}}" class="navbar-brand-img" alt="logo" width = "80px" height= "200px" />
           </a>
         </div>
         <div class="navbar-inner">

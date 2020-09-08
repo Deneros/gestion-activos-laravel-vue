@@ -279,6 +279,7 @@
                     <div class="modal-body">
                         <listarsubcategorias />
                     </div>
+                    
                 </div>
             </div>
         </div>

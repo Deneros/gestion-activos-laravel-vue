@@ -32,6 +32,7 @@ Route::get('/usuario/usuarios', 'usuarioController@vistaeditar')->name('vistaedi
 Route::get('/categoria/categorias','categoriaController@vistacategoria')->name('vistacategoria');
 Route::get('/inventario/items','itemController@vistaInventarioTotal')->name('vistainventariototal');
 Route::get('/historial','historialController@vistahistorial')->name('vistahistorial');
+Route::get('/items','itemController@vistaitems')->name('vistaitems');
 
 
 

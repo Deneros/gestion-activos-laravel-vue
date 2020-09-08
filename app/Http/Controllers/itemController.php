@@ -15,6 +15,10 @@ class itemController extends Controller
     {
         return view('inventariototal');
     }
+    public function vistaitems()
+    {
+        return view('items');
+    }
 
     public function index()
     {

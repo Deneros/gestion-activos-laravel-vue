@@ -1,5 +1,6 @@
 <template>
     <div>
+
     <!-- Button crear categoria -->
     <button
         type="button"
@@ -10,6 +11,8 @@
             <!-- <span class="btn-inner--icon"><i class="ni ni-bullet-list-67"></i></span> -->
             <span class="btn-inner--text">+</span>
         </button>
+
+    <br>
 
     <!-- Modal boton agregar item-->
     <div
@@ -103,6 +106,43 @@
                 </form>
             </div>
         </div>
+    </div>
+    </div>
+
+    <br>
+
+    <div class="card">
+    <div class="card-header border-0">
+
+    <div class="table-responsive">
+        <div>
+            <table class="table align-items-center">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Serial</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">A cargo</th>
+                        <th scope="col">Ubicación</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="list">
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     </div>
     </div>
     </div>

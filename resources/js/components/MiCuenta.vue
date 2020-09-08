@@ -1,7 +1,15 @@
 <template>
+
+
+<div class="row">
+
+<div class="col-sm-6">
+<div class="card">
+<div class="card-header border-0">
+
 <div class="container">
     <form @submit.prevent="editarFormulario()">
-        <h6 class="heading-small text-muted mb-4">Informacion de Usuario</h6>
+        <h1 class="heading-md text-muted mb-2">Informacion de Usuario</h1>
         <div class="pl-lg-4">
             <div class="row">
                 <div class="col-md-12">
@@ -150,7 +158,27 @@
             </button>
         </div>
     </form>
+</div>
+
+</div>
+</div>
+
+</div>
+
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header border-0">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1" class="heading-lg text-muted mb-3">Seleccione una imagen para el perfil</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+</div>
+
 </template>
 
 <script>

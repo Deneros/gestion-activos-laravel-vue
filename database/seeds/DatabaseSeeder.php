@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(UserSeeder::class);
         DB::table('users')->insert([
                 'tipo_usuario'=> 'Admin',
-                'tipo_identificacion' => 'cc',
+                'tipo_identificacion' => 'Cedula de Ciudadania',
                 'no_identificacion' => 98745612,
                 'nombre' => 'Camila',
                 'apellido' => 'Piedrahita',
@@ -23,7 +23,6 @@ class DatabaseSeeder extends Seeder
                 'telefono' => 6543218,
                 'email' => 'kami199924maria@gmail.com',
                 'password' => bcrypt('camila'),
-
         ]);
 
     }

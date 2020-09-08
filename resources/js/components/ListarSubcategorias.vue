@@ -19,6 +19,7 @@
                         <td>{{ item.id_subcategoria }}</td>
                         <td>{{ item.nombre_sub }}</td>
                         <td>{{ item.id_categoria }}</td>
+                        <td><items/></td>
                     </tr>
                 </tbody>
             </table>

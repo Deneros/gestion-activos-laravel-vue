@@ -206,7 +206,6 @@ export default {
     methods: {
         editarFormulario() {
             axios.put(`/usuarios/${this.usuario.id}`, this.usuario);
-
         }
     }
 };

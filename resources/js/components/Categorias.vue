@@ -125,6 +125,7 @@
                                     data-target="#modal-editar"
                                     data-placement="bottom"
                                     title="Editar"
+                                    @click="editarCat(item)"
                                 >
                                     <span class="btn-inner--icon"
                                         ><i class="ni ni-settings"></i
@@ -200,6 +201,7 @@
                                     type="text"
                                     value=""
                                     id="id_categoria"
+                                    v-model="editarcat.Editarid_categoria"
                                 />
                                 <label
                                     for="example-text-input"
@@ -211,7 +213,11 @@
                                     type="text"
                                     value=""
                                     id="nombre_cat"
+                                     v-model="editarcat.Editarnombre_categoria"
                                 />
+                                <button type="submit" class="btn btn-primary">
+                                    Guardar cambios
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -293,6 +299,7 @@ export default {
         return {
             categorias: [],
             categoria: { nombre_cat: "" },
+            editarcat: { Editarid_categoria: "", Editarnombre_categoria: "" },
             nombre_categoria: ""
         };
     },
@@ -321,20 +328,33 @@ export default {
                 toastr.success("Categoria Registrada");
             }
         },
-        editarCategoria() {
-            if (this.editarCategoria.id_categoria.trim() === "") {
-                const params = {
-                    nombre_categoria: this.editarCategoria.nombre_cat
-                };
-            }
+        //Llenar formulario de editar categoria
+        editarCat(item) {
+            this.editarcat.Editarid_categoria=item.id_categoria;
+            this.editarcat.Editarnombre_categoria=item.nombre_cat;
         },
+        //Actualizar la categoria
+        editarCategoria(){
+            //Parametros donde se guardara lo del input
+            // const params = {
+            //    nombre_categoria : this.editarcat.Editarnombre_categoria
+            // }
+             axios.put(`/categorias/${this.editarcat.Editarid_categoria}`, this.editarcat.Editarnombre_categoria)
+                .then(res=>{
+                    // const index = this.categorias.findIndex(item => item.id_categoria === res.data.id_categoria)
+                    // this.categorias[index] = res.data;
 
+                    axios.get("/categorias").then(res => {
+                    this.categorias = res.data;
+                    });
+                })
+
+        },
+        //Enviar los datos a otro componente
         boton(item) {
             EventBus.$emit("guardarsubcategoria", item);
         },
-        // boton2(item) {
-        //     EventBus.$emit("enviaridcat", item);
-        // }
+
     },
     computed: {
         buscarCategorias: function() {

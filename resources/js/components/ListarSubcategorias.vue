@@ -30,7 +30,7 @@
                                         data-target="#modalAgregarItem"
                                         @click="boton(item)"
                                         >
-                                        <ion-icon name="duplicate-outline"></ion-icon>
+                                        
                                         <span class="btn-inner--text">Agregar item</span>
                                     </button>
                                     <!-- Modal boton agregar item-->

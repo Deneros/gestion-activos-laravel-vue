@@ -2197,6 +2197,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2204,6 +2210,10 @@ __webpack_require__.r(__webpack_exports__);
       categorias: [],
       categoria: {
         nombre_cat: ""
+      },
+      editarcat: {
+        Editarid_categoria: "",
+        Editarnombre_categoria: ""
       },
       nombre_categoria: ""
     };
@@ -2236,26 +2246,38 @@ __webpack_require__.r(__webpack_exports__);
         toastr.success("Categoria Registrada");
       }
     },
-    editarCategoria: function editarCategoria() {
-      if (this.editarCategoria.id_categoria.trim() === "") {
-        var params = {
-          nombre_categoria: this.editarCategoria.nombre_cat
-        };
-      }
+    //Llenar formulario de editar categoria
+    editarCat: function editarCat(item) {
+      this.editarcat.Editarid_categoria = item.id_categoria;
+      this.editarcat.Editarnombre_categoria = item.nombre_cat;
     },
+    //Actualizar la categoria
+    editarCategoria: function editarCategoria() {
+      var _this3 = this;
+
+      //Parametros donde se guardara lo del input
+      // const params = {
+      //    nombre_categoria : this.editarcat.Editarnombre_categoria
+      // }
+      axios.put("/categorias/".concat(this.editarcat.Editarid_categoria), this.editarcat.Editarnombre_categoria).then(function (res) {
+        // const index = this.categorias.findIndex(item => item.id_categoria === res.data.id_categoria)
+        // this.categorias[index] = res.data;
+        axios.get("/categorias").then(function (res) {
+          _this3.categorias = res.data;
+        });
+      });
+    },
+    //Enviar los datos a otro componente
     boton: function boton(item) {
       _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit("guardarsubcategoria", item);
-    } // boton2(item) {
-    //     EventBus.$emit("enviaridcat", item);
-    // }
-
+    }
   },
   computed: {
     buscarCategorias: function buscarCategorias() {
-      var _this3 = this;
+      var _this4 = this;
 
       return this.categorias.filter(function (item) {
-        return item.nombre_cat.includes(_this3.nombre_categoria);
+        return item.nombre_cat.includes(_this4.nombre_categoria);
       });
     }
   }
@@ -54729,7 +54751,26 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "mt-3 mb-0 text-sm" }, [
-                  _vm._m(3, true),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "btn btn-icon btn-primary btn-sm rounded-circle",
+                      attrs: {
+                        type: "button",
+                        "data-toggle": "modal",
+                        "data-target": "#modal-editar",
+                        "data-placement": "bottom",
+                        title: "Editar"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.editarCat(item)
+                        }
+                      }
+                    },
+                    [_vm._m(3, true)]
+                  ),
                   _vm._v(" "),
                   _c(
                     "button",
@@ -54827,8 +54868,29 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.editarcat.Editarid_categoria,
+                            expression: "editarcat.Editarid_categoria"
+                          }
+                        ],
                         staticClass: "form-control",
-                        attrs: { type: "text", value: "", id: "id_categoria" }
+                        attrs: { type: "text", value: "", id: "id_categoria" },
+                        domProps: { value: _vm.editarcat.Editarid_categoria },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.editarcat,
+                              "Editarid_categoria",
+                              $event.target.value
+                            )
+                          }
+                        }
                       }),
                       _vm._v(" "),
                       _c(
@@ -54841,9 +54903,45 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.editarcat.Editarnombre_categoria,
+                            expression: "editarcat.Editarnombre_categoria"
+                          }
+                        ],
                         staticClass: "form-control",
-                        attrs: { type: "text", value: "", id: "nombre_cat" }
-                      })
+                        attrs: { type: "text", value: "", id: "nombre_cat" },
+                        domProps: {
+                          value: _vm.editarcat.Editarnombre_categoria
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.editarcat,
+                              "Editarnombre_categoria",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "submit" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Guardar cambios\n                            "
+                          )
+                        ]
+                      )
                     ]
                   )
                 ])
@@ -54995,24 +55093,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-icon btn-primary btn-sm rounded-circle",
-        attrs: {
-          type: "button",
-          "data-toggle": "modal",
-          "data-target": "#modal-editar",
-          "data-placement": "bottom",
-          title: "Editar"
-        }
-      },
-      [
-        _c("span", { staticClass: "btn-inner--icon" }, [
-          _c("i", { staticClass: "ni ni-settings" })
-        ])
-      ]
-    )
+    return _c("span", { staticClass: "btn-inner--icon" }, [
+      _c("i", { staticClass: "ni ni-settings" })
+    ])
   },
   function() {
     var _vm = this
@@ -56315,15 +56398,10 @@ var render = function() {
                           }
                         },
                         [
-                          _c("ion-icon", {
-                            attrs: { name: "duplicate-outline" }
-                          }),
-                          _vm._v(" "),
                           _c("span", { staticClass: "btn-inner--text" }, [
                             _vm._v("Agregar item")
                           ])
-                        ],
-                        1
+                        ]
                       ),
                       _vm._v(" "),
                       _c(

@@ -36,7 +36,6 @@
             <div class="modal-body">
                 <!-- Agregar un items  -->
                 <form>
-                    <h6 class="heading-small text-muted mb-4">Agregar un items</h6>
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
@@ -62,7 +61,8 @@
                     <div calss="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="text" list="usuarios" />
+                                <label class="form-control-label" for="a_cargo">A cargo:</label>
+                                <input type="text" list="usuarios" class="form-control form-control-sm"/>
                                     <datalist id="usuarios">
                                         <option>1</option>
                                         <option>2</option>
@@ -91,6 +91,7 @@
                             </div>
                         </div>
                     </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
             </div>
         </div>

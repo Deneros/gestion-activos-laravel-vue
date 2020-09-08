@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Item;
 use Illuminate\Http\Request;
 
 class itemController extends Controller
@@ -15,6 +15,7 @@ class itemController extends Controller
     {
         return view('inventariototal');
     }
+
     public function vistaitems()
     {
         return view('items');
@@ -22,7 +23,8 @@ class itemController extends Controller
 
     public function index()
     {
-        //
+        $items = \DB::table('items')->select('id_item','nombre_item', 'serial', 'descripcion_item', 'estado', 'ubicacion', 'A_cargo', 'id_subcategoria')->get();
+        return $items;
     }
 
     /**
@@ -43,7 +45,17 @@ class itemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = new Item();
+        $item->nombre_item = $request->nombre_item;
+        $item->serial = $request->serial;
+        $item->descripcion_item = $request->descripcion;
+        $item->estado = $request->estado;
+        $item->ubicacion = $request->ubicacion;
+        $item->A_cargo = $request->usuarioCargo;
+        $item->id_subcategoria = $request->subcategoria;
+        $item->save();
+
+        return $item;
     }
 
     /**

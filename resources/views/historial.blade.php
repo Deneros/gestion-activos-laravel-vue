@@ -3,7 +3,7 @@
 @section('content')
 
 <br>
-<listadoItems></listadoItems>
+<listadoitems/>
 
 
 

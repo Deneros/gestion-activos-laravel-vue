@@ -71,11 +71,13 @@
 </template>
 
 <script>
+import EventBus from "../eventBus";
 export default {
     data() {
         return {
             usuarios: [],
-            subcategorias:[],
+            items:[],
+            id_subcat:'',
             item:{
                 nombre_item:'',
                 serial:'',
@@ -83,19 +85,55 @@ export default {
                 estado:'',
                 ubicacion:'',
                 usuarioCargo:'',
-                usuarioCargo:'',
                 subcategoria:''
-                }
+            }
         };
     },
      created() {
+        EventBus.$on("idsubcategoria", data => {
+            this.item.subcategoria = data.id_subcategoria;   
+        });
         axios.get("/usuarios").then(res => {
             this.usuarios = res.data;
         });
     },
     methods: {
         guardarItem(){
+            if(
+                this.item.nombre_item.trim()==="" ||
+                this.item.serial.trim()==="" ||
+                this.item.descripcion.trim()==="" ||
+                this.item.estado.trim()==="" ||
+                this.item.ubicacion.trim()==="" ||
+                this.item.usuarioCargo.trim()==="" 
+            )
+            {
+                toastr.error('Debe rellenar todos los campos');
+            }else{
+                const params =  {
+                    nombre_item:this.item.nombre_item,
+                    serial:this.item.serial,
+                    descripcion:this.item.descripcion,
+                    estado:this.item.estado,
+                    ubicacion:this.item.ubicacion,
+                    usuarioCargo:this.item.usuarioCargo,
+                    subcategoria:this.item.subcategoria
+                };
 
+                this.item.nombre_item=""; 
+                this.item.serial=""; 
+                this.item.descripcion="";
+                this.item.estado=""; 
+                this.item.ubicacion=""; 
+                this.item.usuarioCargo=""; 
+
+                axios.post("/items", params).then(res => {
+                this.items.push(res.data);
+            });
+
+             toastr.success('Item Registrado');
+            console.log(params);
+            }
         }
     }
 }

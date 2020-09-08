@@ -8,8 +8,8 @@
                         <th scope="col">Nombre Subcategoria</th>
                         <th scope="col">Id Categoria</th>
                         <th>
-                            <form action="/items">
-                                <input type="submit" value="Ver Items" />
+                            <form action="/admin/items">
+                                <input type="submit" class="btn btn-primary" value="Ver Items" />
                             </form>
                         </th>
                     </tr>
@@ -25,11 +25,12 @@
                                     <!-- Button crear categoria -->
                                     <button
                                         type="button"
-                                        class="btn btn-icon btn-primary"
+                                        class="btn btn-icon btn-primary btn-sm"
                                         data-toggle="modal"
                                         data-target="#modalAgregarItem"
+                                        @click="boton(item)"
                                         >
-                                        <span class="btn-inner--icon"><i class="ni ni-bullet-list-67"></i></span>
+                                        <ion-icon name="duplicate-outline"></ion-icon>
                                         <span class="btn-inner--text">Agregar item</span>
                                     </button>
                                     <!-- Modal boton agregar item-->
@@ -50,6 +51,7 @@
                                                             class="close"
                                                             data-dismiss="modal"
                                                             aria-label="Close"
+                                                            
                                                         >
                                                         <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -82,7 +84,6 @@ export default {
     created() {
         EventBus.$on("guardarsubcategoria", data => {
             this.id_cat = data.id_categoria;
-            console.log(this.id_cat);
         });
     },
     mounted() {
@@ -95,7 +96,11 @@ export default {
             this.subcategorias = res.data;
         });
     },
-    methods: {}
+    methods: {
+        boton(item) {
+            EventBus.$emit("idsubcategoria", item);
+        }
+    }
 };
 </script>
 <style lang="stylus" scoped></style>

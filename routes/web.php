@@ -24,6 +24,7 @@ Route::resource('/subcategorias', 'subcategoriaController');
 // Route::get('/subcategorias/{id}','subcategoriaController@queryupdate');
 
 //Rutas Items
+Route::resource('/items', 'itemController');
 
 
 //Retornar vistas 
@@ -32,7 +33,7 @@ Route::get('/usuario/usuarios', 'usuarioController@vistaeditar')->name('vistaedi
 Route::get('/categoria/categorias','categoriaController@vistacategoria')->name('vistacategoria');
 Route::get('/inventario/items','itemController@vistaInventarioTotal')->name('vistainventariototal');
 Route::get('/historial','historialController@vistahistorial')->name('vistahistorial');
-Route::get('/items','itemController@vistaitems')->name('vistaitems');
+Route::get('/admin/items','itemController@vistaitems')->name('vistaitems');
 
 
 

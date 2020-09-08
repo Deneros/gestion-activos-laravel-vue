@@ -85,6 +85,8 @@
   <script src="/assets/js/argon.js?v=1.2.0"></script>
   <!-- Toast -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>
 
 </html>

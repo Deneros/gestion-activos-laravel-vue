@@ -2522,106 +2522,136 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+/* harmony import */ var _eventBus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../eventBus */ "./resources/js/eventBus.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    var _item;
-
     return {
       usuarios: [],
-      subcategorias: [],
-      item: (_item = {
+      items: [],
+      id_subcat: '',
+      item: {
         nombre_item: '',
         serial: '',
         descripcion: '',
         estado: '',
         ubicacion: '',
-        usuarioCargo: ''
-      }, _defineProperty(_item, "usuarioCargo", ''), _defineProperty(_item, "subcategoria", ''), _item)
+        usuarioCargo: '',
+        subcategoria: ''
+      }
     };
   },
   created: function created() {
     var _this = this;
 
+    _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$on("idsubcategoria", function (data) {
+      _this.item.subcategoria = data.id_subcategoria;
+    });
     axios.get("/usuarios").then(function (res) {
       _this.usuarios = res.data;
     });
   },
   methods: {
-    guardarItem: function guardarItem() {}
+    guardarItem: function guardarItem() {
+      var _this2 = this;
+
+      if (this.item.nombre_item.trim() === "" || this.item.serial.trim() === "" || this.item.descripcion.trim() === "" || this.item.estado.trim() === "" || this.item.ubicacion.trim() === "" || this.item.usuarioCargo.trim() === "") {
+        toastr.error('Debe rellenar todos los campos');
+      } else {
+        var params = {
+          nombre_item: this.item.nombre_item,
+          serial: this.item.serial,
+          descripcion: this.item.descripcion,
+          estado: this.item.estado,
+          ubicacion: this.item.ubicacion,
+          usuarioCargo: this.item.usuarioCargo,
+          subcategoria: this.item.subcategoria
+        };
+        this.item.nombre_item = "";
+        this.item.serial = "";
+        this.item.descripcion = "";
+        this.item.estado = "";
+        this.item.ubicacion = "";
+        this.item.usuarioCargo = "";
+        axios.post("/items", params).then(function (res) {
+          _this2.items.push(res.data);
+        });
+        toastr.success('Item Registrado');
+        console.log(params);
+      }
+    }
   }
 });
 
@@ -2636,6 +2666,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var datatables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! datatables */ "./node_modules/datatables/media/js/jquery.dataTables.js");
+/* harmony import */ var datatables__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(datatables__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2670,12 +2702,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+// import EventBus from "../eventBus";
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      items: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/items").then(function (res) {
+      _this.items = res.data; // this.mytable()
+    });
+  },
+  methods: {// mytable() {
+    //     $(document).ready(function() {
+    //         $("#user-table").DataTable();
+    //     });
+    // }
+  }
+});
 
 /***/ }),
 
@@ -2932,6 +2980,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2945,7 +2995,6 @@ __webpack_require__.r(__webpack_exports__);
 
     _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$on("guardarsubcategoria", function (data) {
       _this.id_cat = data.id_categoria;
-      console.log(_this.id_cat);
     });
   },
   mounted: function mounted() {
@@ -2962,7 +3011,11 @@ __webpack_require__.r(__webpack_exports__);
       _this3.subcategorias = res.data;
     });
   },
-  methods: {}
+  methods: {
+    boton: function boton(item) {
+      _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit("idsubcategoria", item);
+    }
+  }
 });
 
 /***/ }),
@@ -55917,58 +55970,58 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "card-header border-0" }, [
+      _c("div", { staticClass: "table-responsive" }, [
+        _c("div", [
+          _c("table", { staticClass: "table align-items-center" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.items, function(item, index) {
+                return _c("tr", { key: index }, [
+                  _c("td", [_vm._v(_vm._s(item.nombre_item))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.serial))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.descripcion_item))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.estado))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.ubicacion))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.A_cargo))])
+                ])
+              }),
+              0
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-header border-0" }, [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c("div", [
-            _c("table", { staticClass: "table align-items-center" }, [
-              _c("thead", { staticClass: "thead-light" }, [
-                _c("tr", [
-                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Serial")]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } }, [
-                    _vm._v("Descripción")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } }, [_vm._v("A cargo")]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Ubicación")]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("tbody", { staticClass: "list" }, [
-                _c("tr", [
-                  _c("th", { attrs: { scope: "row" } }),
-                  _vm._v(" "),
-                  _c("td"),
-                  _vm._v(" "),
-                  _c("td"),
-                  _vm._v(" "),
-                  _c("td"),
-                  _vm._v(" "),
-                  _c("td"),
-                  _vm._v(" "),
-                  _c("td"),
-                  _vm._v(" "),
-                  _c("td")
-                ])
-              ])
-            ])
-          ])
-        ])
+    return _c("thead", { staticClass: "thead-light" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Serial")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Descripción")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Ubicación")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("A Cargo")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } })
       ])
     ])
   }
@@ -56246,7 +56299,32 @@ var render = function() {
                 _c("td", [
                   _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-5" }, [
-                      _vm._m(1, true),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-icon btn-primary btn-sm",
+                          attrs: {
+                            type: "button",
+                            "data-toggle": "modal",
+                            "data-target": "#modalAgregarItem"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.boton(item)
+                            }
+                          }
+                        },
+                        [
+                          _c("ion-icon", {
+                            attrs: { name: "duplicate-outline" }
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "btn-inner--text" }, [
+                            _vm._v("Agregar item")
+                          ])
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
                       _c(
                         "div",
@@ -56269,7 +56347,7 @@ var render = function() {
                             },
                             [
                               _c("div", { staticClass: "modal-content" }, [
-                                _vm._m(2, true),
+                                _vm._m(1, true),
                                 _vm._v(" "),
                                 _c(
                                   "div",
@@ -56308,35 +56386,15 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Id Categoria")]),
         _vm._v(" "),
         _c("th", [
-          _c("form", { attrs: { action: "/items" } }, [
-            _c("input", { attrs: { type: "submit", value: "Ver Items" } })
+          _c("form", { attrs: { action: "/admin/items" } }, [
+            _c("input", {
+              staticClass: "btn btn-primary",
+              attrs: { type: "submit", value: "Ver Items" }
+            })
           ])
         ])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-icon btn-primary",
-        attrs: {
-          type: "button",
-          "data-toggle": "modal",
-          "data-target": "#modalAgregarItem"
-        }
-      },
-      [
-        _c("span", { staticClass: "btn-inner--icon" }, [
-          _c("i", { staticClass: "ni ni-bullet-list-67" })
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "btn-inner--text" }, [_vm._v("Agregar item")])
-      ]
-    )
   },
   function() {
     var _vm = this
@@ -69834,7 +69892,7 @@ Vue.component('subcategoria', __webpack_require__(/*! ./components/Subcategoria.
 Vue.component('invetariototal', __webpack_require__(/*! ./components/InventarioTotal.vue */ "./resources/js/components/InventarioTotal.vue")["default"]);
 Vue.component('listarsubcategorias', __webpack_require__(/*! ./components/Listarsubcategorias.vue */ "./resources/js/components/Listarsubcategorias.vue")["default"]);
 Vue.component('items', __webpack_require__(/*! ./components/Items.vue */ "./resources/js/components/Items.vue")["default"]);
-Vue.component('listadoItems', __webpack_require__(/*! ./components/ListadoItems.vue */ "./resources/js/components/ListadoItems.vue")["default"]);
+Vue.component('listadoitems', __webpack_require__(/*! ./components/ListadoItems.vue */ "./resources/js/components/ListadoItems.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -70753,8 +70811,8 @@ var bus = new Vue();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.4\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.4\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

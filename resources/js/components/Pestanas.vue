@@ -25,7 +25,6 @@
             <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
                 <registrarUsuario></registrarUsuario>
             </div>
-            
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<br>
 <micuenta></micuenta>
 
 @endsection

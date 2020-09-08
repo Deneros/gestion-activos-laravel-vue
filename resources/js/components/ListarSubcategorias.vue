@@ -19,6 +19,50 @@
                         <td>{{ item.id_subcategoria }}</td>
                         <td>{{ item.nombre_sub }}</td>
                         <td>{{ item.id_categoria }}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <!-- Button crear categoria -->
+                                    <button
+                                        type="button"
+                                        class="btn btn-icon btn-primary"
+                                        data-toggle="modal"
+                                        data-target="#modalAgregarItem"
+                                        >
+                                        <span class="btn-inner--icon"><i class="ni ni-bullet-list-67"></i></span>
+                                        <span class="btn-inner--text">Agregar item</span>
+                                    </button>
+                                    <!-- Modal boton agregar item-->
+                                    <div
+                                        class="modal fade"
+                                        id="modalAgregarItem"
+                                        tabindex="-1"
+                                        role="dialog"
+                                        aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true"
+                                    >
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Agregar item</h5>
+                                                        <button
+                                                            type="button"
+                                                            class="close"
+                                                            data-dismiss="modal"
+                                                            aria-label="Close"
+                                                        >
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                </div>
+                                            <div class="modal-body">
+                                                <items></items>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>

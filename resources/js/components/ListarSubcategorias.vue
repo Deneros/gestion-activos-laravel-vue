@@ -12,6 +12,7 @@
                                 <input type="submit" class="btn btn-primary" value="Ver Items" />
                             </form>
                         </th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,16 +23,18 @@
                         <td>
                             <div class="row">
                                 <div class="col-md-5">
-                                    <!-- Button crear categoria -->
+                                    <!-- Button agregar items -->
                                     <button
                                         type="button"
                                         class="btn btn-icon btn-primary btn-sm"
                                         data-toggle="modal"
                                         data-target="#modalAgregarItem"
+                                        data-placement="bottom"
+                                        title="Agregar item"
                                         @click="boton(item)"
                                         >
-                                        
-                                        <span class="btn-inner--text">Agregar item</span>
+                                        <span class="btn-inner--icon"><i class="ni ni-single-copy-04"></i></span>
+                                        <span class="btn-inner--text"></span>
                                     </button>
                                     <!-- Modal boton agregar item-->
                                     <div
@@ -58,6 +61,77 @@
                                                 </div>
                                             <div class="modal-body">
                                                 <items></items>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <!-- Button editar subcategoria -->
+                                    <button
+                                        type="button"
+                                        class="btn btn-icon btn-primary btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#modalEditarSubcategoria"
+                                        data-placement="bottom"
+                                        title="Editar subcategoria"
+                                        >
+                                        <span class="btn-inner--icon"><i class="ni ni-single-copy-04"></i></span>
+                                        <span class="btn-inner--text"></span>
+                                    </button>
+                                    <!-- Modal boton editar subcategoria-->
+                                    <div
+                                        class="modal fade"
+                                        id="modalEditarSubcategoria"
+                                        tabindex="-1"
+                                        role="dialog"
+                                        aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true"
+                                    >
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Editar subcategoria</h5>
+                                                        <button
+                                                            type="button"
+                                                            class="close"
+                                                            data-dismiss="modal"
+                                                            aria-label="Close"
+                                                            
+                                                        >
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <form @submit.prevent="editarCategoria()">
+                                                        <label
+                                                            for="example-text-input"
+                                                            class="form-control-label"
+                                                        >Id Subcategoria:
+                                                        </label>
+                                                        <input
+                                                            class="form-control"
+                                                            type="text"
+                                                            value=""
+                                                            id="id_categoria"
+                                                        />
+                                                        <label
+                                                            for="example-text-input"
+                                                            class="form-control-label"
+                                                        >Nombre:
+                                                        </label>
+                                                        <input
+                                                            class="form-control"
+                                                            type="text"
+                                                            value=""
+                                                            id="nombre_cat"
+                                                        />
+                                                    </form>
+                                                </div>
                                             </div>
                                             </div>
                                         </div>

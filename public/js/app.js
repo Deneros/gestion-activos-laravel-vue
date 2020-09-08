@@ -3004,6 +3004,80 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -56389,7 +56463,9 @@ var render = function() {
                           attrs: {
                             type: "button",
                             "data-toggle": "modal",
-                            "data-target": "#modalAgregarItem"
+                            "data-target": "#modalAgregarItem",
+                            "data-placement": "bottom",
+                            title: "Agregar item"
                           },
                           on: {
                             click: function($event) {
@@ -56398,9 +56474,15 @@ var render = function() {
                           }
                         },
                         [
+<<<<<<< HEAD
                           _c("span", { staticClass: "btn-inner--text" }, [
                             _vm._v("Agregar item")
                           ])
+=======
+                          _vm._m(1, true),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "btn-inner--text" })
+>>>>>>> 25a5b55c1fae7a5f9112a2efdfbef27b849ebfaa
                         ]
                       ),
                       _vm._v(" "),
@@ -56425,7 +56507,7 @@ var render = function() {
                             },
                             [
                               _c("div", { staticClass: "modal-content" }, [
-                                _vm._m(1, true),
+                                _vm._m(2, true),
                                 _vm._v(" "),
                                 _c(
                                   "div",
@@ -56433,6 +56515,101 @@ var render = function() {
                                   [_c("items")],
                                   1
                                 )
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-5" }, [
+                      _vm._m(3, true),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "modal fade",
+                          attrs: {
+                            id: "modalEditarSubcategoria",
+                            tabindex: "-1",
+                            role: "dialog",
+                            "aria-labelledby": "exampleModalLabel",
+                            "aria-hidden": "true"
+                          }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "modal-dialog modal-dialog-centered",
+                              attrs: { role: "document" }
+                            },
+                            [
+                              _c("div", { staticClass: "modal-content" }, [
+                                _vm._m(4, true),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "modal-body" }, [
+                                  _c("div", { staticClass: "form-group" }, [
+                                    _c(
+                                      "form",
+                                      {
+                                        on: {
+                                          submit: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.editarCategoria()
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "form-control-label",
+                                            attrs: { for: "example-text-input" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "Id Subcategoria:\n                                                    "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          staticClass: "form-control",
+                                          attrs: {
+                                            type: "text",
+                                            value: "",
+                                            id: "id_categoria"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "form-control-label",
+                                            attrs: { for: "example-text-input" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "Nombre:\n                                                    "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          staticClass: "form-control",
+                                          attrs: {
+                                            type: "text",
+                                            value: "",
+                                            id: "nombre_cat"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ])
+                                ])
                               ])
                             ]
                           )
@@ -56470,8 +56647,18 @@ var staticRenderFns = [
               attrs: { type: "submit", value: "Ver Items" }
             })
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c("th")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "btn-inner--icon" }, [
+      _c("i", { staticClass: "ni ni-single-copy-04" })
     ])
   },
   function() {
@@ -56483,6 +56670,56 @@ var staticRenderFns = [
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
         [_vm._v("Agregar item")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-icon btn-primary btn-sm",
+        attrs: {
+          type: "button",
+          "data-toggle": "modal",
+          "data-target": "#modalEditarSubcategoria",
+          "data-placement": "bottom",
+          title: "Editar subcategoria"
+        }
+      },
+      [
+        _c("span", { staticClass: "btn-inner--icon" }, [
+          _c("i", { staticClass: "ni ni-single-copy-04" })
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "btn-inner--text" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Editar subcategoria")]
       ),
       _vm._v(" "),
       _c(
@@ -70889,8 +71126,8 @@ var bus = new Vue();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.4\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.4\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

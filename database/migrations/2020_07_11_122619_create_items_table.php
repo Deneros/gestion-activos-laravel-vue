@@ -16,9 +16,11 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('id_item');
             $table->string('nombre_item');
+            $table->string('serial');
             $table->string('descripcion_item');
             $table->string('estado');
             $table->string('ubicacion');
+            $table->string('A cargo');
             $table->unsignedBigInteger('id_subcategoria');
             $table->foreign('id_subcategoria')->references('id_subcategoria')->on('subcategorias');
             $table->timestamps();

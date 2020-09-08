@@ -3166,11 +3166,11 @@ __webpack_require__.r(__webpack_exports__);
         id: "",
         tipo_usuario: "",
         tipo_identificacion: "",
-        no_identificacion: 0,
+        no_identificacion: "",
         nombre: "",
         apellido: "",
         cargo: "",
-        telefono: 0,
+        telefono: "",
         email: ""
       }
     };
@@ -3461,11 +3461,11 @@ __webpack_require__.r(__webpack_exports__);
       usuario: {
         tipo_usuario: "",
         tipo_identificacion: "",
-        no_identificacion: 0,
+        no_identificacion: "",
         nombre: "",
         apellido: "",
         cargo: "",
-        telefono: 0,
+        telefono: "",
         email: "",
         password: "",
         Confirmar_Contrasena: ""

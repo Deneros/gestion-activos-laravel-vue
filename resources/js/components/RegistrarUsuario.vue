@@ -211,11 +211,11 @@ export default {
             usuario: {
                 tipo_usuario: "",
                 tipo_identificacion: "",
-                no_identificacion: 0,
+                no_identificacion: "",
                 nombre: "",
                 apellido: "",
                 cargo: "",
-                telefono: 0,
+                telefono: "",
                 email: "",
                 password: "",
                 Confirmar_Contrasena: ""

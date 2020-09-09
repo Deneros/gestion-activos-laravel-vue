@@ -1,5 +1,6 @@
 <template>
     <div>  
+        <!-- Crear un items -->
                 <form  @submit.prevent="guardarItem()">
                     <div class="row">
                         <div class="col-lg-6">

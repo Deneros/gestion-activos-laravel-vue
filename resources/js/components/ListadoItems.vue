@@ -23,6 +23,119 @@
                                 <td>{{ item.estado }}</td>
                                 <td>{{ item.ubicacion }}</td>
                                 <td>{{ item.A_cargo }}</td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <!-- Button editar items -->
+                                            <button
+                                                type="button"
+                                                class="btn btn-icon btn-primary btn-sm"
+                                                data-toggle="modal"
+                                                data-target="#modalEditarrItem"
+                                                data-placement="bottom"
+                                                title="Agregar item"
+                                                @click="boton(item)"
+                                            >
+                                                <span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                                <!-- <span class="btn-inner--text"></span> -->
+                                            </button>
+                                            <!-- Modal boton editar item-->
+                                            <div
+                                                class="modal fade"
+                                                id="modalEditarrItem"
+                                                tabindex="-1"
+                                                role="dialog"
+                                                aria-labelledby="exampleModalLabel"
+                                                aria-hidden="true"
+                                            >
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Editar item</h5>
+                                                                <button
+                                                                    type="button"
+                                                                    class="close"
+                                                                    data-dismiss="modal"
+                                                                    aria-label="Close"
+                                                            
+                                                                >
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form >
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <label class="form-control-label" for="nombre">Nombre:</label>
+                                                                            <input class="form-control" type="text" value="" id="nombre" placeholder="Nombre" v-model="item.nombre_item" >
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                            <label class="form-control-label" for="nombre">Serial:</label>
+                                                                            <input class="form-control" type="text" value="" id="serial" placeholder="Serial" v-model="item.serial">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label class="form-control-label" for="descripcion">Descripción:</label>
+                                                                            <textarea class="form-control" id="textAreaDescripcion" rows="3" placeholder="Descripcion" v-model="item.descripcion"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label class="form-control-label" for="ubicacion">Estado:</label>
+                                                                                <select class="form-control form-control" id="estado" v-model="item.estado">
+                                                                                    <option>Activo</option>
+                                                                                    <option>Mantenimiento</option>
+                                                                                    <option>Proceso de baja</option>
+                                                                                    <option>En baja</option>
+                                                                                </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label class="form-control-label" for="ubicacion">Ubicación:</label>
+                                                                            <input class="form-control" type="text" value="" id="ubicacion" placeholder="Ubicacion" v-model="item.ubicacion">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label class="form-control-label" for="a_cargo">A cargo:</label>
+                                                                            <input type="text" list="usuarios" class="form-control form-control" v-model="item.usuarioCargo" />
+                                                                                <datalist id="usuarios" >
+                                                                                    <option placeholder="A cargo" v-for="(usuario, index) in usuarios" :key="index">{{usuario.nombre}} {{usuario.apellido}}</option>                      
+                                                                                </datalist>
+                                    
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label class="form-control-label" for="a_cargo">Subcategoria:</label>
+                                                                            <input type="text" list="subcategorias" class="form-control form-control" v-model="item.subcategoria" />    
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

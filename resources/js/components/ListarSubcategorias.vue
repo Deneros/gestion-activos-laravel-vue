@@ -22,7 +22,7 @@
                         <td>{{ item.id_categoria }}</td>
                         <td>
                             <div class="row">
-                                <div class="col-md-5">
+                                <div class="col-sm-3">
                                     <!-- Button agregar items -->
                                     <button
                                         type="button"
@@ -33,8 +33,8 @@
                                         title="Agregar item"
                                         @click="boton(item)"
                                         >
-                                        <span class="btn-inner--icon"><i class="ni ni-single-copy-04"></i></span>
-                                        <span class="btn-inner--text"></span>
+                                        <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
+                                        <!-- <span class="btn-inner--text"></span> -->
                                     </button>
                                     <!-- Modal boton agregar item-->
                                     <div
@@ -66,10 +66,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            
                         
-                            <div class="row">
-                                <div class="col-md-5">
+                                <div class="col-sm-3">
                                     <!-- Button editar subcategoria -->
                                     <button
                                         type="button"
@@ -79,8 +78,8 @@
                                         data-placement="bottom"
                                         title="Editar subcategoria"
                                         >
-                                        <span class="btn-inner--icon"><i class="ni ni-single-copy-04"></i></span>
-                                        <span class="btn-inner--text"></span>
+                                        <span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                        <!-- <span class="btn-inner--text"></span> -->
                                     </button>
                                     <!-- Modal boton editar subcategoria-->
                                     <div

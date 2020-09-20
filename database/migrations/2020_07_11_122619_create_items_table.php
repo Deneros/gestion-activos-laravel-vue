@@ -14,7 +14,7 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->bigIncrements('id_item');
+            $table->bigIncrements('id');
             $table->string('nombre_item');
             $table->string('serial');
             $table->string('descripcion_item');
@@ -22,7 +22,7 @@ class CreateItemsTable extends Migration
             $table->string('ubicacion');
             $table->string('A_cargo');
             $table->unsignedBigInteger('id_subcategoria');
-            $table->foreign('id_subcategoria')->references('id_subcategoria')->on('subcategorias');
+            $table->foreign('id_subcategoria')->references('id')->on('subcategorias');
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Categoria;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class categoriaController extends Controller
 {
@@ -13,7 +14,7 @@ class categoriaController extends Controller
      */
     public function index()
     {
-        $categoria = \DB::table('categorias')->select('id_categoria','nombre_cat')->get();
+        $categoria = \DB::table('categorias')->select('id','nombre_cat')->get();
         return $categoria;
     }
 
@@ -68,8 +69,7 @@ class categoriaController extends Controller
     {
         //
     }
-
-    /**
+  /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -79,7 +79,7 @@ class categoriaController extends Controller
     public function update(Request $request, $id)
     {
         $categoria = Categoria::find($id);
-        $categoria->nombre_cat = $request->nombre_cat;
+        $categoria->nombre_cat = $request->Editarnombre_categoria;
         $categoria->save();
         return $categoria;
     }

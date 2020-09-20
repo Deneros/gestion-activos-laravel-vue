@@ -76,7 +76,14 @@ class SubcategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $subcategoria = Subcategoria::find($id);
+        $subcategoria->nombre_sub = $request->nombre_sub;
+        $subcategoria->id_categoria = $request->id_categoria;
+        $subcategoria->save();
+        
+        return $subcategoria;
+        // return 'holamundo';
     }
 
     /**

@@ -18,7 +18,7 @@ class CreateUsuariosHistorialsTable extends Migration
             $table->unsignedBigInteger('id_usuario');
             $table->foreign('id_usuario')->references('id')->on('users');
             $table->unsignedBigInteger('id_historial');
-            $table->foreign('id_historial')->references('id_historial')->on('historiales');
+            $table->foreign('id_historial')->references('id')->on('historiales');
             $table->timestamps();
         });
     }

@@ -2250,11 +2250,10 @@ __webpack_require__.r(__webpack_exports__);
     editarCat: function editarCat(item) {
       this.editarcat.Editarid_categoria = item.id_categoria;
       this.editarcat.Editarnombre_categoria = item.nombre_cat;
+      console.log(this.editarcat.Editarid_categoria, this.editarcat.Editarnombre_categoria);
     },
     //Actualizar la categoria
     editarCategoria: function editarCategoria() {
-      var _this3 = this;
-
       //Parametros donde se guardara lo del input
       // const params = {
       //    nombre_categoria : this.editarcat.Editarnombre_categoria
@@ -2262,9 +2261,10 @@ __webpack_require__.r(__webpack_exports__);
       axios.put("/categorias/".concat(this.editarcat.Editarid_categoria), this.editarcat.Editarnombre_categoria).then(function (res) {
         // const index = this.categorias.findIndex(item => item.id_categoria === res.data.id_categoria)
         // this.categorias[index] = res.data;
-        axios.get("/categorias").then(function (res) {
-          _this3.categorias = res.data;
-        });
+        // axios.get("/categorias").then(res => {
+        // this.categorias = res.data;
+        // });
+        console.log(res.data);
       });
     },
     //Enviar los datos a otro componente
@@ -2274,10 +2274,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     buscarCategorias: function buscarCategorias() {
-      var _this4 = this;
+      var _this3 = this;
 
       return this.categorias.filter(function (item) {
-        return item.nombre_cat.includes(_this4.nombre_categoria);
+        return item.nombre_cat.includes(_this3.nombre_categoria);
       });
     }
   }

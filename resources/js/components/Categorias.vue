@@ -332,6 +332,7 @@ export default {
         editarCat(item) {
             this.editarcat.Editarid_categoria=item.id_categoria;
             this.editarcat.Editarnombre_categoria=item.nombre_cat;
+            console.log(this.editarcat.Editarid_categoria, this.editarcat.Editarnombre_categoria); 
         },
         //Actualizar la categoria
         editarCategoria(){
@@ -344,9 +345,10 @@ export default {
                     // const index = this.categorias.findIndex(item => item.id_categoria === res.data.id_categoria)
                     // this.categorias[index] = res.data;
 
-                    axios.get("/categorias").then(res => {
-                    this.categorias = res.data;
-                    });
+                    // axios.get("/categorias").then(res => {
+                    // this.categorias = res.data;
+                    // });
+                    console.log(res.data);
                 })
 
         },

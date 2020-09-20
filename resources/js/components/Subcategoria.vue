@@ -22,12 +22,15 @@ export default {
             subcategoria:{nombre_sub:'',id_categoria:''}
             
         };
+
     },
+    // props:['id-cat'],
     created(){
         //Trae los datos de categoria para el Id_categoria
          EventBus.$on("guardarsubcategoria", data => {
             this.subcategoria = data;
         });
+       
     },
     methods:{
         guardarSubcategoria(){

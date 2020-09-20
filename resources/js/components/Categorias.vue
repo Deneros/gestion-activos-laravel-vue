@@ -138,6 +138,7 @@
                                     data-target="#modal-agregar-subcategoria"
                                     data-placement="bottom"
                                     title="Agregar subcategoria"
+                                   
                                     @click="boton(item)"
                                 >
                                     <span class="btn-inner--icon"
@@ -252,6 +253,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <subcategoria />
+                            <!-- :id_cat="id_cat" envio de una propiedad -->
                         </div>
                     </div>
                 </div>
@@ -300,7 +302,8 @@ export default {
             categorias: [],
             categoria: { nombre_cat: "" },
             editarcat: { Editarid_categoria: "", Editarnombre_categoria: "" },
-            nombre_categoria: ""
+            nombre_categoria: "",
+            // id_cat:""
         };
     },
     created() {
@@ -330,30 +333,38 @@ export default {
         },
         //Llenar formulario de editar categoria
         editarCat(item) {
-            this.editarcat.Editarid_categoria=item.id_categoria;
+            this.editarcat.Editarid_categoria=item.id;
             this.editarcat.Editarnombre_categoria=item.nombre_cat;
+<<<<<<< HEAD
             console.log(this.editarcat.Editarid_categoria, this.editarcat.Editarnombre_categoria); 
+=======
+            console.log(this.editarcat.Editarid_categoria, this.editarcat.Editarnombre_categoria)
+>>>>>>> e478e922fb74e005fb7e47f17c39b73ee4b38241
         },
         //Actualizar la categoria
         editarCategoria(){
-            //Parametros donde se guardara lo del input
-            // const params = {
-            //    nombre_categoria : this.editarcat.Editarnombre_categoria
-            // }
-             axios.put(`/categorias/${this.editarcat.Editarid_categoria}`, this.editarcat.Editarnombre_categoria)
+             axios.put(`/categorias/${this.editarcat.Editarid_categoria}`, this.editarcat)
                 .then(res=>{
                     // const index = this.categorias.findIndex(item => item.id_categoria === res.data.id_categoria)
                     // this.categorias[index] = res.data;
+<<<<<<< HEAD
 
                     // axios.get("/categorias").then(res => {
                     // this.categorias = res.data;
                     // });
                     console.log(res.data);
+=======
+                    console.log(res.data);
+                    // axios.get("/categorias").then(res => {
+                    // this.categorias = res.data;
+                    // });
+>>>>>>> e478e922fb74e005fb7e47f17c39b73ee4b38241
                 })
 
         },
         //Enviar los datos a otro componente
         boton(item) {
+            this.id_cat=item.id_categoria;
             EventBus.$emit("guardarsubcategoria", item);
         },
 

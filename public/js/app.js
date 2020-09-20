@@ -2203,6 +2203,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2215,7 +2217,8 @@ __webpack_require__.r(__webpack_exports__);
         Editarid_categoria: "",
         Editarnombre_categoria: ""
       },
-      nombre_categoria: ""
+      nombre_categoria: "" // id_cat:""
+
     };
   },
   created: function created() {
@@ -2248,12 +2251,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     //Llenar formulario de editar categoria
     editarCat: function editarCat(item) {
-      this.editarcat.Editarid_categoria = item.id_categoria;
+      this.editarcat.Editarid_categoria = item.id;
       this.editarcat.Editarnombre_categoria = item.nombre_cat;
       console.log(this.editarcat.Editarid_categoria, this.editarcat.Editarnombre_categoria);
     },
     //Actualizar la categoria
     editarCategoria: function editarCategoria() {
+<<<<<<< HEAD
       //Parametros donde se guardara lo del input
       // const params = {
       //    nombre_categoria : this.editarcat.Editarnombre_categoria
@@ -2265,10 +2269,19 @@ __webpack_require__.r(__webpack_exports__);
         // this.categorias = res.data;
         // });
         console.log(res.data);
+=======
+      axios.put("/categorias/".concat(this.editarcat.Editarid_categoria), this.editarcat).then(function (res) {
+        // const index = this.categorias.findIndex(item => item.id_categoria === res.data.id_categoria)
+        // this.categorias[index] = res.data;
+        console.log(res.data); // axios.get("/categorias").then(res => {
+        // this.categorias = res.data;
+        // });
+>>>>>>> e478e922fb74e005fb7e47f17c39b73ee4b38241
       });
     },
     //Enviar los datos a otro componente
     boton: function boton(item) {
+      this.id_cat = item.id_categoria;
       _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit("guardarsubcategoria", item);
     }
   },
@@ -2530,8 +2543,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
+  created: function created() {},
+  methods: {
+    intentar: function intentar() {
+      axios.get('/items').then(function (res) {
+        console.log(res.data);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -3191,12 +3215,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       id_cat: 0,
-      subcategorias: []
+      subcategorias: [],
+      subcategoria: {
+        id_subcategoria: "",
+        nombre_sub: ""
+      }
     };
   },
   created: function created() {
@@ -3221,6 +3292,16 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    //Envia la informacion del formulario
+    enviarInfoform: function enviarInfoform(item) {
+      this.subcategoria.id_subcategoria = item.id_subcategoria;
+      this.subcategoria.nombre_sub = item.nombre_sub;
+    },
+    editarCategoria: function editarCategoria() {
+      axios.put("/subcategorias/".concat(this.subcategoria.id_subcategoria), this.subcategoria.subcategoria.nombre_sub).then(function (res) {
+        console.log(res.data);
+      });
+    },
     boton: function boton(item) {
       _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit("idsubcategoria", item);
     }
@@ -3813,6 +3894,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+  // props:['id-cat'],
   created: function created() {
     var _this = this;
 
@@ -55828,64 +55910,62 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "card-header border-0" }, [
+      _c("div", { staticClass: "table-responsive" }, [
+        _c("div", [
+          _c("table", { staticClass: "table align-items-center" }, [
+            _c("thead", { staticClass: "thead-light" }, [
+              _c("tr", [
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Categoria")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Subcategoria")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre Item")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Descripción")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Ubicación")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("A cargo")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
+                _vm._v(" "),
+                _c("th", { attrs: { scope: "col" } }, [
+                  _c(
+                    "button",
+                    {
+                      on: {
+                        click: function($event) {
+                          return _vm.intentar()
+                        }
+                      }
+                    },
+                    [_vm._v("Intentar")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-header border-0" }, [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c("div", [
-            _c("table", { staticClass: "table align-items-center" }, [
-              _c("thead", { staticClass: "thead-light" }, [
-                _c("tr", [
-                  _c(
-                    "th",
-                    { staticClass: "text-center", attrs: { colspan: "6" } },
-                    [_vm._v("Categoria")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c(
-                    "th",
-                    { staticClass: "text-center", attrs: { colspan: "6" } },
-                    [_vm._v("Subcategoria")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } }, [
-                    _vm._v("Descripción")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Ubicación")]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } }, [_vm._v("A cargo")]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("tbody", { staticClass: "list" }, [
-                _c("tr", [
-                  _c("th", { attrs: { scope: "row" } }),
-                  _vm._v(" "),
-                  _c("td"),
-                  _vm._v(" "),
-                  _c("td")
-                ])
-              ])
-            ])
-          ])
-        ])
+    return _c("tbody", { staticClass: "list" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "row" } }),
+        _vm._v(" "),
+        _c("td"),
+        _vm._v(" "),
+        _c("td")
       ])
     ])
   }
@@ -57191,7 +57271,25 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-sm-3" }, [
-                      _vm._m(3, true),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-icon btn-primary btn-sm",
+                          attrs: {
+                            type: "button",
+                            "data-toggle": "modal",
+                            "data-target": "#modalEditarSubcategoria",
+                            "data-placement": "bottom",
+                            title: "Editar subcategoria"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.enviarInfoform(item)
+                            }
+                          }
+                        },
+                        [_vm._m(3, true)]
+                      ),
                       _vm._v(" "),
                       _c(
                         "div",
@@ -57237,17 +57335,44 @@ var render = function() {
                                           },
                                           [
                                             _vm._v(
-                                              "Id Subcategoria:\n                                                    "
+                                              "Id\n                                                            Subcategoria:\n                                                        "
                                             )
                                           ]
                                         ),
                                         _vm._v(" "),
                                         _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.subcategoria
+                                                  .id_subcategoria,
+                                              expression:
+                                                "\n                                                                subcategoria.id_subcategoria\n                                                            "
+                                            }
+                                          ],
                                           staticClass: "form-control",
                                           attrs: {
                                             type: "text",
                                             value: "",
-                                            id: "id_categoria"
+                                            id: "id_subcategoria"
+                                          },
+                                          domProps: {
+                                            value:
+                                              _vm.subcategoria.id_subcategoria
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.subcategoria,
+                                                "id_subcategoria",
+                                                $event.target.value
+                                              )
+                                            }
                                           }
                                         }),
                                         _vm._v(" "),
@@ -57259,19 +57384,57 @@ var render = function() {
                                           },
                                           [
                                             _vm._v(
-                                              "Nombre:\n                                                    "
+                                              "Nombre:\n                                                        "
                                             )
                                           ]
                                         ),
                                         _vm._v(" "),
                                         _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value:
+                                                _vm.subcategoria.nombre_sub,
+                                              expression:
+                                                "\n                                                                subcategoria.nombre_sub\n                                                            "
+                                            }
+                                          ],
                                           staticClass: "form-control",
                                           attrs: {
                                             type: "text",
                                             value: "",
-                                            id: "nombre_cat"
+                                            id: "nombre_sub"
+                                          },
+                                          domProps: {
+                                            value: _vm.subcategoria.nombre_sub
+                                          },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.subcategoria,
+                                                "nombre_sub",
+                                                $event.target.value
+                                              )
+                                            }
                                           }
-                                        })
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass: "btn btn-primary",
+                                            attrs: { type: "submit" }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                            Guardar cambios\n                                                        "
+                                            )
+                                          ]
+                                        )
                                       ]
                                     )
                                   ])
@@ -57335,7 +57498,11 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Agregar item")]
+        [
+          _vm._v(
+            "\n                                                    Agregar item\n                                                "
+          )
+        ]
       ),
       _vm._v(" "),
       _c(
@@ -57356,24 +57523,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-icon btn-primary btn-sm",
-        attrs: {
-          type: "button",
-          "data-toggle": "modal",
-          "data-target": "#modalEditarSubcategoria",
-          "data-placement": "bottom",
-          title: "Editar subcategoria"
-        }
-      },
-      [
-        _c("span", { staticClass: "btn-inner--icon" }, [
-          _c("i", { staticClass: "ni ni-settings" })
-        ])
-      ]
-    )
+    return _c("span", { staticClass: "btn-inner--icon" }, [
+      _c("i", { staticClass: "ni ni-settings" })
+    ])
   },
   function() {
     var _vm = this
@@ -57383,7 +57535,11 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Editar subcategoria")]
+        [
+          _vm._v(
+            "\n                                                    Editar subcategoria\n                                                "
+          )
+        ]
       ),
       _vm._v(" "),
       _c(
@@ -71790,8 +71946,8 @@ var bus = new Vue();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.4\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.4\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

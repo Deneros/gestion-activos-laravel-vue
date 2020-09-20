@@ -9,7 +9,11 @@
                         <th scope="col">Id Categoria</th>
                         <th>
                             <form action="/admin/items">
-                                <input type="submit" class="btn btn-primary" value="Ver Items" />
+                                <input
+                                    type="submit"
+                                    class="btn btn-primary"
+                                    value="Ver Items"
+                                />
                             </form>
                         </th>
                         <th></th>
@@ -32,8 +36,10 @@
                                         data-placement="bottom"
                                         title="Agregar item"
                                         @click="boton(item)"
-                                        >
-                                        <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
+                                    >
+                                        <span class="btn-inner--icon"
+                                            ><i class="ni ni-fat-add"></i
+                                        ></span>
                                         <!-- <span class="btn-inner--text"></span> -->
                                     </button>
                                     <!-- Modal boton agregar item-->
@@ -45,29 +51,37 @@
                                         aria-labelledby="exampleModalLabel"
                                         aria-hidden="true"
                                     >
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div
+                                            class="modal-dialog modal-dialog-centered"
+                                            role="document"
+                                        >
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Agregar item</h5>
-                                                        <button
-                                                            type="button"
-                                                            class="close"
-                                                            data-dismiss="modal"
-                                                            aria-label="Close"
-                                                            
+                                                    <h5
+                                                        class="modal-title"
+                                                        id="exampleModalLabel"
+                                                    >
+                                                        Agregar item
+                                                    </h5>
+                                                    <button
+                                                        type="button"
+                                                        class="close"
+                                                        data-dismiss="modal"
+                                                        aria-label="Close"
+                                                    >
+                                                        <span aria-hidden="true"
+                                                            >&times;</span
                                                         >
-                                                        <span aria-hidden="true">&times;</span>
-                                                        </button>
+                                                    </button>
                                                 </div>
-                                            <div class="modal-body">
-                                                <items></items>
-                                            </div>
+                                                <div class="modal-body">
+                                                    <items></items>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            
-                        
+
                                 <div class="col-sm-3">
                                     <!-- Button editar subcategoria -->
                                     <button
@@ -77,8 +91,11 @@
                                         data-target="#modalEditarSubcategoria"
                                         data-placement="bottom"
                                         title="Editar subcategoria"
-                                        >
-                                        <span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
+                                        @click="enviarInfoform(item)"
+                                    >
+                                        <span class="btn-inner--icon"
+                                            ><i class="ni ni-settings"></i
+                                        ></span>
                                         <!-- <span class="btn-inner--text"></span> -->
                                     </button>
                                     <!-- Modal boton editar subcategoria-->
@@ -90,48 +107,74 @@
                                         aria-labelledby="exampleModalLabel"
                                         aria-hidden="true"
                                     >
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div
+                                            class="modal-dialog modal-dialog-centered"
+                                            role="document"
+                                        >
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Editar subcategoria</h5>
-                                                        <button
-                                                            type="button"
-                                                            class="close"
-                                                            data-dismiss="modal"
-                                                            aria-label="Close"
-                                                            
+                                                    <h5
+                                                        class="modal-title"
+                                                        id="exampleModalLabel"
+                                                    >
+                                                        Editar subcategoria
+                                                    </h5>
+                                                    <button
+                                                        type="button"
+                                                        class="close"
+                                                        data-dismiss="modal"
+                                                        aria-label="Close"
+                                                    >
+                                                        <span aria-hidden="true"
+                                                            >&times;</span
                                                         >
-                                                        <span aria-hidden="true">&times;</span>
-                                                        </button>
+                                                    </button>
                                                 </div>
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <form @submit.prevent="editarCategoria()">
-                                                        <label
-                                                            for="example-text-input"
-                                                            class="form-control-label"
-                                                        >Id Subcategoria:
-                                                        </label>
-                                                        <input
-                                                            class="form-control"
-                                                            type="text"
-                                                            value=""
-                                                            id="id_categoria"
-                                                        />
-                                                        <label
-                                                            for="example-text-input"
-                                                            class="form-control-label"
-                                                        >Nombre:
-                                                        </label>
-                                                        <input
-                                                            class="form-control"
-                                                            type="text"
-                                                            value=""
-                                                            id="nombre_cat"
-                                                        />
-                                                    </form>
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <form
+                                                            @submit.prevent="
+                                                                editarCategoria()
+                                                            "
+                                                        >
+                                                            <label
+                                                                for="example-text-input"
+                                                                class="form-control-label"
+                                                                >Id
+                                                                Subcategoria:
+                                                            </label>
+                                                            <input
+                                                                class="form-control"
+                                                                type="text"
+                                                                value=""
+                                                                id="id_subcategoria"
+                                                                v-model="
+                                                                    subcategoria.id_subcategoria
+                                                                "
+                                                            />
+                                                            <label
+                                                                for="example-text-input"
+                                                                class="form-control-label"
+                                                                >Nombre:
+                                                            </label>
+                                                            <input
+                                                                class="form-control"
+                                                                type="text"
+                                                                value=""
+                                                                id="nombre_sub"
+                                                                v-model="
+                                                                    subcategoria.nombre_sub
+                                                                "
+                                                            />
+                                                            <button
+                                                                type="submit"
+                                                                class="btn btn-primary"
+                                                            >
+                                                                Guardar cambios
+                                                            </button>
+                                                        </form>
+                                                    </div>
                                                 </div>
-                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -151,7 +194,8 @@ export default {
     data() {
         return {
             id_cat: 0,
-            subcategorias: []
+            subcategorias: [],
+            subcategoria: { id_subcategoria: "", nombre_sub: "" }
         };
     },
     created() {
@@ -170,6 +214,16 @@ export default {
         });
     },
     methods: {
+        //Envia la informacion del formulario
+        enviarInfoform(item) {
+            this.subcategoria.id_subcategoria = item.id_subcategoria;
+            this.subcategoria.nombre_sub = item.nombre_sub;
+        },
+        editarCategoria() {
+            axios.put(`/subcategorias/${this.subcategoria.id_subcategoria}`,this.subcategoria.subcategoria.nombre_sub).then(res => {
+                console.log(res.data)
+            });
+        },
         boton(item) {
             EventBus.$emit("idsubcategoria", item);
         }

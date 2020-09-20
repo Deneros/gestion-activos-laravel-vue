@@ -16,9 +16,9 @@ class CreateItemsHistorialsTable extends Migration
         Schema::create('items_historial', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_item');
-            $table->foreign('id_item')->references('id_item')->on('items');
+            $table->foreign('id_item')->references('id')->on('items');
             $table->unsignedBigInteger('id_historial');
-            $table->foreign('id_historial')->references('id_historial')->on('historiales');
+            $table->foreign('id_historial')->references('id')->on('historiales');
             $table->timestamps();
         });
     }

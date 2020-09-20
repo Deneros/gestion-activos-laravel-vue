@@ -26,6 +26,8 @@ Route::resource('/subcategorias', 'subcategoriaController');
 //Rutas Items
 Route::resource('/items', 'itemController');
 
+// Route::get('/items/inventario','itemController@inventarioTotal');
+
 
 //Retornar vistas 
 Route::get('/admin/usuarios', 'usuarioController@vista')->name('vista');

@@ -92,7 +92,7 @@ export default {
     },
      created() {
         EventBus.$on("idsubcategoria", data => {
-            this.item.subcategoria = data.id_subcategoria;   
+            this.item.subcategoria = data.id;   
         });
         axios.get("/usuarios").then(res => {
             this.usuarios = res.data;

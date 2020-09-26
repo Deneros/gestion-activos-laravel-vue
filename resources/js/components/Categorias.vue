@@ -335,7 +335,6 @@ export default {
         editarCat(item) {
             this.editarcat.Editarid_categoria=item.id;
             this.editarcat.Editarnombre_categoria=item.nombre_cat;
-            console.log(this.editarcat.Editarid_categoria, this.editarcat.Editarnombre_categoria)
         },
         //Actualizar la categoria
         editarCategoria(){
@@ -352,7 +351,7 @@ export default {
         },
         //Enviar los datos a otro componente
         boton(item) {
-            this.id_cat=item.id_categoria;
+            this.id_cat=item.id;
             EventBus.$emit("guardarsubcategoria", item);
         },
 

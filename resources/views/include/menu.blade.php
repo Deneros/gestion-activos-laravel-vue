@@ -64,7 +64,7 @@
 
             <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
-              <a class="nav-link" href="examples/tables.html">
+              <a class="nav-link" href="{{ route('vistapersonalizacion') }}">
                 <i class="ni ni-settings-gear-65"></i>
                 <span class="nav-link-text">Personalizar</span>
               </a>

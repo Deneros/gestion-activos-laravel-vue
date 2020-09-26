@@ -27,6 +27,9 @@ class usuarioController extends Controller
     }
 
 
+    public function vistapersonalizacion(){
+        return view('personalizar');
+    }
 
     public function index(Request $request)
     {

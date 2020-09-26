@@ -23,6 +23,7 @@
                 <listadoUsuario></listadoUsuario>
             </div>
             <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
+                <h1 class="heading-md text-muted mb-2">Registrar usuario</h1>
                 <registrarUsuario></registrarUsuario>
             </div>
         </div>

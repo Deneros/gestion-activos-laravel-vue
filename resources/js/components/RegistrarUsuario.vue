@@ -3,14 +3,15 @@
 <template>
     <div>
         <form @submit.prevent="agregar">
-            <div class="form-group row">
+        <div class="pl-lg-4">
+            <div class="row">
+                <div class="form-group col-md-4">
                 <label
                     for="tipo_usuario"
-                    class="col-md-4 col-form-label text-md-right"
+                    class="form-control-label"
                     >Tipo Usuario</label
                 >
 
-                <div class="col-md-6">
                     <select
                         class="form-control"
                         id="tipo_usuario"
@@ -24,16 +25,16 @@
                         <option>Usuario</option>
                     </select>
                 </div>
-            </div>
+            
 
-            <div class="form-group row">
+            <div class="form-group col-md-4">
                 <label
                     for="Tipo_Identificacion"
-                    class="col-md-4 col-form-label text-md-right"
+                    class="form-control-label"
                     >Tipo Identificacion</label
                 >
 
-                <div class="col-md-6">
+                <div class="">
                     <select
                         class="form-control"
                         id="tipo_identificacion"
@@ -50,14 +51,14 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group col-md-4">
                 <label
                     for="No_Identificacion"
-                    class="col-md-4 col-form-label text-md-right"
+                    class="form-control-label"
                     >Numero identificacion</label
                 >
 
-                <div class="col-md-6">
+                <div class="">
                     <input
                         id="no_identificacion"
                         type="text"
@@ -68,14 +69,17 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6">
                 <label
                     for="nombre"
-                    class="col-md-4 col-form-label text-md-right"
+                    class="form-control-label"
                     >Nombres</label
                 >
 
-                <div class="col-md-6">
+                <div class="">
                     <input
                         id="nombre"
                         type="text"
@@ -86,14 +90,14 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group col-md-6">
                 <label
                     for="apellido"
-                    class="col-md-4 col-form-label text-md-right"
+                    class="form-control-label"
                     >Apellidos</label
                 >
 
-                <div class="col-md-6">
+                <div class="">
                     <input
                         id="apellido"
                         type="text"
@@ -104,12 +108,16 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <label for="cargo" class="col-md-4 col-form-label text-md-right"
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                <label for="cargo" 
+                class="form-control-label"
                     >Cargo</label
                 >
 
-                <div class="col-md-6">
+                <div class="">
                     <input
                         id="cargo"
                         type="text"
@@ -120,14 +128,14 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group col-md-4">
                 <label
                     for="Telefono"
-                    class="col-md-4 col-form-label text-md-right"
+                    class="form-control-label"
                     >Telefono</label
                 >
 
-                <div class="col-md-6">
+                <div class="">
                     <input
                         id="telefono"
                         type="text"
@@ -138,12 +146,13 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <label for="email" class="col-md-4 col-form-label text-md-right"
+            <div class="form-group col-md-4">
+                <label for="email" 
+                class="form-control-label"
                     >E-Mail</label
                 >
 
-                <div class="col-md-6">
+                <div class="">
                     <input
                         id="email"
                         type="email"
@@ -154,14 +163,17 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            </div>
+
+            <div class="row">
+            <div class="form-group col-md-6">
                 <label
                     for="password"
-                    class="col-md-4 col-form-label text-md-right"
+                    class="form-control-label"
                     >Contraseña</label
                 >
 
-                <div class="col-md-6">
+                <div class="">
                     <input
                         id="password"
                         type="password"
@@ -172,14 +184,14 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group col-md-6">
                 <label
                     for="Confirmar_Contrasena"
-                    class="col-md-4 col-form-label text-md-right"
+                    class="form-control-label"
                     >Confirmar Contraseña</label
                 >
 
-                <div class="col-md-6">
+                <div class="">
                     <input
                         id="Confirmar_Contrasena"
                         type="password"
@@ -190,14 +202,16 @@
                 </div>
             </div>
 
+            </div>
+
             <div class="form-group row mb-0">
-                <div class="col-md-6 offset-md-4">
+                <div class="col-md-6 offset-md-5">
                     <button type="submit" class="btn btn-primary" >
-                        Registrar
-                        
+                        Registrar 
                     </button>
                 </div>
             </div>
+        </div>
         </form>
       </div>  
 </template>

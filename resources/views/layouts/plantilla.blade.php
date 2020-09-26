@@ -81,10 +81,13 @@
   
   <script src="{{asset('assets/vendor/chart.js/dist/Chart.min.js')}}"></script>
   <script src="{{asset('assets/vendor/chart.js/dist/Chart.extension.js')}}"></script>
+  <script src="/assets/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
   <!-- Argon JS -->
   <script src="/assets/js/argon.js?v=1.2.0"></script>
   <!-- Toast -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
 </body>
 
 </html>

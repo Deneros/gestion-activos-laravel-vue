@@ -13,7 +13,7 @@ class SubcategoriaController extends Controller
      */
     public function index()
     {
-        $subcategoria = \DB::table('subcategorias')->select('id_subcategoria','nombre_sub','id_categoria')->get();
+        $subcategoria = \DB::table('subcategorias')->select('id','nombre_sub','id_categoria')->get();
         return $subcategoria;
     }
 
@@ -52,7 +52,7 @@ class SubcategoriaController extends Controller
      */
     public function show($id)
     {
-        $subcategoria = \DB::table('subcategorias')->select('id_subcategoria','nombre_sub','id_categoria')->where('id_categoria','=',$id)->get();
+        $subcategoria = \DB::table('subcategorias')->select('id','nombre_sub','id_categoria')->where('id_categoria','=',$id)->get();
         return $subcategoria;
     }
 
@@ -76,10 +76,9 @@ class SubcategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $subcategoria = Subcategoria::find($id);
         $subcategoria->nombre_sub = $request->nombre_sub;
-        $subcategoria->id_categoria = $request->id_categoria;
+        // $subcategoria->id_categoria = $request->id_categoria;
         $subcategoria->save();
         
         return $subcategoria;

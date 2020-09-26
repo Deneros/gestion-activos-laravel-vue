@@ -2253,7 +2253,6 @@ __webpack_require__.r(__webpack_exports__);
     editarCat: function editarCat(item) {
       this.editarcat.Editarid_categoria = item.id;
       this.editarcat.Editarnombre_categoria = item.nombre_cat;
-      console.log(this.editarcat.Editarid_categoria, this.editarcat.Editarnombre_categoria);
     },
     //Actualizar la categoria
     editarCategoria: function editarCategoria() {
@@ -2268,7 +2267,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     //Enviar los datos a otro componente
     boton: function boton(item) {
-      this.id_cat = item.id_categoria;
+      this.id_cat = item.id;
       _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit("guardarsubcategoria", item);
     }
   },
@@ -2731,7 +2730,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$on("idsubcategoria", function (data) {
-      _this.item.subcategoria = data.id_subcategoria;
+      _this.item.subcategoria = data.id;
     });
     axios.get("/usuarios").then(function (res) {
       _this.usuarios = res.data;
@@ -3341,7 +3340,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$on("guardarsubcategoria", function (data) {
-      _this.id_cat = data.id_categoria;
+      _this.id_cat = data.id;
     });
   },
   mounted: function mounted() {
@@ -3361,11 +3360,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     //Envia la informacion del formulario
     enviarInfoform: function enviarInfoform(item) {
-      this.subcategoria.id_subcategoria = item.id_subcategoria;
+      this.subcategoria.id_subcategoria = item.id;
       this.subcategoria.nombre_sub = item.nombre_sub;
     },
     editarCategoria: function editarCategoria() {
-      axios.put("/subcategorias/".concat(this.subcategoria.id_subcategoria), this.subcategoria.subcategoria.nombre_sub).then(function (res) {
+      axios.put("/subcategorias/".concat(this.subcategoria.id_subcategoria), this.subcategoria).then(function (res) {
         console.log(res.data);
       });
     },
@@ -4048,7 +4047,7 @@ __webpack_require__.r(__webpack_exports__);
       subcategorias: [],
       subcategoria: {
         nombre_sub: '',
-        id_categoria: ''
+        id: ''
       }
     };
   },
@@ -4058,6 +4057,7 @@ __webpack_require__.r(__webpack_exports__);
 
     //Trae los datos de categoria para el Id_categoria
     _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$on("guardarsubcategoria", function (data) {
+      console.log(data);
       _this.subcategoria = data;
     });
   },
@@ -4072,7 +4072,7 @@ __webpack_require__.r(__webpack_exports__);
         //Guardar datos de los campos
         var params = {
           nombre_sub: this.subcategoria.nombre_sub,
-          id_categoria: this.subcategoria.id_categoria
+          id_categoria: this.subcategoria.id
         }; //Limpiar campos
 
         this.subcategoria.nombre_sub = ""; //Envio de los datos a traves de Axios
@@ -57482,7 +57482,7 @@ var render = function() {
             "tbody",
             _vm._l(_vm.subcategorias, function(item, index) {
               return _c("tr", { key: index }, [
-                _c("td", [_vm._v(_vm._s(item.id_subcategoria))]),
+                _c("td", [_vm._v(_vm._s(item.id))]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(item.nombre_sub))]),
                 _vm._v(" "),
@@ -59208,28 +59208,24 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.subcategoria.id_categoria,
-                  expression: "subcategoria.id_categoria"
+                  value: _vm.subcategoria.id,
+                  expression: "subcategoria.id"
                 }
               ],
               staticClass: "form-control",
               attrs: {
-                type: "hidden",
+                type: "text",
                 value: "Nombre Subcategoria",
                 id: "id_categoria",
                 name: "id_categoria"
               },
-              domProps: { value: _vm.subcategoria.id_categoria },
+              domProps: { value: _vm.subcategoria.id },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(
-                    _vm.subcategoria,
-                    "id_categoria",
-                    $event.target.value
-                  )
+                  _vm.$set(_vm.subcategoria, "id", $event.target.value)
                 }
               }
             })

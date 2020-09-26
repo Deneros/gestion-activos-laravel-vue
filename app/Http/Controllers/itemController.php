@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Item;
+use App\Historial;
+use App\ItemsHistorial;
+use App\UsuariosHistorial;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class itemController extends Controller
 {
@@ -24,14 +29,19 @@ class itemController extends Controller
     public function index()
     {
 
-        // $items = \DB::table('items')->select('id_item','nombre_item', 'serial', 'descripcion_item', 'estado', 'ubicacion', 'A_cargo', 'id_subcategoria')->get();
+        // $items = \DB::table('items')->select('id','nombre_item', 'serial', 'descripcion_item', 'estado', 'ubicacion', 'A_cargo', 'id_subcategoria')->get();
         // return $items;
-        $inventario = DB::table('items')
-            ->join ('subcategorias','items.id_subcategoria','=','subcategorias.id_subcategoria')
-            ->join ('catagorias', 'subcategorias.id_categoria','=','categorias.id_categoria')
-            ->select('items.*','subcategorias.id_subcategoria','subcategorias.nombre_sub','categorias.id_categoria','categorias.nombre_cat')
-            ->get();
-        return $inventario;  
+        // $inventario = DB::table('items')
+        //     ->join ('subcategorias','subcategorias.id','=','items.id_subcategoria')
+        //     ->select('items.*','subcategorias.nombre_sub')
+        //     ->get();
+        // return $inventario;  
+
+        $data = Item::select('items.id','items.nombre_item', 'subcategorias.id')
+        ->leftjoin('subcategorias', 'items.id_subcategorias', '=', 'subcategorias.id')
+        ->get();
+
+        return $data;
 
     }
 
@@ -66,7 +76,16 @@ class itemController extends Controller
         $item->A_cargo = $request->usuarioCargo;
         $item->id_subcategoria = $request->subcategoria;
         $item->save();
+        
 
+        $historial = new Historial();
+        $historial -> fecha_inscripcion = Carbon::now();
+        $historial -> fecha_traspaso = null;
+        $historial -> save();
+
+        $usuariosh =  new UsuariosHistorial();
+        $usuariosh -> id_usuario = User::where("id","=",)->get();
+        
         return $item;
     }
 
@@ -78,7 +97,12 @@ class itemController extends Controller
      */
     public function show($id)
     {
-        //
+        // $inventario = DB::table('items')
+        //     ->join ('subcategorias','items.id_subcategoria','=','subcategorias.id_subcategoria')
+        //     ->join ('catagorias', 'subcategorias.id_categoria','=','categorias.id_categoria')
+        //     ->select('items.*','subcategorias.id_subcategoria','subcategorias.nombre_sub','categorias.id_categoria','categorias.nombre_cat')
+        //     ->get();
+        // return $inventario; 
     }
 
     /**

@@ -21,7 +21,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(item, index) in subcategorias" :key="index">
-                        <td>{{ item.id_subcategoria }}</td>
+                        <td>{{ item.id }}</td>
                         <td>{{ item.nombre_sub }}</td>
                         <td>{{ item.id_categoria }}</td>
                         <td>
@@ -200,7 +200,7 @@ export default {
     },
     created() {
         EventBus.$on("guardarsubcategoria", data => {
-            this.id_cat = data.id_categoria;
+            this.id_cat = data.id;
         });
     },
     mounted() {
@@ -216,11 +216,11 @@ export default {
     methods: {
         //Envia la informacion del formulario
         enviarInfoform(item) {
-            this.subcategoria.id_subcategoria = item.id_subcategoria;
+            this.subcategoria.id_subcategoria = item.id;
             this.subcategoria.nombre_sub = item.nombre_sub;
         },
         editarCategoria() {
-            axios.put(`/subcategorias/${this.subcategoria.id_subcategoria}`,this.subcategoria.subcategoria.nombre_sub).then(res => {
+            axios.put(`/subcategorias/${this.subcategoria.id_subcategoria}`,this.subcategoria).then(res => {
                 console.log(res.data)
             });
         },

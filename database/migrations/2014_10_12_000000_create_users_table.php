@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('tipo_identificacion');
             $table->string('no_identificacion');
             $table->string('nombre');
-            $table->string('apellido');
             $table->string('cargo');
             $table->string('telefono');
             $table->string('email')->unique();

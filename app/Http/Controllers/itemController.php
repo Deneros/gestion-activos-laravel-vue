@@ -37,11 +37,13 @@ class itemController extends Controller
         //     ->get();
         // return $inventario;  
 
-        $data = Item::select('items.id','items.nombre_item', 'subcategorias.id')
-        ->leftjoin('subcategorias', 'items.id_subcategorias', '=', 'subcategorias.id')
-        ->get();
 
-        return $data;
+
+        // $data = Item::select('items.id','items.nombre_item', 'subcategorias.id')
+        // ->leftjoin('subcategorias', 'items.id_subcategorias', '=', 'subcategorias.id')
+        // ->get();
+
+        // return $data;
 
     }
 
@@ -67,6 +69,9 @@ class itemController extends Controller
      */
     public function store(Request $request)
     {
+        $date = Carbon::now();
+        
+
         $item = new Item();
         $item->nombre_item = $request->nombre_item;
         $item->serial = $request->serial;
@@ -79,9 +84,11 @@ class itemController extends Controller
         
 
         $historial = new Historial();
-        $historial -> fecha_inscripcion = Carbon::now();
+        $historial -> fecha_inscripcion = $date->format('y-m-d');
         $historial -> fecha_traspaso = null;
         $historial -> save();
+
+        $a_cargo = DB::select('SELECT id FROM users WHERE nombre');
 
         $usuariosh =  new UsuariosHistorial();
         $usuariosh -> id_usuario = User::where("id","=",)->get();

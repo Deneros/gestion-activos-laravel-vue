@@ -45,6 +45,7 @@
     --white: #fff;
     --neutral: #fff;
     --darker: black;
+    --azul: #024c94; 
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
@@ -8778,6 +8779,19 @@ button.bg-primary:hover,
 button.bg-primary:focus
 {
     background-color: #324cdd !important;
+}
+
+.bg-azul
+{
+    background-color: #024c94 !important;
+}
+
+a.bg-azul:hover,
+a.bg-azul:focus,
+button.bg-azul:hover,
+button.bg-azul:focus
+{
+    background-color: #025894 !important;
 }
 
 .bg-secondary
@@ -22856,7 +22870,7 @@ textarea[resize='horizontal']
 }
 .nav-link:hover
 {
-    color: #5e72e4;
+    color: #11cdef;
 }
 .nav-link i.ni
 {
@@ -22878,7 +22892,7 @@ textarea[resize='horizontal']
 
     transition: all .15s ease; 
 
-    color: #5e72e4;
+    color: #11cdef;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
 }
@@ -22891,7 +22905,7 @@ textarea[resize='horizontal']
 .nav-pills .show > .nav-link
 {
     color: #fff;
-    background-color: #5e72e4;
+    background-color: #11cdef;
 }
 
 @media (max-width: 575.98px)

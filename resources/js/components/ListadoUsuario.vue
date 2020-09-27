@@ -51,7 +51,7 @@
                                     <div class="row">
                                         <div class="col-md-5">
                                             <button
-                                                class="btn btn-icon btn-primary"
+                                                class="btn btn-icon btn-info"
                                                 type="button"
                                                 data-toggle="modal"
                                                 data-target="#modal-default"

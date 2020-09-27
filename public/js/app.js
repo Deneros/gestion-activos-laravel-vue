@@ -3553,21 +3553,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3609,6 +3594,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -3735,22 +3723,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -55134,7 +55106,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-primary",
+                          staticClass: "btn btn-info",
                           attrs: { type: "submit" }
                         },
                         [
@@ -55182,7 +55154,7 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "btn btn-icon btn-primary btn-sm rounded-circle",
+                        "btn btn-icon btn-info btn-sm rounded-circle",
                       attrs: {
                         type: "button",
                         "data-toggle": "modal",
@@ -55203,7 +55175,7 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "btn btn-icon btn-primary btn-sm rounded-circle",
+                        "btn btn-icon btn-info btn-sm rounded-circle",
                       attrs: {
                         type: "button",
                         "data-toggle": "modal",
@@ -55224,7 +55196,7 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "btn btn-icon btn-primary btn-sm rounded-circle",
+                        "btn btn-icon btn-info btn-sm rounded-circle",
                       attrs: {
                         type: "button",
                         "data-toggle": "modal",
@@ -55360,7 +55332,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-primary",
+                          staticClass: "btn btn-info",
                           attrs: { type: "submit" }
                         },
                         [
@@ -55458,7 +55430,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-icon btn-primary",
+          staticClass: "btn btn-icon btn-info",
           attrs: {
             type: "button",
             "data-toggle": "modal",
@@ -56039,7 +56011,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+          { staticClass: "btn btn-info", attrs: { type: "submit" } },
           [_vm._v("\n            Guardar cambios\n        ")]
         )
       ])
@@ -56123,7 +56095,7 @@ var staticRenderFns = [
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-icon btn-primary btn-sm",
+                  staticClass: "btn btn-icon btn-info btn-sm",
                   attrs: { type: "button", title: "Buscar" }
                 },
                 [
@@ -56566,7 +56538,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+          { staticClass: "btn btn-info", attrs: { type: "submit" } },
           [_vm._v("Guardar")]
         )
       ]
@@ -56624,7 +56596,7 @@ var render = function() {
                         _c(
                           "button",
                           {
-                            staticClass: "btn btn-icon btn-primary btn-sm",
+                            staticClass: "btn btn-icon btn-info btn-sm",
                             attrs: {
                               type: "button",
                               "data-toggle": "modal",
@@ -57134,7 +57106,7 @@ var render = function() {
                                       _c(
                                         "button",
                                         {
-                                          staticClass: "btn btn-primary",
+                                          staticClass: "btn btn-info",
                                           attrs: { type: "submit" }
                                         },
                                         [_vm._v("Guardar")]
@@ -57278,7 +57250,7 @@ var render = function() {
                           _c(
                             "button",
                             {
-                              staticClass: "btn btn-icon btn-primary",
+                              staticClass: "btn btn-icon btn-info",
                               attrs: {
                                 type: "button",
                                 "data-toggle": "modal",
@@ -57494,7 +57466,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-icon btn-primary btn-sm",
+                          staticClass: "btn btn-icon btn-info btn-sm",
                           attrs: {
                             type: "button",
                             "data-toggle": "modal",
@@ -57551,7 +57523,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-icon btn-primary btn-sm",
+                          staticClass: "btn btn-icon btn-info btn-sm",
                           attrs: {
                             type: "button",
                             "data-toggle": "modal",
@@ -57703,7 +57675,7 @@ var render = function() {
                                         _c(
                                           "button",
                                           {
-                                            staticClass: "btn btn-primary",
+                                            staticClass: "btn btn-info",
                                             attrs: { type: "submit" }
                                           },
                                           [
@@ -57749,7 +57721,7 @@ var staticRenderFns = [
         _c("th", [
           _c("form", { attrs: { action: "/admin/items" } }, [
             _c("input", {
-              staticClass: "btn btn-primary",
+              staticClass: "btn btn-info",
               attrs: { type: "submit", value: "Ver Items" }
             })
           ])
@@ -58063,7 +58035,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-lg-6" }, [
+                    _c("div", { staticClass: "col-lg-12" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c(
                           "label",
@@ -58071,7 +58043,7 @@ var render = function() {
                             staticClass: "form-control-label",
                             attrs: { for: "nombre" }
                           },
-                          [_vm._v("Nombre")]
+                          [_vm._v("Nombre Completo")]
                         ),
                         _vm._v(" "),
                         _c("input", {
@@ -58099,50 +58071,6 @@ var render = function() {
                               _vm.$set(
                                 _vm.usuario,
                                 "nombre",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-6" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-control-label",
-                            attrs: { for: "apellido" }
-                          },
-                          [_vm._v("Apellido")]
-                        ),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.usuario.apellido,
-                              expression: "usuario.apellido"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            id: "apellido",
-                            name: "apellido",
-                            placeholder: "apellido"
-                          },
-                          domProps: { value: _vm.usuario.apellido },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.usuario,
-                                "apellido",
                                 $event.target.value
                               )
                             }
@@ -58287,10 +58215,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "submit" }
-                    },
+                    { staticClass: "btn btn-info", attrs: { type: "submit" } },
                     [
                       _vm._v(
                         "\r\n                Guardar cambios\r\n            "
@@ -58390,7 +58315,20 @@ var staticRenderFns = [
                     staticClass: "form-control-file",
                     attrs: { type: "file", id: "exampleFormControlFile1" }
                   })
-                ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-icon btn-info btn-sm",
+                    attrs: { type: "button", title: "Guardar" }
+                  },
+                  [
+                    _vm._v(
+                      "Guardar cambios\n                                        "
+                    )
+                  ]
+                )
               ])
             ])
           ])
@@ -58492,24 +58430,24 @@ var staticRenderFns = [
                       })
                     ])
                   ]
-                ),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-icon btn-primary btn-sm",
-                      attrs: { type: "button", title: "Guardar" }
-                    },
-                    [
-                      _vm._v(
-                        "Guardar cambios\n                                        "
-                      )
-                    ]
-                  )
-                ])
+                )
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-icon btn-info btn-sm",
+                    attrs: { type: "button", title: "Guardar" }
+                  },
+                  [
+                    _vm._v(
+                      "Guardar cambios\n                                        "
+                    )
+                  ]
+                )
               ])
             ])
           ])
@@ -58625,7 +58563,7 @@ var staticRenderFns = [
             _c(
               "a",
               {
-                staticClass: "nav-link mb-sm-3 mb-md-0",
+                staticClass: "nav-link mb-sm-3 mb-md-0 ",
                 attrs: {
                   id: "tabs-icons-text-2-tab",
                   "data-toggle": "tab",
@@ -58865,7 +58803,7 @@ var render = function() {
               _c(
                 "label",
                 { staticClass: "form-control-label", attrs: { for: "nombre" } },
-                [_vm._v("Nombres")]
+                [_vm._v("Nombre completo")]
               ),
               _vm._v(" "),
               _c("div", {}, [
@@ -58893,43 +58831,6 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group col-md-6" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "form-control-label",
-                  attrs: { for: "apellido" }
-                },
-                [_vm._v("Apellidos")]
-              ),
-              _vm._v(" "),
-              _c("div", {}, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.usuario.apellido,
-                      expression: "usuario.apellido"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { id: "apellido", type: "text", name: "apellido" },
-                  domProps: { value: _vm.usuario.apellido },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.usuario, "apellido", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "form-group col-md-4" }, [
               _c(
                 "label",
@@ -58960,9 +58861,11 @@ var render = function() {
                   }
                 })
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group col-md-4" }, [
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "form-group col-md-6" }, [
               _c(
                 "label",
                 {
@@ -58997,7 +58900,7 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group col-md-4" }, [
+            _c("div", { staticClass: "form-group col-md-6" }, [
               _c(
                 "label",
                 { staticClass: "form-control-label", attrs: { for: "email" } },
@@ -59125,7 +59028,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-md-6 offset-md-5" }, [
         _c(
           "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+          { staticClass: "btn btn-info", attrs: { type: "submit" } },
           [_vm._v("\n                    Registrar \n                ")]
         )
       ])
@@ -59233,7 +59136,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "button",
-            { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+            { staticClass: "btn btn-info", attrs: { type: "submit" } },
             [_vm._v("Guardar")]
           )
         ]

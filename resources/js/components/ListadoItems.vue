@@ -29,7 +29,7 @@
                                             <!-- Button editar items -->
                                             <button
                                                 type="button"
-                                                class="btn btn-icon btn-primary btn-sm"
+                                                class="btn btn-icon btn-info btn-sm"
                                                 data-toggle="modal"
                                                 data-target="#modalEditarrItem"
                                                 data-placement="bottom"
@@ -127,7 +127,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                                                    <button type="submit" class="btn btn-info">Guardar</button>
                                                             </form>
                                                         </div>
                                                     </div>

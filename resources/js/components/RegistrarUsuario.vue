@@ -76,7 +76,7 @@
                 <label
                     for="nombre"
                     class="form-control-label"
-                    >Nombres</label
+                    >Nombre completo</label
                 >
 
                 <div class="">
@@ -90,28 +90,8 @@
                 </div>
             </div>
 
-            <div class="form-group col-md-6">
-                <label
-                    for="apellido"
-                    class="form-control-label"
-                    >Apellidos</label
-                >
-
-                <div class="">
-                    <input
-                        id="apellido"
-                        type="text"
-                        name="apellido"
-                        v-model="usuario.apellido"
-                        class="form-control"
-                    />
-                </div>
-            </div>
-
-            </div>
-
-            <div class="row">
-                <div class="form-group col-md-4">
+            
+            <div class="form-group col-md-4">
                 <label for="cargo" 
                 class="form-control-label"
                     >Cargo</label
@@ -128,7 +108,11 @@
                 </div>
             </div>
 
-            <div class="form-group col-md-4">
+
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6">
                 <label
                     for="Telefono"
                     class="form-control-label"
@@ -146,7 +130,7 @@
                 </div>
             </div>
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label for="email" 
                 class="form-control-label"
                     >E-Mail</label
@@ -206,7 +190,7 @@
 
             <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-5">
-                    <button type="submit" class="btn btn-primary" >
+                    <button type="submit" class="btn btn-info" >
                         Registrar 
                     </button>
                 </div>

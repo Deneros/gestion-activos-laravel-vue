@@ -7,7 +7,7 @@
                 <input class="form-control" type="text" value="Nombre Subcategoria" id="nombre_sub" name="nombre_sub" v-model="subcategoria.nombre_sub">
                 <input class="form-control" type="text" value="Nombre Subcategoria"  id="id_categoria" name="id_categoria" v-model="subcategoria.id" >
             </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-info">Guardar</button>
         </form>
     </div>             
 </div>   

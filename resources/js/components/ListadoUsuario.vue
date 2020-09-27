@@ -7,7 +7,7 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="mb-0">Usuarios</h3>
+                            <h1 class="heading-md text-muted mb-2">Usuarios</h1>
                         </div>
                         <div class="col">
                             <h3 class="mb-0"></h3>
@@ -51,7 +51,7 @@
                                     <div class="row">
                                         <div class="col-md-5">
                                             <button
-                                                class="btn btn-icon btn-primary"
+                                                class="btn btn-icon btn-info"
                                                 type="button"
                                                 data-toggle="modal"
                                                 data-target="#modal-default"

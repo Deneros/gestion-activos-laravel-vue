@@ -33,7 +33,7 @@
         <!-- Brand -->
         <div class="sidenav-header  align-items-center">
           <a class="navbar-brand" href="javascript:void(0)">
-            <img src="{{asset('assets/img/brand/blue.png')}}" class="navbar-brand-img" alt="logo" width = "80px" height= "200px" />
+            <img src="{{asset('assets/img/brand/blue.png')}}" class="navbar-brand-img" alt="logo" width = "90px" height= "200px" />
           </a>
         </div>
         <div class="navbar-inner">
@@ -45,7 +45,7 @@
     <!-- Main content -->
     <div class="main-content" id="panel">
       <!-- Topnav -->
-      <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+      <nav class="navbar navbar-top navbar-expand navbar-dark bg-azul border-bottom">
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Search form -->
@@ -81,10 +81,13 @@
   
   <script src="{{asset('assets/vendor/chart.js/dist/Chart.min.js')}}"></script>
   <script src="{{asset('assets/vendor/chart.js/dist/Chart.extension.js')}}"></script>
+  <script src="/assets/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
   <!-- Argon JS -->
   <script src="/assets/js/argon.js?v=1.2.0"></script>
   <!-- Toast -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
 </body>
 
 </html>

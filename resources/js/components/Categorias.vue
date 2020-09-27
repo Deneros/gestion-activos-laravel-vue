@@ -7,7 +7,7 @@
                         <!-- Button crear categoria -->
                         <button
                             type="button"
-                            class="btn btn-icon btn-primary"
+                            class="btn btn-icon btn-info"
                             data-toggle="modal"
                             data-target="#exampleModal"
                         >
@@ -88,7 +88,7 @@
                                         v-model="categoria.nombre_cat"
                                     />
                                 </div>
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-info">
                                     Guardar
                                 </button>
                             </form>
@@ -119,7 +119,7 @@
                             }}</span>
                             <p class="mt-3 mb-0 text-sm">
                                 <button
-                                    class="btn btn-icon btn-primary btn-sm rounded-circle"
+                                    class="btn btn-icon btn-info btn-sm rounded-circle"
                                     type="button"
                                     data-toggle="modal"
                                     data-target="#modal-editar"
@@ -132,7 +132,7 @@
                                     ></span>
                                 </button>
                                 <button
-                                    class="btn btn-icon btn-primary btn-sm rounded-circle"
+                                    class="btn btn-icon btn-info btn-sm rounded-circle"
                                     type="button"
                                     data-toggle="modal"
                                     data-target="#modal-agregar-subcategoria"
@@ -146,7 +146,7 @@
                                     ></span>
                                 </button>
                                 <button
-                                    class="btn btn-icon btn-primary btn-sm rounded-circle"
+                                    class="btn btn-icon btn-info btn-sm rounded-circle"
                                     type="button"
                                     data-toggle="modal"
                                     data-target="#modal-listar-subcategoria"
@@ -216,7 +216,7 @@
                                     id="nombre_cat"
                                      v-model="editarcat.Editarnombre_categoria"
                                 />
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-info">
                                     Guardar cambios
                                 </button>
                             </form>
@@ -342,10 +342,11 @@ export default {
                 .then(res=>{
                     // const index = this.categorias.findIndex(item => item.id_categoria === res.data.id_categoria)
                     // this.categorias[index] = res.data;
-                    console.log(res.data);
+
                     // axios.get("/categorias").then(res => {
                     // this.categorias = res.data;
                     // });
+                    console.log(res.data);
                 })
 
         },

@@ -36,6 +36,8 @@ Route::get('/categoria/categorias','categoriaController@vistacategoria')->name('
 Route::get('/inventario/items','itemController@vistaInventarioTotal')->name('vistainventariototal');
 Route::get('/historial','historialController@vistahistorial')->name('vistahistorial');
 Route::get('/admin/items','itemController@vistaitems')->name('vistaitems');
+Route::get('/admin/personalizar','usuarioController@vistapersonalizacion')->name('vistapersonalizacion');
+
 
 
 

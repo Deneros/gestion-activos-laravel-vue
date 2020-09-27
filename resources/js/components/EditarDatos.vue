@@ -144,7 +144,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-info">
+            <button type="submit" class="btn btn-azul">
                 Guardar cambios
             </button>
         </div>

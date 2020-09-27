@@ -11,7 +11,7 @@
                                     <label for="exampleFormControlFile1" class="heading-lg text-muted mb-3">Seleccione una imagen para el logo</label>
                                     <input type="file" class="form-control-file" id="exampleFormControlFile1">
                                 </div>
-                                <button class="btn btn-icon btn-info btn-sm" type="button" title="Guardar">Guardar cambios
+                                <button class="btn btn-icon btn-azul btn-sm" type="button" title="Guardar">Guardar cambios
                                             <!-- <span class="btn-inner--icon"><i class="fas fa-search"></i></span> -->
                                 </button>
                             </form>
@@ -51,7 +51,7 @@
 
                                     <br>
                                     <div class="form-group row">
-                                        <button class="btn btn-icon btn-info btn-sm" type="button" title="Guardar">Guardar cambios
+                                        <button class="btn btn-icon btn-azul btn-sm" type="button" title="Guardar">Guardar cambios
                                             <!-- <span class="btn-inner--icon"><i class="fas fa-search"></i></span> -->
                                         </button>
                                     </div>

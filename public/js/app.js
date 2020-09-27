@@ -2205,6 +2205,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -55106,7 +55108,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-info",
+                          staticClass: "btn btn-azul",
                           attrs: { type: "submit" }
                         },
                         [
@@ -55154,7 +55156,7 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "btn btn-icon btn-info btn-sm rounded-circle",
+                        "btn btn-icon btn-azul btn-sm rounded-circle",
                       attrs: {
                         type: "button",
                         "data-toggle": "modal",
@@ -55175,7 +55177,7 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "btn btn-icon btn-info btn-sm rounded-circle",
+                        "btn btn-icon btn-azul btn-sm rounded-circle",
                       attrs: {
                         type: "button",
                         "data-toggle": "modal",
@@ -55196,7 +55198,7 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "btn btn-icon btn-info btn-sm rounded-circle",
+                        "btn btn-icon btn-azul btn-sm rounded-circle",
                       attrs: {
                         type: "button",
                         "data-toggle": "modal",
@@ -55257,82 +55259,92 @@ var render = function() {
                       }
                     },
                     [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "form-control-label",
-                          attrs: { for: "example-text-input" }
-                        },
-                        [_vm._v("Id Categoria:\n                            ")]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.editarcat.Editarid_categoria,
-                            expression: "editarcat.Editarid_categoria"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", value: "", id: "id_categoria" },
-                        domProps: { value: _vm.editarcat.Editarid_categoria },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.editarcat,
-                              "Editarid_categoria",
-                              $event.target.value
+                            staticClass: "form-control-label",
+                            attrs: { for: "example-text-input" }
+                          },
+                          [
+                            _vm._v(
+                              "Id Categoria:\n                            "
                             )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editarcat.Editarid_categoria,
+                              expression: "editarcat.Editarid_categoria"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            value: "",
+                            id: "id_categoria"
+                          },
+                          domProps: { value: _vm.editarcat.Editarid_categoria },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.editarcat,
+                                "Editarid_categoria",
+                                $event.target.value
+                              )
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "form-control-label",
-                          attrs: { for: "example-text-input" }
-                        },
-                        [_vm._v("Nombre:\n                            ")]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.editarcat.Editarnombre_categoria,
-                            expression: "editarcat.Editarnombre_categoria"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", value: "", id: "nombre_cat" },
-                        domProps: {
-                          value: _vm.editarcat.Editarnombre_categoria
-                        },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                            staticClass: "form-control-label",
+                            attrs: { for: "example-text-input" }
+                          },
+                          [_vm._v("Nombre:\n                            ")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editarcat.Editarnombre_categoria,
+                              expression: "editarcat.Editarnombre_categoria"
                             }
-                            _vm.$set(
-                              _vm.editarcat,
-                              "Editarnombre_categoria",
-                              $event.target.value
-                            )
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", value: "", id: "nombre_cat" },
+                          domProps: {
+                            value: _vm.editarcat.Editarnombre_categoria
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.editarcat,
+                                "Editarnombre_categoria",
+                                $event.target.value
+                              )
+                            }
                           }
-                        }
-                      }),
+                        })
+                      ]),
                       _vm._v(" "),
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-info",
+                          staticClass: "btn btn-azul",
                           attrs: { type: "submit" }
                         },
                         [
@@ -55430,7 +55442,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-icon btn-info",
+          staticClass: "btn btn-icon btn-azul",
           attrs: {
             type: "button",
             "data-toggle": "modal",
@@ -56011,7 +56023,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "button",
-          { staticClass: "btn btn-info", attrs: { type: "submit" } },
+          { staticClass: "btn btn-azul", attrs: { type: "submit" } },
           [_vm._v("\n            Guardar cambios\n        ")]
         )
       ])
@@ -56095,7 +56107,7 @@ var staticRenderFns = [
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-icon btn-info btn-sm",
+                  staticClass: "btn btn-icon btn-azul btn-sm",
                   attrs: { type: "button", title: "Buscar" }
                 },
                 [
@@ -56538,7 +56550,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "button",
-          { staticClass: "btn btn-info", attrs: { type: "submit" } },
+          { staticClass: "btn btn-azul", attrs: { type: "submit" } },
           [_vm._v("Guardar")]
         )
       ]
@@ -56596,7 +56608,7 @@ var render = function() {
                         _c(
                           "button",
                           {
-                            staticClass: "btn btn-icon btn-info btn-sm",
+                            staticClass: "btn btn-icon btn-azul btn-sm",
                             attrs: {
                               type: "button",
                               "data-toggle": "modal",
@@ -57106,7 +57118,7 @@ var render = function() {
                                       _c(
                                         "button",
                                         {
-                                          staticClass: "btn btn-info",
+                                          staticClass: "btn btn-azul",
                                           attrs: { type: "submit" }
                                         },
                                         [_vm._v("Guardar")]
@@ -57250,7 +57262,7 @@ var render = function() {
                           _c(
                             "button",
                             {
-                              staticClass: "btn btn-icon btn-info",
+                              staticClass: "btn btn-icon btn-azul",
                               attrs: {
                                 type: "button",
                                 "data-toggle": "modal",
@@ -57466,7 +57478,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-icon btn-info btn-sm",
+                          staticClass: "btn btn-icon btn-azul btn-sm",
                           attrs: {
                             type: "button",
                             "data-toggle": "modal",
@@ -57523,7 +57535,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-icon btn-info btn-sm",
+                          staticClass: "btn btn-icon btn-azul btn-sm",
                           attrs: {
                             type: "button",
                             "data-toggle": "modal",
@@ -57675,7 +57687,7 @@ var render = function() {
                                         _c(
                                           "button",
                                           {
-                                            staticClass: "btn btn-info",
+                                            staticClass: "btn btn-azul",
                                             attrs: { type: "submit" }
                                           },
                                           [
@@ -57721,7 +57733,7 @@ var staticRenderFns = [
         _c("th", [
           _c("form", { attrs: { action: "/admin/items" } }, [
             _c("input", {
-              staticClass: "btn btn-info",
+              staticClass: "btn btn-azul",
               attrs: { type: "submit", value: "Ver Items" }
             })
           ])
@@ -58215,7 +58227,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "button",
-                    { staticClass: "btn btn-info", attrs: { type: "submit" } },
+                    { staticClass: "btn btn-azul", attrs: { type: "submit" } },
                     [
                       _vm._v(
                         "\r\n                Guardar cambios\r\n            "
@@ -58320,7 +58332,7 @@ var staticRenderFns = [
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-icon btn-info btn-sm",
+                    staticClass: "btn btn-icon btn-azul btn-sm",
                     attrs: { type: "button", title: "Guardar" }
                   },
                   [
@@ -58439,7 +58451,7 @@ var staticRenderFns = [
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-icon btn-info btn-sm",
+                    staticClass: "btn btn-icon btn-azul btn-sm",
                     attrs: { type: "button", title: "Guardar" }
                   },
                   [
@@ -59028,7 +59040,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-md-6 offset-md-5" }, [
         _c(
           "button",
-          { staticClass: "btn btn-info", attrs: { type: "submit" } },
+          { staticClass: "btn btn-azul", attrs: { type: "submit" } },
           [_vm._v("\n                    Registrar \n                ")]
         )
       ])
@@ -59136,7 +59148,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "button",
-            { staticClass: "btn btn-info", attrs: { type: "submit" } },
+            { staticClass: "btn btn-azul", attrs: { type: "submit" } },
             [_vm._v("Guardar")]
           )
         ]

@@ -190,7 +190,7 @@
 
             <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-5">
-                    <button type="submit" class="btn btn-info" >
+                    <button type="submit" class="btn btn-azul" >
                         Registrar 
                     </button>
                 </div>

@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="form-group col-md-3">
-                        <button class="btn btn-icon btn-info btn-sm" type="button" title="Buscar">Buscar
+                        <button class="btn btn-icon btn-azul btn-sm" type="button" title="Buscar">Buscar
                             <span class="btn-inner--icon"><i class="fas fa-search"></i></span>
                         </button>
                     </div>

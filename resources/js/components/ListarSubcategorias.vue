@@ -11,7 +11,7 @@
                             <form action="/admin/items">
                                 <input
                                     type="submit"
-                                    class="btn btn-info"
+                                    class="btn btn-azul"
                                     value="Ver Items"
                                 />
                             </form>
@@ -30,7 +30,7 @@
                                     <!-- Button agregar items -->
                                     <button
                                         type="button"
-                                        class="btn btn-icon btn-info btn-sm"
+                                        class="btn btn-icon btn-azul btn-sm"
                                         data-toggle="modal"
                                         data-target="#modalAgregarItem"
                                         data-placement="bottom"
@@ -86,7 +86,7 @@
                                     <!-- Button editar subcategoria -->
                                     <button
                                         type="button"
-                                        class="btn btn-icon btn-info btn-sm"
+                                        class="btn btn-icon btn-azul btn-sm"
                                         data-toggle="modal"
                                         data-target="#modalEditarSubcategoria"
                                         data-placement="bottom"
@@ -168,7 +168,7 @@
                                                             />
                                                             <button
                                                                 type="submit"
-                                                                class="btn btn-info"
+                                                                class="btn btn-azul"
                                                             >
                                                                 Guardar cambios
                                                             </button>

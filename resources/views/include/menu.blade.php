@@ -53,7 +53,22 @@
               </a>
             </li>
             </ul>
+
+            <!-- Divider -->
+            <hr class="my-3">
+            <!-- Heading -->
+            <h6 class="navbar-heading p-0 text-Default">
+              <span class="docs-normal">REPORTES</span>
+            </h6>
             
+            <ul class="navbar-nav mb-md-3">
+            <li class="nav-item">
+              <a class="nav-link {{ (request()->is('reportes*')) ? 'active' : '' }}" href="{{ route('vistareportes') }}">
+                <i class="ni ni-chart-bar-32 text-Default"></i>
+                <span class="nav-link-text">Generar reporte</span>
+              </a>
+            </li>
+            </ul>
 
             <!-- Divider -->
             <hr class="my-3">

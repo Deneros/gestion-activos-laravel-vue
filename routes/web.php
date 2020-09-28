@@ -37,8 +37,10 @@ Route::get('/inventario/items','itemController@vistaInventarioTotal')->name('vis
 Route::get('/historial','historialController@vistahistorial')->name('vistahistorial');
 Route::get('/admin/items','itemController@vistaitems')->name('vistaitems');
 Route::get('/admin/personalizar','usuarioController@vistapersonalizacion')->name('vistapersonalizacion');
-
-
+// Route::get('/reportes','reportesController@vistareportes')->name('vistareportes');
+Route::get('/reportes', function(){
+return view('reportes');
+})->name('vistareportes');
 
 
 

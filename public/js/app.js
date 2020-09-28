@@ -2205,6 +2205,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3096,6 +3098,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
@@ -3103,6 +3106,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+=======
+>>>>>>> 97312a8e4f1b4ae711dca0d94fd5fc5089d580a4
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3563,6 +3568,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3683,6 +3689,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -55113,7 +55120,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-info",
+                          staticClass: "btn btn-azul",
                           attrs: { type: "submit" }
                         },
                         [
@@ -55161,7 +55168,7 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "btn btn-icon btn-info btn-sm rounded-circle",
+                        "btn btn-icon btn-azul btn-sm rounded-circle",
                       attrs: {
                         type: "button",
                         "data-toggle": "modal",
@@ -55182,7 +55189,7 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "btn btn-icon btn-info btn-sm rounded-circle",
+                        "btn btn-icon btn-azul btn-sm rounded-circle",
                       attrs: {
                         type: "button",
                         "data-toggle": "modal",
@@ -55203,7 +55210,7 @@ var render = function() {
                     "button",
                     {
                       staticClass:
-                        "btn btn-icon btn-info btn-sm rounded-circle",
+                        "btn btn-icon btn-azul btn-sm rounded-circle",
                       attrs: {
                         type: "button",
                         "data-toggle": "modal",
@@ -55264,82 +55271,92 @@ var render = function() {
                       }
                     },
                     [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "form-control-label",
-                          attrs: { for: "example-text-input" }
-                        },
-                        [_vm._v("Id Categoria:\n                            ")]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.editarcat.Editarid_categoria,
-                            expression: "editarcat.Editarid_categoria"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", value: "", id: "id_categoria" },
-                        domProps: { value: _vm.editarcat.Editarid_categoria },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.editarcat,
-                              "Editarid_categoria",
-                              $event.target.value
+                            staticClass: "form-control-label",
+                            attrs: { for: "example-text-input" }
+                          },
+                          [
+                            _vm._v(
+                              "Id Categoria:\n                            "
                             )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editarcat.Editarid_categoria,
+                              expression: "editarcat.Editarid_categoria"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            value: "",
+                            id: "id_categoria"
+                          },
+                          domProps: { value: _vm.editarcat.Editarid_categoria },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.editarcat,
+                                "Editarid_categoria",
+                                $event.target.value
+                              )
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "form-control-label",
-                          attrs: { for: "example-text-input" }
-                        },
-                        [_vm._v("Nombre:\n                            ")]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.editarcat.Editarnombre_categoria,
-                            expression: "editarcat.Editarnombre_categoria"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", value: "", id: "nombre_cat" },
-                        domProps: {
-                          value: _vm.editarcat.Editarnombre_categoria
-                        },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                            staticClass: "form-control-label",
+                            attrs: { for: "example-text-input" }
+                          },
+                          [_vm._v("Nombre:\n                            ")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editarcat.Editarnombre_categoria,
+                              expression: "editarcat.Editarnombre_categoria"
                             }
-                            _vm.$set(
-                              _vm.editarcat,
-                              "Editarnombre_categoria",
-                              $event.target.value
-                            )
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "text", value: "", id: "nombre_cat" },
+                          domProps: {
+                            value: _vm.editarcat.Editarnombre_categoria
+                          },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.editarcat,
+                                "Editarnombre_categoria",
+                                $event.target.value
+                              )
+                            }
                           }
-                        }
-                      }),
+                        })
+                      ]),
                       _vm._v(" "),
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-info",
+                          staticClass: "btn btn-azul",
                           attrs: { type: "submit" }
                         },
                         [
@@ -55437,7 +55454,7 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-icon btn-info",
+          staticClass: "btn btn-icon btn-azul",
           attrs: {
             type: "button",
             "data-toggle": "modal",
@@ -55978,7 +55995,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "button",
-          { staticClass: "btn btn-info", attrs: { type: "submit" } },
+          { staticClass: "btn btn-azul", attrs: { type: "submit" } },
           [_vm._v("\n            Guardar cambios\n        ")]
         )
       ])
@@ -56062,7 +56079,7 @@ var staticRenderFns = [
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-icon btn-info btn-sm",
+                  staticClass: "btn btn-icon btn-azul btn-sm",
                   attrs: { type: "button", title: "Buscar" }
                 },
                 [
@@ -56503,7 +56520,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "button",
-          { staticClass: "btn btn-info", attrs: { type: "submit" } },
+          { staticClass: "btn btn-azul", attrs: { type: "submit" } },
           [_vm._v("Guardar")]
         )
       ]
@@ -56561,7 +56578,7 @@ var render = function() {
                         _c(
                           "button",
                           {
-                            staticClass: "btn btn-icon btn-info btn-sm",
+                            staticClass: "btn btn-icon btn-azul btn-sm",
                             attrs: {
                               type: "button",
                               "data-toggle": "modal",
@@ -57125,8 +57142,22 @@ var render = function() {
                                           },
                                           [_vm._v("Guardar")]
                                         )
+<<<<<<< HEAD
                                       ]
                                     )
+=======
+                                      ]),
+                                      _vm._v(" "),
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-azul",
+                                          attrs: { type: "submit" }
+                                        },
+                                        [_vm._v("Guardar")]
+                                      )
+                                    ])
+>>>>>>> 97312a8e4f1b4ae711dca0d94fd5fc5089d580a4
                                   ])
                                 ])
                               ]
@@ -57263,7 +57294,7 @@ var render = function() {
                           _c(
                             "button",
                             {
-                              staticClass: "btn btn-icon btn-info",
+                              staticClass: "btn btn-icon btn-azul",
                               attrs: {
                                 type: "button",
                                 "data-toggle": "modal",
@@ -57335,15 +57366,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header border-0" }, [
-      _c("div", { staticClass: "row align-items-center" }, [
-        _c("div", { staticClass: "col" }, [
-          _c("h1", { staticClass: "heading-md text-muted mb-2" }, [
-            _vm._v("Usuarios")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }, [_c("h3", { staticClass: "mb-0" })])
-      ])
+      _c("h1", { staticClass: "heading-md text-center mb-2" }, [
+        _vm._v("Usuarios")
+      ]),
+      _vm._v(" "),
+      _c("hr", { staticClass: "my-4 bg-azul" })
     ])
   },
   function() {
@@ -57477,7 +57504,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-icon btn-info btn-sm",
+                          staticClass: "btn btn-icon btn-azul btn-sm",
                           attrs: {
                             type: "button",
                             "data-toggle": "modal",
@@ -57534,7 +57561,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-icon btn-info btn-sm",
+                          staticClass: "btn btn-icon btn-azul btn-sm",
                           attrs: {
                             type: "button",
                             "data-toggle": "modal",
@@ -57686,7 +57713,7 @@ var render = function() {
                                         _c(
                                           "button",
                                           {
-                                            staticClass: "btn btn-info",
+                                            staticClass: "btn btn-azul",
                                             attrs: { type: "submit" }
                                           },
                                           [
@@ -57732,7 +57759,7 @@ var staticRenderFns = [
         _c("th", [
           _c("form", { attrs: { action: "/admin/items" } }, [
             _c("input", {
-              staticClass: "btn btn-info",
+              staticClass: "btn btn-azul",
               attrs: { type: "submit", value: "Ver Items" }
             })
           ])
@@ -57854,9 +57881,11 @@ var render = function() {
                 }
               },
               [
-                _c("h1", { staticClass: "heading-md text-muted mb-2" }, [
+                _c("h1", { staticClass: "heading-md text-center mb-2" }, [
                   _vm._v("Informacion de Usuario")
                 ]),
+                _vm._v(" "),
+                _c("hr", { staticClass: "my-4 bg-azul" }),
                 _vm._v(" "),
                 _c("div", { staticClass: "pl-lg-4" }, [
                   _c("div", { staticClass: "row" }, [
@@ -58226,7 +58255,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "button",
-                    { staticClass: "btn btn-info", attrs: { type: "submit" } },
+                    { staticClass: "btn btn-azul", attrs: { type: "submit" } },
                     [
                       _vm._v(
                         "\r\n                Guardar cambios\r\n            "
@@ -58257,7 +58286,7 @@ var staticRenderFns = [
               _c(
                 "label",
                 {
-                  staticClass: "heading-lg text-muted mb-3",
+                  staticClass: "form-control-label d-block mb-3",
                   attrs: { for: "exampleFormControlFile1" }
                 },
                 [_vm._v("Seleccione una imagen para el perfil")]
@@ -58306,7 +58335,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-sm-6" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header border-0" }, [
-            _c("h2", { staticClass: "heading-md text-muted mb-2" }, [
+            _c("h2", { staticClass: "heading-md text-center mb-2" }, [
               _vm._v("Personalización del logo")
             ]),
             _vm._v(" "),
@@ -58316,7 +58345,7 @@ var staticRenderFns = [
                   _c(
                     "label",
                     {
-                      staticClass: "heading-lg text-muted mb-3",
+                      staticClass: "form-control-label d-block mb-3",
                       attrs: { for: "exampleFormControlFile1" }
                     },
                     [_vm._v("Seleccione una imagen para el logo")]
@@ -58331,7 +58360,7 @@ var staticRenderFns = [
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-icon btn-info btn-sm",
+                    staticClass: "btn btn-icon btn-azul btn-sm",
                     attrs: { type: "button", title: "Guardar" }
                   },
                   [
@@ -58349,7 +58378,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-sm-6" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header border-0" }, [
-            _c("h2", { staticClass: "heading-md text-muted mb-2" }, [
+            _c("h2", { staticClass: "heading-md text-center mb-2" }, [
               _vm._v("Personalización del color")
             ]),
             _vm._v(" "),
@@ -58450,7 +58479,7 @@ var staticRenderFns = [
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-icon btn-info btn-sm",
+                    staticClass: "btn btn-icon btn-azul btn-sm",
                     attrs: { type: "button", title: "Guardar" }
                   },
                   [
@@ -58522,9 +58551,11 @@ var render = function() {
                 }
               },
               [
-                _c("h1", { staticClass: "heading-md text-muted mb-2" }, [
+                _c("h1", { staticClass: "heading-md text-center mb-2" }, [
                   _vm._v("Registrar usuario")
                 ]),
+                _vm._v(" "),
+                _c("hr", { staticClass: "my-4 bg-azul" }),
                 _vm._v(" "),
                 _c("registrarUsuario")
               ],
@@ -59039,7 +59070,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-md-6 offset-md-5" }, [
         _c(
           "button",
-          { staticClass: "btn btn-info", attrs: { type: "submit" } },
+          { staticClass: "btn btn-azul", attrs: { type: "submit" } },
           [_vm._v("\n                    Registrar \n                ")]
         )
       ])
@@ -59147,7 +59178,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "button",
-            { staticClass: "btn btn-info", attrs: { type: "submit" } },
+            { staticClass: "btn btn-azul", attrs: { type: "submit" } },
             [_vm._v("Guardar")]
           )
         ]

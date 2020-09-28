@@ -3469,6 +3469,8 @@ fieldset:disabled a.btn
     box-shadow: none, 0 0 0 0 rgba(45, 206, 137, .5);
 }
 
+
+
 .btn-info
 {
     color: #fff;
@@ -3508,6 +3510,50 @@ fieldset:disabled a.btn
 {
     box-shadow: none, 0 0 0 0 rgba(17, 205, 239, .5);
 }
+
+/* Nuevo color  */
+
+.btn-azul
+{
+    color: #fff;
+    border-color: #024c94;
+    background-color: #024c94;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+}
+.btn-azul:hover
+{
+    color: #fff;
+    border-color: #024c94; 
+    background-color: #024c94;
+}
+.btn-azul:focus,
+.btn-azul.focus
+{
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08), 0 0 0 0 rgba(2,64,148, 0.8);
+}
+.btn-azul.disabled,
+.btn-azul:disabled
+{
+    color: #fff;
+    border-color: #024c94; 
+    background-color: #024c94;
+}
+.btn-azul:not(:disabled):not(.disabled):active,
+.btn-azil:not(:disabled):not(.disabled).active,
+.show > .btn-azul.dropdown-toggle
+{
+    color: #fff;
+    border-color: #024c94; 
+    background-color: #024094;
+}
+.btn-azul:not(:disabled):not(.disabled):active:focus,
+.btn-azul:not(:disabled):not(.disabled).active:focus,
+.show > .btn-azul.dropdown-toggle:focus
+{
+    box-shadow: none, 0 0 0 0 rgba(2,64,148, 0.8);
+}
+
+/* Fin color */
 
 .btn-warning
 {
@@ -21411,7 +21457,7 @@ textarea[resize='horizontal']
 .navbar-vertical .navbar-brand > img
 {
     max-width: 100%;
-    max-height: 2rem;
+    max-height: 4rem;
 }
 @media (min-width: 768px)
 {
@@ -22866,11 +22912,11 @@ textarea[resize='horizontal']
 
 .nav-link
 {
-    color: #525f7f;
+    color: #024c94;
 }
 .nav-link:hover
 {
-    color: #11cdef;
+    color: #024c94;
 }
 .nav-link i.ni
 {
@@ -22892,20 +22938,20 @@ textarea[resize='horizontal']
 
     transition: all .15s ease; 
 
-    color: #11cdef;
+    color: #024c94;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
 }
 .nav-pills .nav-link:hover
 {
-    color: #485fe0;
+    color: #024c94;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link
 {
     color: #fff;
-    background-color: #11cdef;
+    background-color: #024c94;
 }
 
 @media (max-width: 575.98px)

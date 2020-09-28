@@ -5,17 +5,8 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header border-0">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <h1 class="heading-md text-muted mb-2">Usuarios</h1>
-                        </div>
-                        <div class="col">
-                            <h3 class="mb-0"></h3>
-                        </div>
-                        <!-- <div class="col text-right">
-            <a href="" class="btn btn-sm btn-primary">Nuevo usuario</a>
-          </div> -->
-                    </div>
+                    <h1 class="heading-md text-center mb-2">Usuarios</h1>
+                    <hr class="my-4 bg-azul">
                 </div>
                 <div class="table-responsive">
                     <!-- Projects table -->
@@ -49,7 +40,7 @@
                                     <div class="row">
                                         <div class="col-md-5">
                                             <button
-                                                class="btn btn-icon btn-info"
+                                                class="btn btn-icon btn-azul"
                                                 type="button"
                                                 data-toggle="modal"
                                                 data-target="#modal-default"

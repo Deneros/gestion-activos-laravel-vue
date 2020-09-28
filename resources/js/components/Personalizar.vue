@@ -4,14 +4,14 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-header border-0">
-                    <h2 class="heading-md text-muted mb-2">Personalización del logo</h2>
+                    <h2 class="heading-md text-center mb-2">Personalización del logo</h2>
                         <div class="pl-lg-4">
                             <form>
                                 <div class="form-group">
-                                    <label for="exampleFormControlFile1" class="heading-lg text-muted mb-3">Seleccione una imagen para el logo</label>
+                                    <label for="exampleFormControlFile1" class="form-control-label d-block mb-3">Seleccione una imagen para el logo</label>
                                     <input type="file" class="form-control-file" id="exampleFormControlFile1">
                                 </div>
-                                <button class="btn btn-icon btn-info btn-sm" type="button" title="Guardar">Guardar cambios
+                                <button class="btn btn-icon btn-azul btn-sm" type="button" title="Guardar">Guardar cambios
                                             <!-- <span class="btn-inner--icon"><i class="fas fa-search"></i></span> -->
                                 </button>
                             </form>
@@ -23,7 +23,7 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-header border-0">
-                    <h2 class="heading-md text-muted mb-2">Personalización del color</h2>
+                    <h2 class="heading-md text-center mb-2">Personalización del color</h2>
                         <div class="pl-lg-4">
                             <div class="form-group mb-0">
                                 <label class="form-control-label d-block mb-3">Escoge el color</label>
@@ -51,7 +51,7 @@
 
                                     <br>
                                     <div class="form-group row">
-                                        <button class="btn btn-icon btn-info btn-sm" type="button" title="Guardar">Guardar cambios
+                                        <button class="btn btn-icon btn-azul btn-sm" type="button" title="Guardar">Guardar cambios
                                             <!-- <span class="btn-inner--icon"><i class="fas fa-search"></i></span> -->
                                         </button>
                                     </div>

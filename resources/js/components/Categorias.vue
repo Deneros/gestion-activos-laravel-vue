@@ -7,7 +7,7 @@
                         <!-- Button crear categoria -->
                         <button
                             type="button"
-                            class="btn btn-icon btn-info"
+                            class="btn btn-icon btn-azul"
                             data-toggle="modal"
                             data-target="#exampleModal"
                         >
@@ -88,7 +88,7 @@
                                         v-model="categoria.nombre_cat"
                                     />
                                 </div>
-                                <button type="submit" class="btn btn-info">
+                                <button type="submit" class="btn btn-azul">
                                     Guardar
                                 </button>
                             </form>
@@ -119,7 +119,7 @@
                             }}</span>
                             <p class="mt-3 mb-0 text-sm">
                                 <button
-                                    class="btn btn-icon btn-info btn-sm rounded-circle"
+                                    class="btn btn-icon btn-azul btn-sm rounded-circle"
                                     type="button"
                                     data-toggle="modal"
                                     data-target="#modal-editar"
@@ -132,7 +132,7 @@
                                     ></span>
                                 </button>
                                 <button
-                                    class="btn btn-icon btn-info btn-sm rounded-circle"
+                                    class="btn btn-icon btn-azul btn-sm rounded-circle"
                                     type="button"
                                     data-toggle="modal"
                                     data-target="#modal-agregar-subcategoria"
@@ -146,7 +146,7 @@
                                     ></span>
                                 </button>
                                 <button
-                                    class="btn btn-icon btn-info btn-sm rounded-circle"
+                                    class="btn btn-icon btn-azul btn-sm rounded-circle"
                                     type="button"
                                     data-toggle="modal"
                                     data-target="#modal-listar-subcategoria"
@@ -192,6 +192,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <form @submit.prevent="editarCategoria()">
+                                <div class="form-group">
                                 <label
                                     for="example-text-input"
                                     class="form-control-label"
@@ -216,7 +217,8 @@
                                     id="nombre_cat"
                                      v-model="editarcat.Editarnombre_categoria"
                                 />
-                                <button type="submit" class="btn btn-info">
+                                </div>
+                                <button type="submit" class="btn btn-azul">
                                     Guardar cambios
                                 </button>
                             </form>

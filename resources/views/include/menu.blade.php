@@ -2,7 +2,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('vistaeditar') }}">
+              <a class="nav-link {{ (request()->is('usuario*')) ? 'active' : '' }}" href="{{ route('vistaeditar') }}">
                 <i class="ni ni-circle-08 text-Default"></i>
                 <span class="nav-link-text">Mi cuenta</span>
               </a>
@@ -17,7 +17,7 @@
 
             <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('vista') }}">
+              <a class="nav-link {{ (request()->is('admin/usuarios*')) ? 'active' : '' }}" href="{{ route('vista') }}">
                 <i class="ni ni-badge text-Default"></i>
                 <span class="nav-link-text">Usuarios</span>
               </a>
@@ -33,21 +33,21 @@
 
             <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('vistacategoria') }}">
+              <a class="nav-link {{ (request()->is('categoria*')) ? 'active' : '' }}" href="{{ route('vistacategoria') }}">
                 <i class="ni ni-bullet-list-67 text-Default"></i>
                 <span class="nav-link-text">Categorias</span>
               </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('vistainventariototal') }}">
+              <a class="nav-link {{ (request()->is('inventario*')) ? 'active' : '' }}" href="{{ route('vistainventariototal') }}">
                 <i class="ni ni-archive-2 text-Default"></i>
                 <span class="nav-link-text">Inventario total</span>
               </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('vistahistorial') }}">
+              <a class="nav-link {{ (request()->is('historial*')) ? 'active' : '' }}" href="{{ route('vistahistorial') }}">
                 <i class="ni ni-folder-17 text-Default"></i>
                 <span class="nav-link-text">Historial</span>
               </a>
@@ -64,7 +64,7 @@
 
             <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('vistapersonalizacion') }}">
+              <a class="nav-link {{ (request()->is('admin/personalizar*')) ? 'active' : '' }}" href="{{ route('vistapersonalizacion') }}">
                 <i class="ni ni-settings-gear-65 text-Default"></i>
                 <span class="nav-link-text">Personalizar</span>
               </a>

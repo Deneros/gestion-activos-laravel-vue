@@ -3086,15 +3086,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3555,6 +3546,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3675,6 +3667,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -57334,15 +57327,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header border-0" }, [
-      _c("div", { staticClass: "row align-items-center" }, [
-        _c("div", { staticClass: "col" }, [
-          _c("h1", { staticClass: "heading-md text-muted mb-2" }, [
-            _vm._v("Usuarios")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col" }, [_c("h3", { staticClass: "mb-0" })])
-      ])
+      _c("h1", { staticClass: "heading-md text-center mb-2" }, [
+        _vm._v("Usuarios")
+      ]),
+      _vm._v(" "),
+      _c("hr", { staticClass: "my-4 bg-azul" })
     ])
   },
   function() {
@@ -57855,9 +57844,11 @@ var render = function() {
                 }
               },
               [
-                _c("h1", { staticClass: "heading-md text-muted mb-2" }, [
+                _c("h1", { staticClass: "heading-md text-center mb-2" }, [
                   _vm._v("Informacion de Usuario")
                 ]),
+                _vm._v(" "),
+                _c("hr", { staticClass: "my-4 bg-azul" }),
                 _vm._v(" "),
                 _c("div", { staticClass: "pl-lg-4" }, [
                   _c("div", { staticClass: "row" }, [
@@ -58258,7 +58249,7 @@ var staticRenderFns = [
               _c(
                 "label",
                 {
-                  staticClass: "heading-lg text-muted mb-3",
+                  staticClass: "form-control-label d-block mb-3",
                   attrs: { for: "exampleFormControlFile1" }
                 },
                 [_vm._v("Seleccione una imagen para el perfil")]
@@ -58307,7 +58298,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-sm-6" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header border-0" }, [
-            _c("h2", { staticClass: "heading-md text-muted mb-2" }, [
+            _c("h2", { staticClass: "heading-md text-center mb-2" }, [
               _vm._v("Personalización del logo")
             ]),
             _vm._v(" "),
@@ -58317,7 +58308,7 @@ var staticRenderFns = [
                   _c(
                     "label",
                     {
-                      staticClass: "heading-lg text-muted mb-3",
+                      staticClass: "form-control-label d-block mb-3",
                       attrs: { for: "exampleFormControlFile1" }
                     },
                     [_vm._v("Seleccione una imagen para el logo")]
@@ -58350,7 +58341,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-sm-6" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header border-0" }, [
-            _c("h2", { staticClass: "heading-md text-muted mb-2" }, [
+            _c("h2", { staticClass: "heading-md text-center mb-2" }, [
               _vm._v("Personalización del color")
             ]),
             _vm._v(" "),
@@ -58523,9 +58514,11 @@ var render = function() {
                 }
               },
               [
-                _c("h1", { staticClass: "heading-md text-muted mb-2" }, [
+                _c("h1", { staticClass: "heading-md text-center mb-2" }, [
                   _vm._v("Registrar usuario")
                 ]),
+                _vm._v(" "),
+                _c("hr", { staticClass: "my-4 bg-azul" }),
                 _vm._v(" "),
                 _c("registrarUsuario")
               ],

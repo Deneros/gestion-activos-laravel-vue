@@ -9,7 +9,8 @@
 
 <div class="container">
     <form @submit.prevent="editarFormulario()">
-        <h1 class="heading-md text-muted mb-2">Informacion de Usuario</h1>
+        <h1 class="heading-md text-center mb-2">Informacion de Usuario</h1>
+        <hr class="my-4 bg-azul">
         <div class="pl-lg-4">
             <div class="row">
                 <div class="col-md-12">
@@ -155,7 +156,7 @@
             <div class="card-header border-0">
                 <form>
                     <div class="form-group">
-                        <label for="exampleFormControlFile1" class="heading-lg text-muted mb-3">Seleccione una imagen para el perfil</label>
+                        <label for="exampleFormControlFile1" class="form-control-label d-block mb-3">Seleccione una imagen para el perfil</label>
                         <input type="file" class="form-control-file" id="exampleFormControlFile1">
                     </div>
                 </form>

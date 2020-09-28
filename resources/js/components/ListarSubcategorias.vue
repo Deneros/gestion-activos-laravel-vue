@@ -137,15 +137,10 @@
                                                                 editarCategoria()
                                                             "
                                                         >
-                                                            <label
-                                                                for="example-text-input"
-                                                                class="form-control-label"
-                                                                >Id
-                                                                Subcategoria:
-                                                            </label>
+                                                            
                                                             <input
                                                                 class="form-control"
-                                                                type="text"
+                                                                type="hidden"
                                                                 value=""
                                                                 id="id_subcategoria"
                                                                 v-model="
@@ -166,6 +161,7 @@
                                                                     subcategoria.nombre_sub
                                                                 "
                                                             />
+                                                            <br>
                                                             <button
                                                                 type="submit"
                                                                 class="btn btn-azul"
@@ -178,6 +174,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <button type="submit" @click="envId(item)" class="btn btn-icon btn-azul btn-sm">Probando</button>
                                 </div>
                             </div>
                         </td>
@@ -221,11 +218,19 @@ export default {
         },
         editarCategoria() {
             axios.put(`/subcategorias/${this.subcategoria.id_subcategoria}`,this.subcategoria).then(res => {
-                console.log(res.data)
+                
+                EventBus.$on("guardarsubcategoria", data => {
+                this.id_cat = data.id;
+                });
             });
         },
         boton(item) {
             EventBus.$emit("idsubcategoria", item);
+        },
+        envId(item){
+            axios.get(`/Admin/listitems/${item.id}`).then(res => {
+                console.log(res.data);
+            });
         }
     }
 };

@@ -21,10 +21,11 @@ Route::resource('/categorias', 'categoriaController');
 
 //Rutas Subcategorias
 Route::resource('/subcategorias', 'subcategoriaController');
-// Route::get('/subcategorias/{id}','subcategoriaController@queryupdate');
+
 
 //Rutas Items
 Route::resource('/items', 'itemController');
+Route::get('/Admin/listitems/{id}', 'itemController@show');
 
 // Route::get('/items/inventario','itemController@inventarioTotal');
 

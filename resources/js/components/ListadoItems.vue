@@ -145,7 +145,7 @@
 </template>
 
 <script>
-// import EventBus from "../eventBus";
+import EventBus from "../eventBus";
 import datables from "datatables";
 export default {
     data() {
@@ -164,10 +164,16 @@ export default {
         };
     },
     created() {
-        axios.get("/items").then(res => {
-            this.items = res.data;
-            // this.mytable()
+        
+        EventBus.$on("idsubcategoria", data => {
+            const id_subcat=data.id;
+            console.log(id_subcat);
+            // axios.get(`/Admin/items/${data.id}`).then(res => {
+            // this.items = res.data;
+            // // this.mytable()
+            // });
         });
+        
         axios.get("/usuarios").then(res => {
             this.usuarios = res.data;
         });
@@ -179,7 +185,7 @@ export default {
         //     $(document).ready(function() {
         //         $("#user-table").DataTable();
         //     });
-        // }
+        // },
         formInfo(item){
             // this.activo=item.data
             this.activo.nombre_item = item.nombre_item;

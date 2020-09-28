@@ -2203,10 +2203,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2258,13 +2254,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     //Actualizar la categoria
     editarCategoria: function editarCategoria() {
+      var _this3 = this;
+
       axios.put("/categorias/".concat(this.editarcat.Editarid_categoria), this.editarcat).then(function (res) {
-        // const index = this.categorias.findIndex(item => item.id_categoria === res.data.id_categoria)
-        // this.categorias[index] = res.data;
-        // axios.get("/categorias").then(res => {
-        // this.categorias = res.data;
-        // });
-        console.log(res.data);
+        toastr.success("Categoria Actualizada");
+        axios.get("/categorias").then(function (res) {
+          _this3.categorias = res.data;
+        });
       });
     },
     //Enviar los datos a otro componente
@@ -2275,10 +2271,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     buscarCategorias: function buscarCategorias() {
-      var _this3 = this;
+      var _this4 = this;
 
       return this.categorias.filter(function (item) {
-        return item.nombre_cat.includes(_this3.nombre_categoria);
+        return item.nombre_cat.includes(_this4.nombre_categoria);
       });
     }
   }
@@ -2762,8 +2758,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var datatables__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! datatables */ "./node_modules/datatables/media/js/jquery.dataTables.js");
-/* harmony import */ var datatables__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(datatables__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _eventBus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../eventBus */ "./resources/js/eventBus.js");
+/* harmony import */ var datatables__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! datatables */ "./node_modules/datatables/media/js/jquery.dataTables.js");
+/* harmony import */ var datatables__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(datatables__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -2910,7 +2907,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-// import EventBus from "../eventBus";
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2931,8 +2928,12 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get("/items").then(function (res) {
-      _this.items = res.data; // this.mytable()
+    _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$on("idsubcategoria", function (data) {
+      var id_subcat = data.id;
+      console.log(id_subcat); // axios.get(`/Admin/items/${data.id}`).then(res => {
+      // this.items = res.data;
+      // // this.mytable()
+      // });
     });
     axios.get("/usuarios").then(function (res) {
       _this.usuarios = res.data;
@@ -2943,7 +2944,7 @@ __webpack_require__.r(__webpack_exports__);
     //     $(document).ready(function() {
     //         $("#user-table").DataTable();
     //     });
-    // }
+    // },
     formInfo: function formInfo(item) {
       // this.activo=item.data
       this.activo.nombre_item = item.nombre_item;
@@ -3096,18 +3097,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-<<<<<<< HEAD
-//
-//
-//
-//
-//
-//
-//
-=======
->>>>>>> 97312a8e4f1b4ae711dca0d94fd5fc5089d580a4
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3336,9 +3325,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3379,12 +3365,21 @@ __webpack_require__.r(__webpack_exports__);
       this.subcategoria.nombre_sub = item.nombre_sub;
     },
     editarCategoria: function editarCategoria() {
+      var _this4 = this;
+
       axios.put("/subcategorias/".concat(this.subcategoria.id_subcategoria), this.subcategoria).then(function (res) {
-        console.log(res.data);
+        _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$on("guardarsubcategoria", function (data) {
+          _this4.id_cat = data.id;
+        });
       });
     },
     boton: function boton(item) {
       _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit("idsubcategoria", item);
+    },
+    envId: function envId(item) {
+      axios.get("/Admin/listitems/".concat(item.id)).then(function (res) {
+        console.log(res.data);
+      });
     }
   }
 });
@@ -4043,7 +4038,6 @@ __webpack_require__.r(__webpack_exports__);
 
     //Trae los datos de categoria para el Id_categoria
     _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$on("guardarsubcategoria", function (data) {
-      console.log(data);
       _this.subcategoria = data;
     });
   },
@@ -55272,19 +55266,6 @@ var render = function() {
                     },
                     [
                       _c("div", { staticClass: "form-group" }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-control-label",
-                            attrs: { for: "example-text-input" }
-                          },
-                          [
-                            _vm._v(
-                              "Id Categoria:\n                            "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
                         _c("input", {
                           directives: [
                             {
@@ -55296,7 +55277,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
+                            type: "hidden",
                             value: "",
                             id: "id_categoria"
                           },
@@ -57137,27 +57118,13 @@ var render = function() {
                                         _c(
                                           "button",
                                           {
-                                            staticClass: "btn btn-info",
+                                            staticClass: "btn btn-azul",
                                             attrs: { type: "submit" }
                                           },
                                           [_vm._v("Guardar")]
                                         )
-<<<<<<< HEAD
                                       ]
                                     )
-=======
-                                      ]),
-                                      _vm._v(" "),
-                                      _c(
-                                        "button",
-                                        {
-                                          staticClass: "btn btn-azul",
-                                          attrs: { type: "submit" }
-                                        },
-                                        [_vm._v("Guardar")]
-                                      )
-                                    ])
->>>>>>> 97312a8e4f1b4ae711dca0d94fd5fc5089d580a4
                                   ])
                                 ])
                               ]
@@ -57614,19 +57581,6 @@ var render = function() {
                                         }
                                       },
                                       [
-                                        _c(
-                                          "label",
-                                          {
-                                            staticClass: "form-control-label",
-                                            attrs: { for: "example-text-input" }
-                                          },
-                                          [
-                                            _vm._v(
-                                              "Id\n                                                            Subcategoria:\n                                                        "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
                                         _c("input", {
                                           directives: [
                                             {
@@ -57641,7 +57595,7 @@ var render = function() {
                                           ],
                                           staticClass: "form-control",
                                           attrs: {
-                                            type: "text",
+                                            type: "hidden",
                                             value: "",
                                             id: "id_subcategoria"
                                           },
@@ -57710,6 +57664,8 @@ var render = function() {
                                           }
                                         }),
                                         _vm._v(" "),
+                                        _c("br"),
+                                        _vm._v(" "),
                                         _c(
                                           "button",
                                           {
@@ -57730,6 +57686,20 @@ var render = function() {
                             ]
                           )
                         ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-icon btn-azul btn-sm",
+                          attrs: { type: "submit" },
+                          on: {
+                            click: function($event) {
+                              return _vm.envId(item)
+                            }
+                          }
+                        },
+                        [_vm._v("Probando")]
                       )
                     ])
                   ])
@@ -59159,7 +59129,7 @@ var render = function() {
               ],
               staticClass: "form-control",
               attrs: {
-                type: "text",
+                type: "hidden",
                 value: "Nombre Subcategoria",
                 id: "id_categoria",
                 name: "id_categoria"

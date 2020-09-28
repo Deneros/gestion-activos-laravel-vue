@@ -110,6 +110,9 @@ class itemController extends Controller
      */
     public function show($id)
     {
+        $items = \DB::table('items')->select('id','nombre_item', 'serial', 'descripcion_item', 'estado', 'ubicacion', 'A_cargo', 'id_subcategoria')->where('id_subcategoria',$id)->get();
+        return $items;
+        
         // $inventario = DB::table('items')
         //     ->join ('subcategorias','items.id_subcategoria','=','subcategorias.id_subcategoria')
         //     ->join ('catagorias', 'subcategorias.id_categoria','=','categorias.id_categoria')

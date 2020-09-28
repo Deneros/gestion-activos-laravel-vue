@@ -5,7 +5,7 @@
             <div class="form-group">
                 <label for="example-text-input" class="form-control-label">Nombre: </label>
                 <input class="form-control" type="text" value="Nombre Subcategoria" id="nombre_sub" name="nombre_sub" v-model="subcategoria.nombre_sub">
-                <input class="form-control" type="text" value="Nombre Subcategoria"  id="id_categoria" name="id_categoria" v-model="subcategoria.id" >
+                <input class="form-control" type="hidden" value="Nombre Subcategoria"  id="id_categoria" name="id_categoria" v-model="subcategoria.id" >
             </div>
         <button type="submit" class="btn btn-azul">Guardar</button>
         </form>
@@ -28,7 +28,6 @@ export default {
     created(){
         //Trae los datos de categoria para el Id_categoria
          EventBus.$on("guardarsubcategoria", data => {
-             console.log(data);
             this.subcategoria = data;
         });
        

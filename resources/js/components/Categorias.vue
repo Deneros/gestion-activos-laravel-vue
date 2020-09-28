@@ -193,14 +193,10 @@
                         <div class="form-group">
                             <form @submit.prevent="editarCategoria()">
                                 <div class="form-group">
-                                <label
-                                    for="example-text-input"
-                                    class="form-control-label"
-                                    >Id Categoria:
-                                </label>
+                              
                                 <input
                                     class="form-control"
-                                    type="text"
+                                    type="hidden"
                                     value=""
                                     id="id_categoria"
                                     v-model="editarcat.Editarid_categoria"
@@ -342,14 +338,11 @@ export default {
         editarCategoria(){
              axios.put(`/categorias/${this.editarcat.Editarid_categoria}`, this.editarcat)
                 .then(res=>{
-                    // const index = this.categorias.findIndex(item => item.id_categoria === res.data.id_categoria)
-                    // this.categorias[index] = res.data;
-
-                    // axios.get("/categorias").then(res => {
-                    // this.categorias = res.data;
-                    // });
-                    console.log(res.data);
-                })
+                    toastr.success("Categoria Actualizada");
+                    axios.get("/categorias").then(res => {
+                    this.categorias = res.data;
+                });
+            })
 
         },
         //Enviar los datos a otro componente

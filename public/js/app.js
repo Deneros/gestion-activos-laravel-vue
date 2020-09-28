@@ -2434,21 +2434,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2459,7 +2444,6 @@ __webpack_require__.r(__webpack_exports__);
         tipo_identificacion: "",
         no_identificacion: 0,
         nombre: "",
-        apellido: "",
         cargo: "",
         telefono: 0,
         email: ""
@@ -2740,8 +2724,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     guardarItem: function guardarItem() {
-      var _this2 = this;
-
       if (this.item.nombre_item.trim() === "" || this.item.serial.trim() === "" || this.item.descripcion.trim() === "" || this.item.estado.trim() === "" || this.item.ubicacion.trim() === "" || this.item.usuarioCargo.trim() === "") {
         toastr.error('Debe rellenar todos los campos');
       } else {
@@ -2761,10 +2743,9 @@ __webpack_require__.r(__webpack_exports__);
         this.item.ubicacion = "";
         this.item.usuarioCargo = "";
         axios.post("/items", params).then(function (res) {
-          _this2.items.push(res.data);
+          console.log(res.data); // this.items.push(res.data);
         });
         toastr.success('Item Registrado');
-        console.log(params);
       }
     }
   }
@@ -2929,13 +2910,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 // import EventBus from "../eventBus";
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      items: []
+      items: [],
+      usuarios: [],
+      activo: {
+        nombre_item: '',
+        serial: '',
+        descripcion: '',
+        estado: '',
+        ubicacion: '',
+        usuarioCargo: '',
+        subcategoria: ''
+      }
     };
   },
   created: function created() {
@@ -2944,12 +2934,34 @@ __webpack_require__.r(__webpack_exports__);
     axios.get("/items").then(function (res) {
       _this.items = res.data; // this.mytable()
     });
+    axios.get("/usuarios").then(function (res) {
+      _this.usuarios = res.data;
+    });
   },
-  methods: {// mytable() {
+  methods: {
+    // mytable() {
     //     $(document).ready(function() {
     //         $("#user-table").DataTable();
     //     });
     // }
+    formInfo: function formInfo(item) {
+      // this.activo=item.data
+      this.activo.nombre_item = item.nombre_item;
+      this.activo.serial = item.serial;
+      this.activo.descripcion = item.descripcion_item;
+      this.activo.estado = item.estado;
+      this.activo.ubicacion = item.ubicacion;
+      this.activo.usuarioCargo = item.A_cargo;
+    },
+    editarItem: function editarItem(item) {
+      var _this2 = this;
+
+      axios.put("/items/".concat(item.id), this.activo).then(function (res) {
+        axios.get("/items").then(function (res) {
+          _this2.items = res.data;
+        });
+      });
+    }
   }
 });
 
@@ -3086,6 +3098,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
+//
+//
+//
+//
+//
+//
+//
+=======
+>>>>>>> 97312a8e4f1b4ae711dca0d94fd5fc5089d580a4
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3930,7 +3952,6 @@ __webpack_require__.r(__webpack_exports__);
         tipo_identificacion: "",
         no_identificacion: "",
         nombre: "",
-        apellido: "",
         cargo: "",
         telefono: "",
         email: "",
@@ -3944,7 +3965,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       //Validaciones
-      if (this.usuario.tipo_usuario.trim() === "" || this.usuario.tipo_identificacion.trim() === "" || this.usuario.no_identificacion.trim() === "" || this.usuario.nombre.trim() === "" || this.usuario.apellido.trim() === "" || this.usuario.cargo.trim() === "" || this.usuario.telefono.trim() === "" || this.usuario.email.trim() === "" || this.usuario.password.trim() === "" || this.usuario.Confirmar_Contrasena.trim() === "") {
+      if (this.usuario.tipo_usuario.trim() === "" || this.usuario.tipo_identificacion.trim() === "" || this.usuario.no_identificacion.trim() === "" || this.usuario.nombre.trim() === "" || this.usuario.cargo.trim() === "" || this.usuario.telefono.trim() === "" || this.usuario.email.trim() === "" || this.usuario.password.trim() === "" || this.usuario.Confirmar_Contrasena.trim() === "") {
         toastr.error('Debe rellenar todos los campos');
       } else {
         // Guardar datos de los campos
@@ -3953,7 +3974,6 @@ __webpack_require__.r(__webpack_exports__);
           tipo_identificacion: this.usuario.tipo_identificacion,
           no_identificacion: this.usuario.no_identificacion,
           nombre: this.usuario.nombre,
-          apellido: this.usuario.apellido,
           cargo: this.usuario.cargo,
           telefono: this.usuario.telefono,
           email: this.usuario.email,
@@ -3964,7 +3984,6 @@ __webpack_require__.r(__webpack_exports__);
         this.usuario.tipo_identificacion = "";
         this.usuario.no_identificacion = "";
         this.usuario.nombre = "";
-        this.usuario.apellido = "";
         this.usuario.cargo = "";
         this.usuario.telefono = "";
         this.usuario.email = "";
@@ -55927,7 +55946,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-6" }, [
+          _c("div", { staticClass: "col-lg-12" }, [
             _c("div", { staticClass: "form-group" }, [
               _c(
                 "label",
@@ -55958,46 +55977,6 @@ var render = function() {
                       return
                     }
                     _vm.$set(_vm.usuario, "nombre", $event.target.value)
-                  }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-6" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "form-control-label",
-                  attrs: { for: "apellido" }
-                },
-                [_vm._v("Apellido")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.usuario.apellido,
-                    expression: "usuario.apellido"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "apellido",
-                  name: "apellido",
-                  placeholder: "apellido"
-                },
-                domProps: { value: _vm.usuario.apellido },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.usuario, "apellido", $event.target.value)
                   }
                 }
               })
@@ -56591,9 +56570,7 @@ var render = function() {
                 { attrs: { id: "usuarios" } },
                 _vm._l(_vm.usuarios, function(usuario, index) {
                   return _c("option", { key: index }, [
-                    _vm._v(
-                      _vm._s(usuario.nombre) + " " + _vm._s(usuario.apellido)
-                    )
+                    _vm._v(_vm._s(usuario.nombre))
                   ])
                 }),
                 0
@@ -56709,7 +56686,7 @@ var render = function() {
                             },
                             on: {
                               click: function($event) {
-                                return _vm.boton(item)
+                                return _vm.formInfo(item)
                               }
                             }
                           },
@@ -56741,469 +56718,532 @@ var render = function() {
                                   _vm._m(2, true),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "modal-body" }, [
-                                    _c("form", [
-                                      _c("div", { staticClass: "row" }, [
-                                        _c("div", { staticClass: "col-lg-6" }, [
+                                    _c(
+                                      "form",
+                                      {
+                                        on: {
+                                          submit: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.editarItem(item)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("div", { staticClass: "row" }, [
                                           _c(
                                             "div",
-                                            { staticClass: "form-group" },
+                                            { staticClass: "col-lg-6" },
                                             [
                                               _c(
-                                                "label",
-                                                {
-                                                  staticClass:
-                                                    "form-control-label",
-                                                  attrs: { for: "nombre" }
-                                                },
-                                                [_vm._v("Nombre:")]
-                                              ),
-                                              _vm._v(" "),
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value: item.nombre_item,
-                                                    expression:
-                                                      "item.nombre_item"
-                                                  }
-                                                ],
-                                                staticClass: "form-control",
-                                                attrs: {
-                                                  type: "text",
-                                                  value: "",
-                                                  id: "nombre",
-                                                  placeholder: "Nombre"
-                                                },
-                                                domProps: {
-                                                  value: item.nombre_item
-                                                },
-                                                on: {
-                                                  input: function($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      item,
-                                                      "nombre_item",
-                                                      $event.target.value
-                                                    )
-                                                  }
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "col-lg-6" }, [
-                                          _c(
-                                            "div",
-                                            { staticClass: "form-group" },
-                                            [
-                                              _c(
-                                                "label",
-                                                {
-                                                  staticClass:
-                                                    "form-control-label",
-                                                  attrs: { for: "nombre" }
-                                                },
-                                                [_vm._v("Serial:")]
-                                              ),
-                                              _vm._v(" "),
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value: item.serial,
-                                                    expression: "item.serial"
-                                                  }
-                                                ],
-                                                staticClass: "form-control",
-                                                attrs: {
-                                                  type: "text",
-                                                  value: "",
-                                                  id: "serial",
-                                                  placeholder: "Serial"
-                                                },
-                                                domProps: {
-                                                  value: item.serial
-                                                },
-                                                on: {
-                                                  input: function($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.$set(
-                                                      item,
-                                                      "serial",
-                                                      $event.target.value
-                                                    )
-                                                  }
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ])
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "row" }, [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-md-12" },
-                                          [
-                                            _c(
-                                              "div",
-                                              { staticClass: "form-group" },
-                                              [
-                                                _c(
-                                                  "label",
-                                                  {
-                                                    staticClass:
-                                                      "form-control-label",
-                                                    attrs: {
-                                                      for: "descripcion"
-                                                    }
-                                                  },
-                                                  [_vm._v("Descripción:")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c("textarea", {
-                                                  directives: [
+                                                "div",
+                                                { staticClass: "form-group" },
+                                                [
+                                                  _c(
+                                                    "label",
                                                     {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value: item.descripcion,
-                                                      expression:
-                                                        "item.descripcion"
-                                                    }
-                                                  ],
-                                                  staticClass: "form-control",
-                                                  attrs: {
-                                                    id: "textAreaDescripcion",
-                                                    rows: "3",
-                                                    placeholder: "Descripcion"
-                                                  },
-                                                  domProps: {
-                                                    value: item.descripcion
-                                                  },
-                                                  on: {
-                                                    input: function($event) {
-                                                      if (
-                                                        $event.target.composing
-                                                      ) {
-                                                        return
-                                                      }
-                                                      _vm.$set(
-                                                        item,
-                                                        "descripcion",
-                                                        $event.target.value
-                                                      )
-                                                    }
-                                                  }
-                                                })
-                                              ]
-                                            )
-                                          ]
-                                        )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "row" }, [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-md-12" },
-                                          [
-                                            _c(
-                                              "div",
-                                              { staticClass: "form-group" },
-                                              [
-                                                _c(
-                                                  "label",
-                                                  {
-                                                    staticClass:
-                                                      "form-control-label",
-                                                    attrs: { for: "ubicacion" }
-                                                  },
-                                                  [_vm._v("Estado:")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "select",
-                                                  {
+                                                      staticClass:
+                                                        "form-control-label",
+                                                      attrs: { for: "nombre" }
+                                                    },
+                                                    [_vm._v("Nombre:")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("input", {
                                                     directives: [
                                                       {
                                                         name: "model",
                                                         rawName: "v-model",
-                                                        value: item.estado,
+                                                        value:
+                                                          _vm.activo
+                                                            .nombre_item,
                                                         expression:
-                                                          "item.estado"
+                                                          "activo.nombre_item"
+                                                      }
+                                                    ],
+                                                    staticClass: "form-control",
+                                                    attrs: {
+                                                      type: "text",
+                                                      value: "",
+                                                      id: "nombre",
+                                                      placeholder: "Nombre"
+                                                    },
+                                                    domProps: {
+                                                      value:
+                                                        _vm.activo.nombre_item
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        if (
+                                                          $event.target
+                                                            .composing
+                                                        ) {
+                                                          return
+                                                        }
+                                                        _vm.$set(
+                                                          _vm.activo,
+                                                          "nombre_item",
+                                                          $event.target.value
+                                                        )
+                                                      }
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-lg-6" },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "form-group" },
+                                                [
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "form-control-label",
+                                                      attrs: { for: "nombre" }
+                                                    },
+                                                    [_vm._v("Serial:")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("input", {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value:
+                                                          _vm.activo.serial,
+                                                        expression:
+                                                          "activo.serial"
+                                                      }
+                                                    ],
+                                                    staticClass: "form-control",
+                                                    attrs: {
+                                                      type: "text",
+                                                      value: "",
+                                                      id: "serial",
+                                                      placeholder: "Serial"
+                                                    },
+                                                    domProps: {
+                                                      value: _vm.activo.serial
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        if (
+                                                          $event.target
+                                                            .composing
+                                                        ) {
+                                                          return
+                                                        }
+                                                        _vm.$set(
+                                                          _vm.activo,
+                                                          "serial",
+                                                          $event.target.value
+                                                        )
+                                                      }
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "row" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-md-12" },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "form-group" },
+                                                [
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "form-control-label",
+                                                      attrs: {
+                                                        for: "descripcion"
+                                                      }
+                                                    },
+                                                    [_vm._v("Descripción:")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("textarea", {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value:
+                                                          _vm.activo
+                                                            .descripcion,
+                                                        expression:
+                                                          "activo.descripcion"
+                                                      }
+                                                    ],
+                                                    staticClass: "form-control",
+                                                    attrs: {
+                                                      id: "textAreaDescripcion",
+                                                      rows: "3",
+                                                      placeholder: "Descripcion"
+                                                    },
+                                                    domProps: {
+                                                      value:
+                                                        _vm.activo.descripcion
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        if (
+                                                          $event.target
+                                                            .composing
+                                                        ) {
+                                                          return
+                                                        }
+                                                        _vm.$set(
+                                                          _vm.activo,
+                                                          "descripcion",
+                                                          $event.target.value
+                                                        )
+                                                      }
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "row" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-md-12" },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "form-group" },
+                                                [
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "form-control-label",
+                                                      attrs: {
+                                                        for: "ubicacion"
+                                                      }
+                                                    },
+                                                    [_vm._v("Estado:")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "select",
+                                                    {
+                                                      directives: [
+                                                        {
+                                                          name: "model",
+                                                          rawName: "v-model",
+                                                          value:
+                                                            _vm.activo.estado,
+                                                          expression:
+                                                            "activo.estado"
+                                                        }
+                                                      ],
+                                                      staticClass:
+                                                        "form-control form-control",
+                                                      attrs: { id: "estado" },
+                                                      on: {
+                                                        change: function(
+                                                          $event
+                                                        ) {
+                                                          var $$selectedVal = Array.prototype.filter
+                                                            .call(
+                                                              $event.target
+                                                                .options,
+                                                              function(o) {
+                                                                return o.selected
+                                                              }
+                                                            )
+                                                            .map(function(o) {
+                                                              var val =
+                                                                "_value" in o
+                                                                  ? o._value
+                                                                  : o.value
+                                                              return val
+                                                            })
+                                                          _vm.$set(
+                                                            _vm.activo,
+                                                            "estado",
+                                                            $event.target
+                                                              .multiple
+                                                              ? $$selectedVal
+                                                              : $$selectedVal[0]
+                                                          )
+                                                        }
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("option", [
+                                                        _vm._v("Activo")
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _c("option", [
+                                                        _vm._v("Mantenimiento")
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _c("option", [
+                                                        _vm._v(
+                                                          "Proceso de baja"
+                                                        )
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _c("option", [
+                                                        _vm._v("En baja")
+                                                      ])
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "row" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-md-12" },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "form-group" },
+                                                [
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "form-control-label",
+                                                      attrs: {
+                                                        for: "ubicacion"
+                                                      }
+                                                    },
+                                                    [_vm._v("Ubicación:")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("input", {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value:
+                                                          _vm.activo.ubicacion,
+                                                        expression:
+                                                          "activo.ubicacion"
+                                                      }
+                                                    ],
+                                                    staticClass: "form-control",
+                                                    attrs: {
+                                                      type: "text",
+                                                      value: "",
+                                                      id: "ubicacion",
+                                                      placeholder: "Ubicacion"
+                                                    },
+                                                    domProps: {
+                                                      value:
+                                                        _vm.activo.ubicacion
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        if (
+                                                          $event.target
+                                                            .composing
+                                                        ) {
+                                                          return
+                                                        }
+                                                        _vm.$set(
+                                                          _vm.activo,
+                                                          "ubicacion",
+                                                          $event.target.value
+                                                        )
+                                                      }
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "row" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-md-12" },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "form-group" },
+                                                [
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "form-control-label",
+                                                      attrs: { for: "a_cargo" }
+                                                    },
+                                                    [_vm._v("A cargo:")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("input", {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value:
+                                                          _vm.activo
+                                                            .usuarioCargo,
+                                                        expression:
+                                                          "activo.usuarioCargo"
                                                       }
                                                     ],
                                                     staticClass:
                                                       "form-control form-control",
-                                                    attrs: { id: "estado" },
+                                                    attrs: {
+                                                      type: "text",
+                                                      list: "usuarios"
+                                                    },
+                                                    domProps: {
+                                                      value:
+                                                        _vm.activo.usuarioCargo
+                                                    },
                                                     on: {
-                                                      change: function($event) {
-                                                        var $$selectedVal = Array.prototype.filter
-                                                          .call(
-                                                            $event.target
-                                                              .options,
-                                                            function(o) {
-                                                              return o.selected
-                                                            }
-                                                          )
-                                                          .map(function(o) {
-                                                            var val =
-                                                              "_value" in o
-                                                                ? o._value
-                                                                : o.value
-                                                            return val
-                                                          })
-                                                        _vm.$set(
-                                                          item,
-                                                          "estado",
-                                                          $event.target.multiple
-                                                            ? $$selectedVal
-                                                            : $$selectedVal[0]
-                                                        )
-                                                      }
-                                                    }
-                                                  },
-                                                  [
-                                                    _c("option", [
-                                                      _vm._v("Activo")
-                                                    ]),
-                                                    _vm._v(" "),
-                                                    _c("option", [
-                                                      _vm._v("Mantenimiento")
-                                                    ]),
-                                                    _vm._v(" "),
-                                                    _c("option", [
-                                                      _vm._v("Proceso de baja")
-                                                    ]),
-                                                    _vm._v(" "),
-                                                    _c("option", [
-                                                      _vm._v("En baja")
-                                                    ])
-                                                  ]
-                                                )
-                                              ]
-                                            )
-                                          ]
-                                        )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "row" }, [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-md-12" },
-                                          [
-                                            _c(
-                                              "div",
-                                              { staticClass: "form-group" },
-                                              [
-                                                _c(
-                                                  "label",
-                                                  {
-                                                    staticClass:
-                                                      "form-control-label",
-                                                    attrs: { for: "ubicacion" }
-                                                  },
-                                                  [_vm._v("Ubicación:")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c("input", {
-                                                  directives: [
-                                                    {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value: item.ubicacion,
-                                                      expression:
-                                                        "item.ubicacion"
-                                                    }
-                                                  ],
-                                                  staticClass: "form-control",
-                                                  attrs: {
-                                                    type: "text",
-                                                    value: "",
-                                                    id: "ubicacion",
-                                                    placeholder: "Ubicacion"
-                                                  },
-                                                  domProps: {
-                                                    value: item.ubicacion
-                                                  },
-                                                  on: {
-                                                    input: function($event) {
-                                                      if (
-                                                        $event.target.composing
-                                                      ) {
-                                                        return
-                                                      }
-                                                      _vm.$set(
-                                                        item,
-                                                        "ubicacion",
-                                                        $event.target.value
-                                                      )
-                                                    }
-                                                  }
-                                                })
-                                              ]
-                                            )
-                                          ]
-                                        )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "row" }, [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-md-12" },
-                                          [
-                                            _c(
-                                              "div",
-                                              { staticClass: "form-group" },
-                                              [
-                                                _c(
-                                                  "label",
-                                                  {
-                                                    staticClass:
-                                                      "form-control-label",
-                                                    attrs: { for: "a_cargo" }
-                                                  },
-                                                  [_vm._v("A cargo:")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c("input", {
-                                                  directives: [
-                                                    {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value: item.usuarioCargo,
-                                                      expression:
-                                                        "item.usuarioCargo"
-                                                    }
-                                                  ],
-                                                  staticClass:
-                                                    "form-control form-control",
-                                                  attrs: {
-                                                    type: "text",
-                                                    list: "usuarios"
-                                                  },
-                                                  domProps: {
-                                                    value: item.usuarioCargo
-                                                  },
-                                                  on: {
-                                                    input: function($event) {
-                                                      if (
-                                                        $event.target.composing
-                                                      ) {
-                                                        return
-                                                      }
-                                                      _vm.$set(
-                                                        item,
-                                                        "usuarioCargo",
-                                                        $event.target.value
-                                                      )
-                                                    }
-                                                  }
-                                                }),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "datalist",
-                                                  { attrs: { id: "usuarios" } },
-                                                  _vm._l(_vm.usuarios, function(
-                                                    usuario,
-                                                    index
-                                                  ) {
-                                                    return _c(
-                                                      "option",
-                                                      {
-                                                        key: index,
-                                                        attrs: {
-                                                          placeholder: "A cargo"
+                                                      input: function($event) {
+                                                        if (
+                                                          $event.target
+                                                            .composing
+                                                        ) {
+                                                          return
                                                         }
-                                                      },
-                                                      [
-                                                        _vm._v(
-                                                          _vm._s(
-                                                            usuario.nombre
-                                                          ) +
-                                                            " " +
-                                                            _vm._s(
-                                                              usuario.apellido
-                                                            )
+                                                        _vm.$set(
+                                                          _vm.activo,
+                                                          "usuarioCargo",
+                                                          $event.target.value
                                                         )
-                                                      ]
-                                                    )
-                                                  }),
-                                                  0
-                                                )
-                                              ]
-                                            )
-                                          ]
-                                        )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("div", { staticClass: "row" }, [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-md-12" },
-                                          [
-                                            _c(
-                                              "div",
-                                              { staticClass: "form-group" },
-                                              [
-                                                _c(
-                                                  "label",
-                                                  {
-                                                    staticClass:
-                                                      "form-control-label",
-                                                    attrs: { for: "a_cargo" }
-                                                  },
-                                                  [_vm._v("Subcategoria:")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c("input", {
-                                                  directives: [
-                                                    {
-                                                      name: "model",
-                                                      rawName: "v-model",
-                                                      value: item.subcategoria,
-                                                      expression:
-                                                        "item.subcategoria"
-                                                    }
-                                                  ],
-                                                  staticClass:
-                                                    "form-control form-control",
-                                                  attrs: {
-                                                    type: "text",
-                                                    list: "subcategorias"
-                                                  },
-                                                  domProps: {
-                                                    value: item.subcategoria
-                                                  },
-                                                  on: {
-                                                    input: function($event) {
-                                                      if (
-                                                        $event.target.composing
-                                                      ) {
-                                                        return
                                                       }
-                                                      _vm.$set(
-                                                        item,
-                                                        "subcategoria",
-                                                        $event.target.value
-                                                      )
                                                     }
-                                                  }
-                                                })
-                                              ]
-                                            )
-                                          ]
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "datalist",
+                                                    {
+                                                      attrs: { id: "usuarios" }
+                                                    },
+                                                    _vm._l(
+                                                      _vm.usuarios,
+                                                      function(usuario, index) {
+                                                        return _c(
+                                                          "option",
+                                                          {
+                                                            key: index,
+                                                            attrs: {
+                                                              placeholder:
+                                                                "A cargo"
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                usuario.nombre
+                                                              )
+                                                            )
+                                                          ]
+                                                        )
+                                                      }
+                                                    ),
+                                                    0
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", { staticClass: "row" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-md-12" },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "form-group" },
+                                                [
+                                                  _c(
+                                                    "label",
+                                                    {
+                                                      staticClass:
+                                                        "form-control-label",
+                                                      attrs: { for: "a_cargo" }
+                                                    },
+                                                    [_vm._v("Subcategoria:")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("input", {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value:
+                                                          _vm.activo
+                                                            .subcategoria,
+                                                        expression:
+                                                          "activo.subcategoria"
+                                                      }
+                                                    ],
+                                                    staticClass:
+                                                      "form-control form-control",
+                                                    attrs: {
+                                                      type: "text",
+                                                      list: "subcategorias"
+                                                    },
+                                                    domProps: {
+                                                      value:
+                                                        _vm.activo.subcategoria
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        if (
+                                                          $event.target
+                                                            .composing
+                                                        ) {
+                                                          return
+                                                        }
+                                                        _vm.$set(
+                                                          _vm.activo,
+                                                          "subcategoria",
+                                                          $event.target.value
+                                                        )
+                                                      }
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "button",
+                                          {
+                                            staticClass: "btn btn-info",
+                                            attrs: { type: "submit" }
+                                          },
+                                          [_vm._v("Guardar")]
                                         )
+<<<<<<< HEAD
+                                      ]
+                                    )
+=======
                                       ]),
                                       _vm._v(" "),
                                       _c(
@@ -57215,6 +57255,7 @@ var render = function() {
                                         [_vm._v("Guardar")]
                                       )
                                     ])
+>>>>>>> 97312a8e4f1b4ae711dca0d94fd5fc5089d580a4
                                   ])
                                 ])
                               ]
@@ -57339,8 +57380,6 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(item.nombre))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(item.apellido))]),
-                    _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(item.cargo))]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(item.telefono))]),
@@ -57447,8 +57486,6 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Apellido")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Cargo")]),
         _vm._v(" "),
@@ -72802,8 +72839,8 @@ var bus = new Vue();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.4\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.4\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

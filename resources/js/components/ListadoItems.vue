@@ -34,7 +34,7 @@
                                                 data-target="#modalEditarrItem"
                                                 data-placement="bottom"
                                                 title="Agregar item"
-                                                @click="boton(item)"
+                                                @click="formInfo(item)"
                                             >
                                                 <span class="btn-inner--icon"><i class="ni ni-settings"></i></span>
                                                 <!-- <span class="btn-inner--text"></span> -->
@@ -63,18 +63,18 @@
                                                                 </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form >
+                                                            <form @submit.prevent="editarItem(item)">
                                                                 <div class="row">
                                                                     <div class="col-lg-6">
                                                                         <div class="form-group">
                                                                             <label class="form-control-label" for="nombre">Nombre:</label>
-                                                                            <input class="form-control" type="text" value="" id="nombre" placeholder="Nombre" v-model="item.nombre_item" >
+                                                                            <input class="form-control" type="text" value="" id="nombre" placeholder="Nombre" v-model="activo.nombre_item" >
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div class="form-group">
                                                                             <label class="form-control-label" for="nombre">Serial:</label>
-                                                                            <input class="form-control" type="text" value="" id="serial" placeholder="Serial" v-model="item.serial">
+                                                                            <input class="form-control" type="text" value="" id="serial" placeholder="Serial" v-model="activo.serial">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -82,7 +82,7 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <label class="form-control-label" for="descripcion">Descripción:</label>
-                                                                            <textarea class="form-control" id="textAreaDescripcion" rows="3" placeholder="Descripcion" v-model="item.descripcion"></textarea>
+                                                                            <textarea class="form-control" id="textAreaDescripcion" rows="3" placeholder="Descripcion" v-model="activo.descripcion"></textarea>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -90,7 +90,7 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <label class="form-control-label" for="ubicacion">Estado:</label>
-                                                                                <select class="form-control form-control" id="estado" v-model="item.estado">
+                                                                                <select class="form-control form-control" id="estado" v-model="activo.estado">
                                                                                     <option>Activo</option>
                                                                                     <option>Mantenimiento</option>
                                                                                     <option>Proceso de baja</option>
@@ -103,7 +103,7 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <label class="form-control-label" for="ubicacion">Ubicación:</label>
-                                                                            <input class="form-control" type="text" value="" id="ubicacion" placeholder="Ubicacion" v-model="item.ubicacion">
+                                                                            <input class="form-control" type="text" value="" id="ubicacion" placeholder="Ubicacion" v-model="activo.ubicacion">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -111,11 +111,10 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <label class="form-control-label" for="a_cargo">A cargo:</label>
-                                                                            <input type="text" list="usuarios" class="form-control form-control" v-model="item.usuarioCargo" />
+                                                                            <input type="text" list="usuarios" class="form-control form-control" v-model="activo.usuarioCargo" />
                                                                                 <datalist id="usuarios" >
-                                                                                    <option placeholder="A cargo" v-for="(usuario, index) in usuarios" :key="index">{{usuario.nombre}} {{usuario.apellido}}</option>                      
+                                                                                    <option placeholder="A cargo" v-for="(usuario, index) in usuarios" :key="index">{{usuario.nombre}}</option>                      
                                                                                 </datalist>
-                                    
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -123,7 +122,7 @@
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
                                                                             <label class="form-control-label" for="a_cargo">Subcategoria:</label>
-                                                                            <input type="text" list="subcategorias" class="form-control form-control" v-model="item.subcategoria" />    
+                                                                            <input type="text" list="subcategorias" class="form-control form-control" v-model="activo.subcategoria" />    
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -151,7 +150,17 @@ import datables from "datatables";
 export default {
     data() {
         return {
-            items: []
+            items:[],
+            usuarios: [],
+             activo:{
+                nombre_item:'',
+                serial:'',
+                descripcion:'',
+                estado:'',
+                ubicacion:'',
+                usuarioCargo:'',
+                subcategoria:''
+            }
         };
     },
     created() {
@@ -159,6 +168,10 @@ export default {
             this.items = res.data;
             // this.mytable()
         });
+        axios.get("/usuarios").then(res => {
+            this.usuarios = res.data;
+        });
+        
         
     },
     methods: {
@@ -167,6 +180,23 @@ export default {
         //         $("#user-table").DataTable();
         //     });
         // }
+        formInfo(item){
+            // this.activo=item.data
+            this.activo.nombre_item = item.nombre_item;
+            this.activo.serial = item.serial;
+            this.activo.descripcion = item.descripcion_item;
+            this.activo.estado = item.estado;
+            this.activo.ubicacion =  item.ubicacion;
+            this.activo.usuarioCargo = item.A_cargo;
+        },
+        editarItem(item){
+            axios.put(`/items/${item.id}`, this.activo)
+                .then(res=>{    
+                    axios.get("/items").then(res => {
+                        this.items = res.data;
+                    })
+                })
+        }
     }
 };
 </script>

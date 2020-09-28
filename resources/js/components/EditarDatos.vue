@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="form-group">
                         <label class="form-control-label" for="nombre"
                             >Nombre</label
@@ -78,21 +78,6 @@
                             v-model="usuario.nombre"
                             class="form-control"
                             placeholder="nombre"
-                        />
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label class="form-control-label" for="apellido"
-                            >Apellido</label
-                        >
-                        <input
-                            type="text"
-                            id="apellido"
-                            name="apellido"
-                            v-model="usuario.apellido"
-                            class="form-control"
-                            placeholder="apellido"
                         />
                     </div>
                 </div>
@@ -162,7 +147,6 @@ export default {
                 tipo_identificacion: "",
                 no_identificacion: 0,
                 nombre: "",
-                apellido: "",
                 cargo: "",
                 telefono: 0,
                 email: ""

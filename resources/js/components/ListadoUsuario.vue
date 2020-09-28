@@ -21,7 +21,6 @@
                                 <th scope="col">Tipo Identificacion</th>
                                 <th scope="col">Numero Identificacion</th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Apellido</th>
                                 <th scope="col">Cargo</th>
                                 <th scope="col">Telefono</th>
                                 <th scope="col">Email</th>
@@ -34,7 +33,6 @@
                                 <td>{{ item.tipo_identificacion }}</td>
                                 <td>{{ item.no_identificacion }}</td>
                                 <td>{{ item.nombre }}</td>
-                                <td>{{ item.apellido }}</td>
                                 <td>{{ item.cargo }}</td>
                                 <td>{{ item.telefono }}</td>
                                 <td>{{ item.email }}</td>

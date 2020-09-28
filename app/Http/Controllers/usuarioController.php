@@ -34,7 +34,7 @@ class usuarioController extends Controller
     public function index(Request $request)
     {
 
-        $users = \DB::table('users')->select('id','tipo_usuario', 'tipo_identificacion', 'no_identificacion', 'nombre', 'apellido', 'cargo', 'telefono', 'email')->get();
+        $users = \DB::table('users')->select('id','tipo_usuario', 'tipo_identificacion', 'no_identificacion', 'nombre', 'cargo', 'telefono', 'email')->get();
         return $users;
     }
 
@@ -61,7 +61,6 @@ class usuarioController extends Controller
         $usuario->tipo_identificacion = $request->tipo_identificacion;
         $usuario->no_identificacion = $request->no_identificacion;
         $usuario->nombre = $request->nombre;
-        $usuario->apellido = $request->apellido;
         $usuario->cargo = $request->cargo;
         $usuario->telefono = $request->telefono;
         $usuario->email = $request->email;
@@ -82,7 +81,7 @@ class usuarioController extends Controller
      */
     public function show(Request $request)
     {
-        $users = \DB::table('users')->select('id','tipo_usuario', 'tipo_identificacion', 'no_identificacion', 'nombre', 'apellido', 'cargo', 'telefono', 'email')->where('id', auth()->id())->get();
+        $users = \DB::table('users')->select('id','tipo_usuario', 'tipo_identificacion', 'no_identificacion', 'nombre', 'cargo', 'telefono', 'email')->where('id', auth()->id())->get();
         return $users;
     }
 
@@ -111,7 +110,6 @@ class usuarioController extends Controller
         $usuario->tipo_identificacion = $request->tipo_identificacion;
         $usuario->no_identificacion = $request->no_identificacion;
         $usuario->nombre = $request->nombre;
-        $usuario->apellido = $request->apellido;
         $usuario->cargo = $request->cargo;
         $usuario->telefono = $request->telefono;
         $usuario->email = $request->email;

@@ -51,7 +51,7 @@
                                 <label class="form-control-label" for="a_cargo">A cargo:</label>
                                 <input type="text" list="usuarios" class="form-control form-control" v-model="item.usuarioCargo" />
                                     <datalist id="usuarios" >
-                                        <option v-for="(usuario, index) in usuarios" :key="index">{{usuario.nombre}} {{usuario.apellido}}</option>                      
+                                        <option v-for="(usuario, index) in usuarios" :key="index">{{usuario.nombre}}</option>                      
                                     </datalist>
                                     
                             </div>
@@ -129,11 +129,11 @@ export default {
                 this.item.usuarioCargo=""; 
 
                 axios.post("/items", params).then(res => {
-                this.items.push(res.data);
+                    console.log(res.data);
+                // this.items.push(res.data);
             });
 
-             toastr.success('Item Registrado');
-            console.log(params);
+             toastr.success('Item Registrado'); 
             }
         }
     }

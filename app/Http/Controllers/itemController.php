@@ -6,6 +6,7 @@ use App\Historial;
 use App\ItemsHistorial;
 use App\UsuariosHistorial;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -27,21 +28,24 @@ class itemController extends Controller
     }
 
     public function index()
-    {
+    {   
+        
+        
+        $items = \DB::table('items')->select('id','nombre_item', 'serial', 'descripcion_item', 'estado', 'ubicacion', 'A_cargo', 'id_subcategoria')->get();
+        return $items;
 
-        // $items = \DB::table('items')->select('id','nombre_item', 'serial', 'descripcion_item', 'estado', 'ubicacion', 'A_cargo', 'id_subcategoria')->get();
-        // return $items;
         // $inventario = DB::table('items')
         //     ->join ('subcategorias','subcategorias.id','=','items.id_subcategoria')
         //     ->select('items.*','subcategorias.nombre_sub')
         //     ->get();
         // return $inventario;  
 
-        $data = Item::select('items.id','items.nombre_item', 'subcategorias.id')
-        ->leftjoin('subcategorias', 'items.id_subcategorias', '=', 'subcategorias.id')
-        ->get();
 
-        return $data;
+        // $data = Item::select('items.id','items.nombre_item', 'subcategorias.id')
+        // ->leftjoin('subcategorias', 'items.id_subcategorias', '=', 'subcategorias.id')
+        // ->get();
+
+        // return $data;
 
     }
 
@@ -67,6 +71,8 @@ class itemController extends Controller
      */
     public function store(Request $request)
     {
+        // $fecha = Carbon::now();
+
         $item = new Item();
         $item->nombre_item = $request->nombre_item;
         $item->serial = $request->serial;
@@ -76,17 +82,24 @@ class itemController extends Controller
         $item->A_cargo = $request->usuarioCargo;
         $item->id_subcategoria = $request->subcategoria;
         $item->save();
-        
-
+         
         $historial = new Historial();
         $historial -> fecha_inscripcion = Carbon::now();
-        $historial -> fecha_traspaso = null;
         $historial -> save();
 
+        $a_cargo = DB::select("SELECT id FROM users WHERE nombre = '$request->usuarioCargo'");
+
         $usuariosh =  new UsuariosHistorial();
-        $usuariosh -> id_usuario = User::where("id","=",)->get();
-        
-        return $item;
+        $usuariosh -> id_usuario = $a_cargo[0]->id;
+        $usuariosh -> id_historial = Historial::latest()->first()->id;
+        $usuariosh -> save();
+
+        $itemsh = new ItemsHistorial();
+        $itemsh -> id_item = Item::latest()->first()->id;
+        $itemsh -> id_historial = Historial::latest()->first()->id;
+        $itemsh -> save();
+
+        return $itemsh;
     }
 
     /**
@@ -125,7 +138,16 @@ class itemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = Item::find($id);
+        $item->nombre_item = $request->nombre_item;
+        $item->serial = $request->serial;
+        $item->descripcion_item = $request->descripcion;
+        $item->estado = $request->estado;
+        $item->ubicacion = $request->ubicacion;
+        $item->A_cargo = $request->usuarioCargo;
+        $item->save();
+        
+        return $item;
     }
 
     /**

@@ -211,7 +211,6 @@ export default {
                 tipo_identificacion: "",
                 no_identificacion: "",
                 nombre: "",
-                apellido: "",
                 cargo: "",
                 telefono: "",
                 email: "",
@@ -228,7 +227,6 @@ export default {
                 this.usuario.tipo_identificacion.trim() === "" ||
                 this.usuario.no_identificacion.trim() === "" ||
                 this.usuario.nombre.trim() === "" ||
-                this.usuario.apellido.trim() === "" ||
                 this.usuario.cargo.trim() === "" ||
                 this.usuario.telefono.trim() === "" ||
                 this.usuario.email.trim() === "" ||
@@ -243,7 +241,6 @@ export default {
                 tipo_identificacion: this.usuario.tipo_identificacion,
                 no_identificacion: this.usuario.no_identificacion,
                 nombre: this.usuario.nombre,
-                apellido: this.usuario.apellido,
                 cargo: this.usuario.cargo,
                 telefono: this.usuario.telefono,
                 email: this.usuario.email,
@@ -254,7 +251,6 @@ export default {
             this.usuario.tipo_identificacion = "";
             this.usuario.no_identificacion = "";
             this.usuario.nombre = "";
-            this.usuario.apellido = "";
             this.usuario.cargo = "";
             this.usuario.telefono = "";
             this.usuario.email = "";

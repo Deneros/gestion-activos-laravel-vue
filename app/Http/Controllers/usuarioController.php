@@ -34,7 +34,7 @@ class usuarioController extends Controller
     public function index(Request $request)
     {
 
-        $users = \DB::table('users')->select('id','tipo_usuario', 'tipo_identificacion', 'no_identificacion', 'nombre', 'apellido', 'cargo', 'telefono', 'email')->get();
+        $users = \DB::table('users')->select('id','tipo_usuario', 'tipo_identificacion', 'no_identificacion', 'nombre', 'cargo', 'telefono', 'email')->get();
         return $users;
     }
 

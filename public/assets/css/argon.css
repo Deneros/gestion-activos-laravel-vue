@@ -24211,6 +24211,11 @@ button.bg-lighter:focus
     background-color: #cbd3da !important;
 }
 
+.bg-gradient-azul
+{
+    background: linear-gradient(87deg, #024c94 0, #026494 100%) !important;
+}
+
 .bg-gradient-primary
 {
     background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
@@ -24715,6 +24720,16 @@ button.section-darker:focus
 .stroke-default
 {
     stroke: #172b4d;
+}
+
+.fill-nuevo
+{
+    fill: #4c9402;
+}
+
+.stroke-nuevo
+{
+    stroke: #4c9402;
 }
 
 .fill-white

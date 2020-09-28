@@ -35,7 +35,7 @@
   <!-- Main content -->
   <div class="main-content">
     <!-- Header -->
-    <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
+    <div class="header bg-gradient-azul py-8 py-lg-6 pt-lg-9">
       <div class="container">
         
       <div class="separator separator-bottom separator-skew zindex-100">
@@ -44,9 +44,10 @@
         </svg>
       </div>
     </div>
+
     <br>
     <br>
-    <br>
+
     <!-- Page content -->
     <div class="container mt--8 pb-5">
       <div class="row justify-content-center">
@@ -66,6 +67,9 @@
               </div>
             </div> -->
             <div class="card-body px-lg-5 py-lg-5">
+              <div class="text-center text-muted mb-4">
+                <img src="{{asset('assets/img/brand/Captura.png')}} " width = "100px" height= "130px">
+              </div>
               <div class="text-center text-muted mb-4">
                 <small>Ingresa con tus credenciales</small>
               </div>
@@ -104,10 +108,9 @@
                   </label>
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary my-4">Inicia</button>
+                  <button type="submit" class="btn btn-azul my-4">Iniciar</button>
                 </div>
               </form>
-              <br>
             </div>
           </div>
           <div class="row mt-3">
@@ -120,25 +123,26 @@
     </div>
   </div>
   <!-- Footer -->
-  <footer class="py-5" id="footer-main">
+  <!-- <footer class="py-5.5" id="footer-main"> -->
+  <footer class="py-5.5">
     <div class="container">
       <div class="row align-items-center justify-content-xl-between">
         <div class="col-xl-6">
           <div class="copyright text-center text-xl-left text-muted">
-            &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Estus Code</a>
+            &copy; 2020 <a href="" class="font-weight-lighter text-white" target="_blank"> INVENTORY ORGANIZATION APP</a>
           </div>
         </div>
         <div class="col-xl-6">
           <ul class="nav nav-footer justify-content-center justify-content-xl-end">
             <li class="nav-item">
-              <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Estus Code</a>
+              <a href="" class="nav-link font-weight-lighter text-white" target="_blank">Institución Educativa Montebello</a>
             </li>
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">Acerca de Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-            </li>
+            <!-- <li class="nav-item">
+              <a href="" class="nav-link" target="_blank">Acerca de Nosotros</a>
+            </li> -->
+            <!-- <li class="nav-item">
+              <a href="" class="nav-link" target="_blank">Blog</a>
+            </li> -->
             <!-- <li class="nav-item">
               <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
             </li> -->

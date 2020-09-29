@@ -190,7 +190,7 @@
                                         @click="enviarInfoform(item)"
                                     >
                                         <span class="btn-inner--icon"
-                                            ><i class="ni ni-settings"></i
+                                            ><i class="ni ni-single-copy-04"></i
                                         ></span>
                                         <!-- <span class="btn-inner--text"></span> -->
                                     </button>

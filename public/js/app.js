@@ -2539,6 +2539,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -56178,6 +56183,12 @@ var staticRenderFns = [
           "div",
           { staticClass: "input-daterange datepicker row align-items-center" },
           [
+            _c("div", { staticClass: "form-group col-md-2" }, [
+              _c("label", { staticClass: "form-control-label d-block mb-3" }, [
+                _vm._v("Escoge el rango de fechas")
+              ])
+            ]),
+            _vm._v(" "),
             _c("div", { staticClass: "form-group col-md-3" }, [
               _c("div", { staticClass: "input-group" }, [
                 _c("div", { staticClass: "input-group-prepend" }, [
@@ -58024,7 +58035,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "btn-inner--icon" }, [
-      _c("i", { staticClass: "ni ni-settings" })
+      _c("i", { staticClass: "ni ni-single-copy-04" })
     ])
   },
   function() {

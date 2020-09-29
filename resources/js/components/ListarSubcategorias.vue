@@ -26,7 +26,8 @@
                         <td>{{ item.id_categoria }}</td>
                         <td>
                             <div class="row">
-                                <div class="col-sm-3">
+
+                                <div class="col-sm-2">
                                     <!-- Button agregar items -->
                                     <button
                                         type="button"
@@ -82,7 +83,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <!-- Button editar subcategoria -->
                                     <button
                                         type="button"
@@ -174,8 +175,65 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" @click="envId(item)" class="btn btn-icon btn-azul btn-sm">Probando</button>
+                                    <!-- <button type="submit" @click="envId(item)" class="btn btn-icon btn-azul btn-sm">Probando</button> -->
                                 </div>
+
+                                <div class="col-sm-2">
+                                    <!-- Button listar items -->
+                                    <button
+                                        type="button"
+                                        class="btn btn-icon btn-azul btn-sm"
+                                        data-toggle="modal"
+                                        data-target="#modalListarItems"
+                                        data-placement="bottom"
+                                        title="Listar items"
+                                        @click="enviarInfoform(item)"
+                                    >
+                                        <span class="btn-inner--icon"
+                                            ><i class="ni ni-settings"></i
+                                        ></span>
+                                        <!-- <span class="btn-inner--text"></span> -->
+                                    </button>
+                                    <!-- Modal boton listar items-->
+                                    <div
+                                        class="modal fade"
+                                        id="modalListarItems"
+                                        tabindex="-1"
+                                        role="dialog"
+                                        aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true"
+                                    >
+                                        <div
+                                            class="modal-dialog modal-xl"
+                                            role="document"
+                                        >
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5
+                                                        class="modal-title"
+                                                        id="exampleModalLabel"
+                                                    >
+                                                        Listado de items
+                                                    </h5>
+                                                    <button
+                                                        type="button"
+                                                        class="close"
+                                                        data-dismiss="modal"
+                                                        aria-label="Close"
+                                                    >
+                                                        <span aria-hidden="true"
+                                                            >&times;</span
+                                                        >
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <listadoitems/>     
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </td>
                     </tr>

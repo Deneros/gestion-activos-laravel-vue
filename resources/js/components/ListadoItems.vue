@@ -173,9 +173,11 @@ export default {
             // // this.mytable()
             // });
         });
-        
         axios.get("/usuarios").then(res => {
             this.usuarios = res.data;
+        });
+        axios.get("/items").then(res => {
+            this.items = res.data;
         });
         
         

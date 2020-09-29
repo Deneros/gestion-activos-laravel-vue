@@ -29,8 +29,7 @@ class itemController extends Controller
 
     public function index()
     {   
-        
-        
+ 
         $items = \DB::table('items')->select('id','nombre_item', 'serial', 'descripcion_item', 'estado', 'ubicacion', 'A_cargo', 'id_subcategoria')->get();
         return $items;
 
@@ -50,8 +49,14 @@ class itemController extends Controller
     }
 
     public function inventarioTotal(){
+        // return 'hola';
+        $inventario = DB::table('items')
+            ->join ('subcategorias','items.id_subcategoria','=','subcategorias.id')
+            ->join ('categorias', 'subcategorias.id_categoria','=','categorias.id')
+            ->select('items.id','items.nombre_item','items.serial','items.descripcion_item','items.estado','items.ubicacion','items.A_cargo','subcategorias.nombre_sub','categorias.nombre_cat')
+            ->get();
+        return $inventario; 
         
-
     }
     /**
      * Show the form for creating a new resource.

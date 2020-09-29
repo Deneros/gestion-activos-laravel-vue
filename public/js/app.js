@@ -2589,20 +2589,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      items: []
+    };
   },
-  created: function created() {},
-  methods: {
-    intentar: function intentar() {
-      axios.get('/items').then(function (res) {
-        console.log(res.data);
-      });
-    }
-  }
+  created: function created() {
+    var _this = this;
+
+    axios.get("/inventariototal/items").then(function (res) {
+      _this.items = res.data;
+      console.log(res.data);
+    });
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -2937,6 +2938,9 @@ __webpack_require__.r(__webpack_exports__);
     });
     axios.get("/usuarios").then(function (res) {
       _this.usuarios = res.data;
+    });
+    axios.get("/items").then(function (res) {
+      _this.items = res.data;
     });
   },
   methods: {
@@ -56225,39 +56229,32 @@ var render = function() {
       _c("div", { staticClass: "table-responsive" }, [
         _c("div", [
           _c("table", { staticClass: "table align-items-center" }, [
-            _c("thead", { staticClass: "thead-light" }, [
-              _c("tr", [
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Categoria")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Subcategoria")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre Item")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Descripción")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Ubicación")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("A cargo")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [
-                  _c(
-                    "button",
-                    {
-                      on: {
-                        click: function($event) {
-                          return _vm.intentar()
-                        }
-                      }
-                    },
-                    [_vm._v("Intentar")]
-                  )
-                ])
-              ])
-            ]),
+            _vm._m(0),
             _vm._v(" "),
-            _vm._m(0)
+            _c(
+              "tbody",
+              { staticClass: "list" },
+              _vm._l(_vm.items, function(item, index) {
+                return _c("tr", { key: index }, [
+                  _c("td", [_vm._v(_vm._s(item.nombre_cat))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.nombre_sub))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.nombre_item))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.serial))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.descripcion_item))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.estado))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.ubicacion))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.A_cargo))])
+                ])
+              }),
+              0
+            )
           ])
         ])
       ])
@@ -56269,13 +56266,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tbody", { staticClass: "list" }, [
+    return _c("thead", { staticClass: "thead-light" }, [
       _c("tr", [
-        _c("th", { attrs: { scope: "row" } }),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Categoria")]),
         _vm._v(" "),
-        _c("td"),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Subcategoria")]),
         _vm._v(" "),
-        _c("td")
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre Item")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Serial")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Descripción")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Ubicación")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("A cargo")])
       ])
     ])
   }

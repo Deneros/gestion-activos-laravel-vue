@@ -1,59 +1,54 @@
 <template>
-
-    <div class="card">
+  <div class="card">
     <div class="card-header border-0">
-
-    <div class="table-responsive">
+      <div class="table-responsive">
         <div>
-            <table class="table align-items-center">
-                <thead class="thead-light">
-                    
-                    <tr>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Subcategoria</th>                        
-                        <th scope="col">Nombre Item</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Ubicación</th>
-                        <th scope="col">A cargo</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">
-                            <button @click="intentar()">Intentar</button>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="list">
-                    <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+          <table class="table align-items-center">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Categoria</th>
+                <th scope="col">Subcategoria</th>
+                <th scope="col">Nombre Item</th>
+                <th scope="col">Serial</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Ubicación</th>
+                <th scope="col">A cargo</th>
+              </tr>
+            </thead>
+            <tbody class="list">
+              <tr v-for="(item, index) in items" :key="index">
+                <td>{{item.nombre_cat}}</td>
+                <td>{{item.nombre_sub}}</td>
+                <td>{{ item.nombre_item }}</td>
+                <td>{{ item.serial }}</td>
+                <td>{{ item.descripcion_item }}</td>
+                <td>{{ item.estado }}</td>
+                <td>{{ item.ubicacion }}</td>
+                <td>{{ item.A_cargo }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
-
-    </div>
-    </div>
-
+  </div>
 </template>
 
 <script>
 export default {
-    data (){
-        return{
-
-        }
-    },
-    created(){
-       
-    },
-    methods:{
-        intentar(){
-            axios.get('/items').then(res => {
-            console.log(res.data);
-            });
-        }
-
-    },
-}
+  data() {
+    return {
+      items: [],
+    };
+  },
+  created() {
+    axios.get("/inventariototal/items").then((res) => {
+      this.items = res.data;
+      console.log(res.data);
+    });
+  },
+  methods: {
+  },
+};
 </script>

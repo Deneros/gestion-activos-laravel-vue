@@ -26,6 +26,7 @@ Route::resource('/subcategorias', 'subcategoriaController');
 //Rutas Items
 Route::resource('/items', 'itemController');
 Route::get('/Admin/listitems/{id}', 'itemController@show');
+Route::get('/inventariototal/items','itemController@inventarioTotal');
 
 // Route::get('/items/inventario','itemController@inventarioTotal');
 

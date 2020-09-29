@@ -150,6 +150,7 @@ import datables from "datatables";
 export default {
     data() {
         return {
+            idsub:0,
             items:[],
             usuarios: [],
              activo:{
@@ -163,24 +164,25 @@ export default {
             }
         };
     },
-    created() {
-        
+    created() {       
         EventBus.$on("idsubcategoria", data => {
-            const id_subcat=data.id;
-            console.log(id_subcat);
-            // axios.get(`/Admin/items/${data.id}`).then(res => {
-            // this.items = res.data;
-            // // this.mytable()
-            // });
+            this.idsub = data.id;
         });
         axios.get("/usuarios").then(res => {
             this.usuarios = res.data;
         });
+    
+        
+    },
+    mounted() {
         axios.get("/items").then(res => {
             this.items = res.data;
         });
-        
-        
+    },
+    beforeUpdate() {
+        axios.get(`/Admin/listitems/${this.idsub}`).then(res => {
+            this.items = res.data;
+        });
     },
     methods: {
         // mytable() {

@@ -2544,7 +2544,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
 /* harmony default export */ __webpack_exports__["default"] = ({});
+=======
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      historial: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/historiales").then(function (res) {
+      _this.historial = res.data;
+    });
+  },
+  methods: {}
+});
+>>>>>>> 9ecfbf1b896f218a8663f71a5c12acc988fc6e05
 
 /***/ }),
 
@@ -2918,6 +2951,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      idsub: 0,
       items: [],
       usuarios: [],
       activo: {
@@ -2935,17 +2969,24 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$on("idsubcategoria", function (data) {
-      var id_subcat = data.id;
-      console.log(id_subcat); // axios.get(`/Admin/items/${data.id}`).then(res => {
-      // this.items = res.data;
-      // // this.mytable()
-      // });
+      _this.idsub = data.id;
     });
     axios.get("/usuarios").then(function (res) {
       _this.usuarios = res.data;
     });
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
     axios.get("/items").then(function (res) {
-      _this.items = res.data;
+      _this2.items = res.data;
+    });
+  },
+  beforeUpdate: function beforeUpdate() {
+    var _this3 = this;
+
+    axios.get("/Admin/listitems/".concat(this.idsub)).then(function (res) {
+      _this3.items = res.data;
     });
   },
   methods: {
@@ -2964,11 +3005,11 @@ __webpack_require__.r(__webpack_exports__);
       this.activo.usuarioCargo = item.A_cargo;
     },
     editarItem: function editarItem(item) {
-      var _this2 = this;
+      var _this4 = this;
 
       axios.put("/items/".concat(item.id), this.activo).then(function (res) {
         axios.get("/items").then(function (res) {
-          _this2.items = res.data;
+          _this4.items = res.data;
         });
       });
     }
@@ -3435,18 +3476,13 @@ __webpack_require__.r(__webpack_exports__);
       var _this4 = this;
 
       axios.put("/subcategorias/".concat(this.subcategoria.id_subcategoria), this.subcategoria).then(function (res) {
-        _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$on("guardarsubcategoria", function (data) {
-          _this4.id_cat = data.id;
+        axios.get("/subcategorias").then(function (res) {
+          _this4.subcategorias = res.data;
         });
       });
     },
     boton: function boton(item) {
       _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$emit("idsubcategoria", item);
-    },
-    envId: function envId(item) {
-      axios.get("/Admin/listitems/".concat(item.id)).then(function (res) {
-        console.log(res.data);
-      });
     }
   }
 });
@@ -56170,13 +56206,42 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "card-header border-0" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "table-responsive" }, [
+        _c("div", [
+          _c("table", { staticClass: "table align-items-center" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.historial, function(item, index) {
+                return _c("tr", { key: index }, [
+                  _c("td", [_vm._v(_vm._s(item.nombre_item))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.fecha_inscripcion))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.fecha_traspaso))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.nombre))])
+                ])
+              }),
+              0
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+<<<<<<< HEAD
     return _c("div", { staticClass: "card" }, [
       _c("div", { staticClass: "card-header border-0" }, [
         _c(
@@ -56205,69 +56270,81 @@ var staticRenderFns = [
                     value: "06/18/2020"
                   }
                 })
+=======
+    return _c(
+      "div",
+      { staticClass: "input-daterange datepicker row align-items-center" },
+      [
+        _c("div", { staticClass: "form-group col-md-3" }, [
+          _c("div", { staticClass: "input-group" }, [
+            _c("div", { staticClass: "input-group-prepend" }, [
+              _c("span", { staticClass: "input-group-text" }, [
+                _c("i", { staticClass: "ni ni-calendar-grid-58" })
+>>>>>>> 9ecfbf1b896f218a8663f71a5c12acc988fc6e05
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group col-md-3" }, [
-              _c("div", { staticClass: "input-group" }, [
-                _c("div", { staticClass: "input-group-prepend" }, [
-                  _c("span", { staticClass: "input-group-text" }, [
-                    _c("i", { staticClass: "ni ni-calendar-grid-58" })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control form-control-sm",
-                  attrs: {
-                    placeholder: "End date",
-                    type: "text",
-                    value: "06/22/2020"
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group col-md-3" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-icon btn-azul btn-sm",
-                  attrs: { type: "button", title: "Buscar" }
-                },
-                [
-                  _vm._v("Buscar\n                        "),
-                  _c("span", { staticClass: "btn-inner--icon" }, [
-                    _c("i", { staticClass: "fas fa-search" })
-                  ])
-                ]
-              )
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "table-responsive" }, [
-          _c("div", [
-            _c("table", { staticClass: "table align-items-center" }, [
-              _c("thead", { staticClass: "thead-light" }, [
-                _c("tr", [
-                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Items")]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } }, [
-                    _vm._v("Fecha asignacion")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } }, [
-                    _vm._v("Fecha traslado")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { attrs: { scope: "col" } }, [_vm._v("Usuario")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("tbody", [_c("tr", [_c("td")])])
-            ])
+            _c("input", {
+              staticClass: "form-control form-control-sm",
+              attrs: {
+                placeholder: "Start date",
+                type: "text",
+                value: "06/18/2020"
+              }
+            })
           ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-md-3" }, [
+          _c("div", { staticClass: "input-group" }, [
+            _c("div", { staticClass: "input-group-prepend" }, [
+              _c("span", { staticClass: "input-group-text" }, [
+                _c("i", { staticClass: "ni ni-calendar-grid-58" })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control form-control-sm",
+              attrs: {
+                placeholder: "End date",
+                type: "text",
+                value: "06/22/2020"
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-md-3" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-icon btn-azul btn-sm",
+              attrs: { type: "button", title: "Buscar" }
+            },
+            [
+              _vm._v("\n          Buscar\n          "),
+              _c("span", { staticClass: "btn-inner--icon" }, [
+                _c("i", { staticClass: "fas fa-search" })
+              ])
+            ]
+          )
         ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-light" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Items")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fecha asignacion")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fecha traslado")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Usuario")])
       ])
     ])
   }
@@ -57877,7 +57954,7 @@ var render = function() {
                           },
                           on: {
                             click: function($event) {
-                              return _vm.enviarInfoform(item)
+                              return _vm.boton(item)
                             }
                           }
                         },
@@ -72965,8 +73042,8 @@ var bus = new Vue();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.4\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.4\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

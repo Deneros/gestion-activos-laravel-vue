@@ -187,7 +187,7 @@
                                         data-target="#modalListarItems"
                                         data-placement="bottom"
                                         title="Listar items"
-                                        @click="enviarInfoform(item)"
+                                        @click="boton(item)"
                                     >
                                         <span class="btn-inner--icon"
                                             ><i class="ni ni-settings"></i
@@ -276,20 +276,14 @@ export default {
         },
         editarCategoria() {
             axios.put(`/subcategorias/${this.subcategoria.id_subcategoria}`,this.subcategoria).then(res => {
-                
-                EventBus.$on("guardarsubcategoria", data => {
-                this.id_cat = data.id;
+                axios.get(`/subcategorias`).then(res => {
+                this.subcategorias = res.data;
                 });
             });
         },
         boton(item) {
             EventBus.$emit("idsubcategoria", item);
         },
-        envId(item){
-            axios.get(`/Admin/listitems/${item.id}`).then(res => {
-                console.log(res.data);
-            });
-        }
     }
 };
 </script>

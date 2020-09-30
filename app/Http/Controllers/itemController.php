@@ -146,6 +146,8 @@ class itemController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $comp = DB::select("SELECT A_cargo FROM items WHERE id = '$id'");
+
         $item = Item::find($id);
         $item->nombre_item = $request->nombre_item;
         $item->serial = $request->serial;
@@ -154,8 +156,14 @@ class itemController extends Controller
         $item->ubicacion = $request->ubicacion;
         $item->A_cargo = $request->usuarioCargo;
         $item->save();
-        
-        return $item;
+     
+        if($comp[0]->A_cargo != $request->usuarioCargo){
+            $idhistorial = \DB::table('items_historial')->select('id_historial')->where('id_item',$id)->get();
+            $historial = Historial::find($idhistorial[0]->id_historial);
+            $historial->fecha_traspaso = Carbon::now();
+            $historial->save();   
+        }
+        return  $id;   
     }
 
     /**

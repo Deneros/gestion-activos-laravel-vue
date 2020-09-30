@@ -150,6 +150,7 @@ import datables from "datatables";
 export default {
     data() {
         return {
+            iditem:0,
             idsub:0,
             items:[],
             usuarios: [],
@@ -198,9 +199,10 @@ export default {
             this.activo.estado = item.estado;
             this.activo.ubicacion =  item.ubicacion;
             this.activo.usuarioCargo = item.A_cargo;
+            this.iditem = item.id
         },
         editarItem(item){
-            axios.put(`/items/${item.id}`, this.activo)
+            axios.put(`/items/${this.iditem}`, this.activo)
                 .then(res=>{    
                     axios.get("/items").then(res => {
                         this.items = res.data;

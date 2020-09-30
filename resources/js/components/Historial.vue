@@ -1,4 +1,23 @@
 <template>
+<<<<<<< HEAD
+    
+    <div class="card">
+        <div class="card-header border-0">
+            <div class="input-daterange datepicker row align-items-center">
+
+                    <div class="form-group col-md-2">
+                        <label class="form-control-label d-block mb-3">Escoge el rango de fechas</label> 
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                            </div>
+                                <input class="form-control form-control-sm" placeholder="Start date" type="text" value="06/18/2020">
+                        </div>
+                    </div>
+=======
   <div class="card">
     <div class="card-header border-0">
       <div class="input-daterange datepicker row align-items-center">
@@ -17,6 +36,7 @@
             />
           </div>
         </div>
+>>>>>>> 9ecfbf1b896f218a8663f71a5c12acc988fc6e05
 
         <div class="form-group col-md-3">
           <div class="input-group">

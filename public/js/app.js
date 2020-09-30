@@ -2544,6 +2544,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
+/* harmony default export */ __webpack_exports__["default"] = ({});
+=======
 //
 //
 //
@@ -2574,6 +2577,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {}
 });
+>>>>>>> 9ecfbf1b896f218a8663f71a5c12acc988fc6e05
 
 /***/ }),
 
@@ -56239,6 +56243,36 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+<<<<<<< HEAD
+    return _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-header border-0" }, [
+        _c(
+          "div",
+          { staticClass: "input-daterange datepicker row align-items-center" },
+          [
+            _c("div", { staticClass: "form-group col-md-2" }, [
+              _c("label", { staticClass: "form-control-label d-block mb-3" }, [
+                _vm._v("Escoge el rango de fechas")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group col-md-3" }, [
+              _c("div", { staticClass: "input-group" }, [
+                _c("div", { staticClass: "input-group-prepend" }, [
+                  _c("span", { staticClass: "input-group-text" }, [
+                    _c("i", { staticClass: "ni ni-calendar-grid-58" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "form-control form-control-sm",
+                  attrs: {
+                    placeholder: "Start date",
+                    type: "text",
+                    value: "06/18/2020"
+                  }
+                })
+=======
     return _c(
       "div",
       { staticClass: "input-daterange datepicker row align-items-center" },
@@ -56248,6 +56282,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "input-group-prepend" }, [
               _c("span", { staticClass: "input-group-text" }, [
                 _c("i", { staticClass: "ni ni-calendar-grid-58" })
+>>>>>>> 9ecfbf1b896f218a8663f71a5c12acc988fc6e05
               ])
             ]),
             _vm._v(" "),
@@ -58079,7 +58114,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "btn-inner--icon" }, [
-      _c("i", { staticClass: "ni ni-settings" })
+      _c("i", { staticClass: "ni ni-single-copy-04" })
     ])
   },
   function() {

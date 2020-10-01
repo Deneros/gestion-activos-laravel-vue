@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     
     <div class="card">
         <div class="card-header border-0">
@@ -16,6 +17,26 @@
                                 <input class="form-control form-control-sm" placeholder="Start date" type="text" value="06/18/2020">
                         </div>
                     </div>
+=======
+  <div class="card">
+    <div class="card-header border-0">
+      <div class="input-daterange datepicker row align-items-center">
+        <div class="form-group col-md-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                ><i class="ni ni-calendar-grid-58"></i
+              ></span>
+            </div>
+            <input
+              class="form-control form-control-sm"
+              placeholder="Start date"
+              type="text"
+              value="06/18/2020"
+            />
+          </div>
+        </div>
+>>>>>>> 560bebe6b991a8333795ddfdb461801115d39240
 
         <div class="form-group col-md-3">
           <div class="input-group">

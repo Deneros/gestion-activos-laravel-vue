@@ -2544,7 +2544,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
 //
+=======
+>>>>>>> 560bebe6b991a8333795ddfdb461801115d39240
 //
 //
 //
@@ -2948,6 +2951,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      iditem: 0,
       idsub: 0,
       items: [],
       usuarios: [],
@@ -3000,11 +3004,12 @@ __webpack_require__.r(__webpack_exports__);
       this.activo.estado = item.estado;
       this.activo.ubicacion = item.ubicacion;
       this.activo.usuarioCargo = item.A_cargo;
+      this.iditem = item.id;
     },
     editarItem: function editarItem(item) {
       var _this4 = this;
 
-      axios.put("/items/".concat(item.id), this.activo).then(function (res) {
+      axios.put("/items/".concat(this.iditem), this.activo).then(function (res) {
         axios.get("/items").then(function (res) {
           _this4.items = res.data;
         });

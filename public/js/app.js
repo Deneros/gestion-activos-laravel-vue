@@ -2544,6 +2544,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
+//
+=======
+>>>>>>> 560bebe6b991a8333795ddfdb461801115d39240
 //
 //
 //
@@ -3186,15 +3190,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _eventBus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../eventBus */ "./resources/js/eventBus.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -56283,6 +56278,12 @@ var staticRenderFns = [
       "div",
       { staticClass: "input-daterange datepicker row align-items-center" },
       [
+        _c("div", { staticClass: "form-group col-md-2" }, [
+          _c("label", { staticClass: "form-control-label d-block mb-3" }, [
+            _vm._v("Escoge el rango de fechas")
+          ])
+        ]),
+        _vm._v(" "),
         _c("div", { staticClass: "form-group col-md-3" }, [
           _c("div", { staticClass: "input-group" }, [
             _c("div", { staticClass: "input-group-prepend" }, [
@@ -58026,15 +58027,6 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre Subcategoria")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Id Categoria")]),
-        _vm._v(" "),
-        _c("th", [
-          _c("form", { attrs: { action: "/admin/items" } }, [
-            _c("input", {
-              staticClass: "btn btn-azul",
-              attrs: { type: "submit", value: "Ver Items" }
-            })
-          ])
-        ]),
         _vm._v(" "),
         _c("th")
       ])
@@ -73106,8 +73098,8 @@ var bus = new Vue();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.4\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.4\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

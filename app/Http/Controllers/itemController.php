@@ -87,24 +87,30 @@ class itemController extends Controller
         $item->A_cargo = $request->usuarioCargo;
         $item->id_subcategoria = $request->subcategoria;
         $item->save();
+
+        if(is_null($request->usuarioCargo)){
+            return $item;
+        }else{
+            $historial = new Historial();
+            $historial -> fecha_inscripcion = Carbon::now();
+            $historial -> save();
+
+            $a_cargo = DB::select("SELECT id FROM users WHERE nombre = '$request->usuarioCargo'");
+
+            $usuariosh =  new UsuariosHistorial();
+            $usuariosh -> id_usuario = $a_cargo[0]->id;
+            $usuariosh -> id_historial = Historial::latest()->first()->id;
+            $usuariosh -> save();
+
+            $itemsh = new ItemsHistorial();
+            $itemsh -> id_item = Item::latest()->first()->id;
+            $itemsh -> id_historial = Historial::latest()->first()->id;
+            $itemsh -> save();
+
+        }
          
-        $historial = new Historial();
-        $historial -> fecha_inscripcion = Carbon::now();
-        $historial -> save();
+        
 
-        $a_cargo = DB::select("SELECT id FROM users WHERE nombre = '$request->usuarioCargo'");
-
-        $usuariosh =  new UsuariosHistorial();
-        $usuariosh -> id_usuario = $a_cargo[0]->id;
-        $usuariosh -> id_historial = Historial::latest()->first()->id;
-        $usuariosh -> save();
-
-        $itemsh = new ItemsHistorial();
-        $itemsh -> id_item = Item::latest()->first()->id;
-        $itemsh -> id_historial = Historial::latest()->first()->id;
-        $itemsh -> save();
-
-        return $itemsh;
     }
 
     /**

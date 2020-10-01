@@ -118,14 +118,6 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group">
-                                                                            <label class="form-control-label" for="a_cargo">Subcategoria:</label>
-                                                                            <input type="text" list="subcategorias" class="form-control form-control" v-model="activo.subcategoria" />    
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
                                                                     <button type="submit" class="btn btn-azul">Guardar</button>
                                                             </form>
                                                         </div>

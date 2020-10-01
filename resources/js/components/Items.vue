@@ -60,8 +60,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label class="form-control-label" for="a_cargo">Subcategoria:</label>
-                                <input type="text" list="subcategorias" class="form-control form-control" v-model="item.subcategoria" />    
+                                <input type="hidden" list="subcategorias" class="form-control form-control" v-model="item.subcategoria" />    
                             </div>
                         </div>
                     </div>

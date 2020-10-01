@@ -3,7 +3,7 @@
     <div class="card-header border-0">
       <div class="table-responsive">
         <div>
-          <table class="table align-items-center">
+          <table class="table align-items-center" id="inv-table">
             <thead class="thead-light">
               <tr>
                 <th scope="col">Categoria</th>
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import datables from "datatables";
 export default {
   data() {
     return {
@@ -45,10 +46,15 @@ export default {
   created() {
     axios.get("/inventariototal/items").then((res) => {
       this.items = res.data;
-      console.log(res.data);
+      this.mytable()
     });
   },
   methods: {
+    mytable() {
+            $(document).ready(function() {
+                $("#inv-table").DataTable();
+            });
+        }
   },
 };
 </script>

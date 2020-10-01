@@ -7,15 +7,6 @@
                         <th scope="col">Id Subcategoria</th>
                         <th scope="col">Nombre Subcategoria</th>
                         <th scope="col">Id Categoria</th>
-                        <th>
-                            <form action="/admin/items">
-                                <input
-                                    type="submit"
-                                    class="btn btn-azul"
-                                    value="Ver Items"
-                                />
-                            </form>
-                        </th>
                         <th></th>
                     </tr>
                 </thead>

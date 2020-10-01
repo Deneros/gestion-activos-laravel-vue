@@ -31,6 +31,10 @@ Route::get('/inventariototal/items','itemController@inventarioTotal');
 //Rutas Historial
 Route::resource('/historiales','historialController');
 
+//Rutas Reportes 
+Route::get('/reporte1','reportesController@usuariosAsignacion');
+Route::get('/reporte2','reportesController@activoCargo');
+
 
 //Retornar vistas 
 Route::get('/admin/usuarios', 'usuarioController@vista')->name('vista');

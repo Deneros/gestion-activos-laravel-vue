@@ -2755,7 +2755,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     guardarItem: function guardarItem() {
-      if (this.item.nombre_item.trim() === "" || this.item.serial.trim() === "" || this.item.descripcion.trim() === "" || this.item.estado.trim() === "" || this.item.ubicacion.trim() === "" || this.item.usuarioCargo.trim() === "") {
+      if (this.item.nombre_item.trim() === "" || this.item.serial.trim() === "" || this.item.descripcion.trim() === "" || this.item.estado.trim() === "" || this.item.ubicacion.trim() === "") {
         toastr.error('Debe rellenar todos los campos');
       } else {
         var params = {
@@ -4106,6 +4106,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -4191,7 +4193,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return _defineProperty({
+      reporte1: [],
+      reporte2: [],
+      usuarios: [],
+      items: [],
+      usuarioCargo: ''
+    }, "items", '');
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/usuarios").then(function (res) {
+      _this.usuarios = res.data;
+    });
+    axios.get("/items").then(function (res) {
+      _this.items = res.data;
+    });
+  },
+  methods: {
+    activosAsignacion: function activosAsignacion() {
+      var _this2 = this;
+
+      axios.get("/reporte1").then(function (res) {
+        _this2.reporte1 = res.data;
+      });
+    },
+    activoUsuario: function activoUsuario() {
+      var _this3 = this;
+
+      axios.get("/reporte2").then(function (res) {
+        console.log(res.data);
+        _this3.reporte2 = res.data;
+      });
+    },
+    mantenimiento: function mantenimiento() {}
+  }
+});
 
 /***/ }),
 
@@ -59366,85 +59406,62 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header border-0" }, [
-            _c("h2", { staticClass: "heading-md text-center mb-2" }, [
-              _vm._v("Reincidencia en mantenimiento")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "pl-lg-4" }, [
-              _c("form", [
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-sm-6" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-header border-0" }, [
+          _c("h2", { staticClass: "heading-md text-center mb-2" }, [
+            _vm._v("Reincidencia en mantenimiento")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "pl-lg-4" }, [
+            _c("form", [
+              _c("div", { staticClass: "form-group" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("div", { staticClass: "form-group" }, [
                     _c(
                       "label",
                       {
                         staticClass: "form-control-label",
-                        attrs: { for: "a_cargo" }
+                        attrs: { for: "item" }
                       },
-                      [_vm._v("Item:")]
+                      [_vm._v("Items:")]
                     ),
                     _vm._v(" "),
                     _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.items,
+                          expression: "items"
+                        }
+                      ],
                       staticClass: "form-control form-control",
-                      attrs: { type: "text", list: "usuarios" }
+                      attrs: { type: "text", list: "item" },
+                      domProps: { value: _vm.items },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.items = $event.target.value
+                        }
+                      }
                     }),
                     _vm._v(" "),
-                    _c("datalist", { attrs: { id: "item" } }, [
-                      _c("option", [_vm._v("A")]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("B")])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-icon btn-azul btn-sm",
-                      attrs: { type: "button", title: "Generar reporte" }
-                    },
-                    [
-                      _vm._v(
-                        "Descargar PDF\r\n                                    "
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header border-0" }, [
-            _c("h2", { staticClass: "heading-md text-center mb-2" }, [
-              _vm._v("Activos que no estan asignados")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "pl-lg-4" }, [
-              _c("div", { staticClass: "form-group mb-0" }, [
-                _c(
-                  "label",
-                  { staticClass: "form-control-label d-block mb-3" },
-                  [
-                    _vm._v(
-                      "Informe de los items (Activos) que no estan asignados a ningun usuario"
+                    _c(
+                      "datalist",
+                      { attrs: { id: "item" } },
+                      _vm._l(_vm.items, function(objeto, index) {
+                        return _c("option", { key: index }, [
+                          _vm._v(_vm._s(objeto.nombre_item))
+                        ])
+                      }),
+                      0
                     )
-                  ]
-                )
+                  ])
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group row" }, [
@@ -59452,67 +59469,147 @@ var staticRenderFns = [
                   "button",
                   {
                     staticClass: "btn btn-icon btn-azul btn-sm",
-                    attrs: { type: "button", title: "Generar reporte" }
+                    attrs: { type: "button", title: "Generar reporte" },
+                    on: {
+                      click: function($event) {
+                        return _vm.mantenimiento()
+                      }
+                    }
                   },
-                  [_vm._v("Descargar PDF\r\n                                ")]
+                  [
+                    _vm._v(
+                      "Descargar PDF\r\n                                    "
+                    )
+                  ]
                 )
               ])
             ])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header border-0" }, [
-            _c("h2", { staticClass: "heading-md text-center mb-2" }, [
-              _vm._v("Activo a cargo de un usuario")
-            ]),
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-sm-6" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-header border-0" }, [
+          _c("h2", { staticClass: "heading-md text-center mb-2" }, [
+            _vm._v("Activos que no estan asignados")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "pl-lg-4" }, [
+            _vm._m(0),
             _vm._v(" "),
-            _c("div", { staticClass: "pl-lg-4" }, [
-              _c("form", [
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-icon btn-azul btn-sm",
+                  attrs: { type: "button", title: "Generar reporte" },
+                  on: {
+                    click: function($event) {
+                      return _vm.activosAsignacion()
+                    }
+                  }
+                },
+                [_vm._v("Descargar PDF\r\n                                ")]
+              )
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-sm-6" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-header border-0" }, [
+          _c("h2", { staticClass: "heading-md text-center mb-2" }, [
+            _vm._v("Activo a cargo de un usuario")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "pl-lg-4" }, [
+            _c("form", [
+              _c("div", { staticClass: "form-group" }, [
                 _c("div", { staticClass: "form-group" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c(
-                      "label",
-                      {
-                        staticClass: "form-control-label",
-                        attrs: { for: "a_cargo" }
-                      },
-                      [_vm._v("Usuario:")]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control form-control",
-                      attrs: { type: "text", list: "usuarios" }
-                    }),
-                    _vm._v(" "),
-                    _c("datalist", { attrs: { id: "usuarios" } }, [
-                      _c("option", [_vm._v("A")]),
-                      _vm._v(" "),
-                      _c("option", [_vm._v("B")])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
                   _c(
-                    "button",
+                    "label",
                     {
-                      staticClass: "btn btn-icon btn-azul btn-sm",
-                      attrs: { type: "button", title: "Generar reporte" }
+                      staticClass: "form-control-label",
+                      attrs: { for: "a_cargo" }
                     },
-                    [
-                      _vm._v(
-                        "Descargar PDF\r\n                                    "
-                      )
-                    ]
+                    [_vm._v("Usuario:")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.usuarioCargo,
+                        expression: "usuarioCargo"
+                      }
+                    ],
+                    staticClass: "form-control form-control",
+                    attrs: { type: "text", list: "usuarios" },
+                    domProps: { value: _vm.usuarioCargo },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.usuarioCargo = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "datalist",
+                    { attrs: { id: "usuarios" } },
+                    _vm._l(_vm.usuarios, function(usuario, index) {
+                      return _c("option", { key: index }, [
+                        _vm._v(_vm._s(usuario.nombre))
+                      ])
+                    }),
+                    0
                   )
                 ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-icon btn-azul btn-sm",
+                    attrs: { type: "button", title: "Generar reporte" },
+                    on: {
+                      click: function($event) {
+                        return _vm.activoUsuario()
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "Descargar PDF\r\n                                    "
+                    )
+                  ]
+                )
               ])
             ])
           ])
         ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group mb-0" }, [
+      _c("label", { staticClass: "form-control-label d-block mb-3" }, [
+        _vm._v(
+          "Informe de los items (Activos) que no estan asignados a ningun usuario"
+        )
       ])
     ])
   }

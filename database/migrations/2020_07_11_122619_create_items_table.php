@@ -20,7 +20,7 @@ class CreateItemsTable extends Migration
             $table->string('descripcion_item');
             $table->string('estado');
             $table->string('ubicacion');
-            $table->string('A_cargo');
+            $table->string('A_cargo')->nullable();
             $table->unsignedBigInteger('id_subcategoria');
             $table->foreign('id_subcategoria')->references('id')->on('subcategorias');
             $table->timestamps();

@@ -11,16 +11,17 @@
                         <form>
                             <div class="form-group">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="a_cargo">Item:</label>
-                                    <input type="text" list="usuarios" class="form-control form-control" />
-                                        <datalist id="item" >
-                                            <option>A</option>  
-                                            <option>B</option>                    
-                                        </datalist>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="item">Items:</label>
+                                    <input type="text" list="item" class="form-control form-control" v-model="items" />
+                                    <datalist id="item" >
+                                        <option v-for="(objeto, index) in items" :key="index">{{objeto.nombre_item}}</option>                      
+                                    </datalist>
                                 </div>
                             </div>
+                            </div>
                             <div class="form-group row">
-                                <button class="btn btn-icon btn-azul btn-sm" type="button" title="Generar reporte">Descargar PDF
+                                <button class="btn btn-icon btn-azul btn-sm" type="button" title="Generar reporte" @click="mantenimiento()">Descargar PDF
                                     <!-- <span class="btn-inner--icon"><i class="fas fa-search"></i></span> -->
                                 </button>
                             </div>
@@ -41,7 +42,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <button class="btn btn-icon btn-azul btn-sm" type="button" title="Generar reporte">Descargar PDF
+                            <button class="btn btn-icon btn-azul btn-sm" type="button" title="Generar reporte" @click="activosAsignacion()">Descargar PDF
                                 <!-- <span class="btn-inner--icon"><i class="fas fa-search"></i></span> -->
                             </button>
                         </div>
@@ -60,15 +61,14 @@
                             <div class="form-group">
                                 <div class="form-group">
                                     <label class="form-control-label" for="a_cargo">Usuario:</label>
-                                    <input type="text" list="usuarios" class="form-control form-control" />
-                                        <datalist id="usuarios" >
-                                            <option>A</option>  
-                                            <option>B</option>                    
-                                        </datalist>
+                                    <input type="text" list="usuarios" class="form-control form-control" v-model="usuarioCargo" />
+                                    <datalist id="usuarios" >
+                                        <option v-for="(usuario, index) in usuarios" :key="index">{{usuario.nombre}}</option>                      
+                                    </datalist>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <button class="btn btn-icon btn-azul btn-sm" type="button" title="Generar reporte">Descargar PDF
+                                <button class="btn btn-icon btn-azul btn-sm" type="button" title="Generar reporte" @click="activoUsuario()">Descargar PDF
                                     <!-- <span class="btn-inner--icon"><i class="fas fa-search"></i></span> -->
                                 </button>
                             </div>
@@ -85,6 +85,39 @@
 
 <script>
 export default {
-    
-}
+    data() {
+        return{   
+           reporte1:[],
+           reporte2:[],
+           usuarios:[],
+           items:[],
+           usuarioCargo:'',
+           items:''
+        };
+    },
+    created(){    
+        axios.get("/usuarios").then(res => {
+            this.usuarios = res.data;
+        });
+        axios.get("/items").then(res => {
+            this.items = res.data;
+            });
+    },
+    methods:{
+        activosAsignacion(){
+            axios.get("/reporte1").then(res => {
+            this.reporte1 = res.data;
+            });
+        },
+         activoUsuario(){
+            axios.get("/reporte2").then(res => {
+            console.log(res.data);
+            this.reporte2 = res.data;
+            });
+        },
+         mantenimiento(){
+           
+        }
+    }
+};
 </script>

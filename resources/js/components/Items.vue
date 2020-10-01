@@ -105,8 +105,7 @@ export default {
                 this.item.serial.trim()==="" ||
                 this.item.descripcion.trim()==="" ||
                 this.item.estado.trim()==="" ||
-                this.item.ubicacion.trim()==="" ||
-                this.item.usuarioCargo.trim()==="" 
+                this.item.ubicacion.trim()==="" 
             )
             {
                 toastr.error('Debe rellenar todos los campos');

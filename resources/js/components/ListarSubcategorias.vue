@@ -4,17 +4,13 @@
             <table class="table align-items-center" id="subcategoriastabla">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">Id Subcategoria</th>
                         <th scope="col">Nombre Subcategoria</th>
-                        <th scope="col">Id Categoria</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="(item, index) in subcategorias" :key="index">
-                        <td>{{ item.id }}</td>
                         <td>{{ item.nombre_sub }}</td>
-                        <td>{{ item.id_categoria }}</td>
                         <td>
                             <div class="row">
 

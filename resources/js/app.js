@@ -35,7 +35,8 @@ Vue.component('listadoitems', require('./components/ListadoItems.vue').default);
 Vue.component('historial', require('./components/Historial.vue').default);
 Vue.component('personalizar', require('./components/Personalizar.vue').default);
 Vue.component('reportes', require('./components/Reportes.vue').default);
-
+Vue.component('reporteusuario', require('./components/ReporteDeUsuario.vue').default);
+Vue.component('reportenoasignado', require('./components/ReporteNoAsignados.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

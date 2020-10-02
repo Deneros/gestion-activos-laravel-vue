@@ -14,10 +14,11 @@
                 <th scope="col">Descripción</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Ubicación</th>
+                <th scope="col">A cargo</th>
               </tr>
             </thead>
             <tbody class="list">
-              <tr v-for="(item, index) in items" :key="index">
+              <tr v-for="(item, index) in reporte" :key="index">
                 <td>{{item.nombre_cat}}</td>
                 <td>{{item.nombre_sub}}</td>
                 <td>{{ item.nombre_item }}</td>
@@ -25,6 +26,7 @@
                 <td>{{ item.descripcion_item }}</td>
                 <td>{{ item.estado }}</td>
                 <td>{{ item.ubicacion }}</td>
+                <td>{{item.A_cargo }}</td> 
               </tr>
             </tbody>
           </table>
@@ -35,7 +37,22 @@
 </template>
 
 <script>
+import EventBus from "../eventBus";
 export default {
+  data() {
+    return {
+      reporte:[]
+      
+    };
+  },
+  mounted() {
+    EventBus.$on("reporte1", data => {
+            this.reporte = data;
+            console.log(data);
+        });
+  },
+  methods: {
     
-}
+  },
+};
 </script>

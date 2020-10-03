@@ -113,6 +113,7 @@ class usuarioController extends Controller
         $usuario->cargo = $request->cargo;
         $usuario->telefono = $request->telefono;
         $usuario->email = $request->email;
+        $usuario->password = bcrypt($request->password);
         $usuario->save();
         
         return $usuario;

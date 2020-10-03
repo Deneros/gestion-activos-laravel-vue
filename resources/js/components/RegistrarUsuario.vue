@@ -168,6 +168,7 @@
 </template>
 
 <script>
+import EventBus from "../eventBus";
 export default {
   data() {
     return {
@@ -185,6 +186,11 @@ export default {
         Confirmar_Contrasena: "",
       },
     };
+  },
+  created(){
+    axios.get("/usuarios").then((res) => {
+      this.usuarios = res.data;
+    });
   },
   methods: {
     agregar() {
@@ -233,8 +239,9 @@ export default {
               axios.post("/usuarios", params).then((res) => {
                 this.usuarios.push(res.data);
               });
-
               toastr.success("Usuario Registrado");
+
+              EventBus.$emit("usuario", this.usuarios);
             } else {
               toastr.error("Las contraseñas no coinciden");
             }
@@ -247,11 +254,6 @@ export default {
       } else {
         toastr.error("Debe rellenar todos los campos");
       }
-    },
-    validar() {
-      let texto = new RegExp("^[ñA-Za-z _]*[ñA-Za-z][ñA-Za-z _]*$", "i");
-      console.log(this.usuario.nombre);
-      console.log(texto.test(this.usuario.nombre));
     },
   },
 };

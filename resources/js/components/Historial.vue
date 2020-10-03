@@ -62,7 +62,7 @@
             </div> -->
       <div class="table-responsive">
         <div>
-          <table class="table align-items-center">
+          <table class="table align-items-center" id="historial">
             <thead class="thead-light">
               <tr>
                 <th scope="col">Items</th>
@@ -87,6 +87,7 @@
 </template>
 
 <script>
+import datables from "datatables";
 export default {
   data() {
     return {
@@ -96,8 +97,19 @@ export default {
   created() {
     axios.get("/historiales").then((res) => {
       this.historial = res.data;
+      this.mytable()
     });
   },
-  methods: {},
+  methods: {
+    mytable() {
+      $(document).ready(function () {
+        $("#historial").dataTable({
+          language: {
+            url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json",
+          },
+        });
+      });
+    }
+  },
 };
 </script>

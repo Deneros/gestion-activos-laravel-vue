@@ -4,12 +4,17 @@
             <table class="table align-items-center" id="subcategoriastabla">
                 <thead class="thead-light">
                     <tr>
+                        <div class="input-group input-group-sm mb-3">
+                            <input class="form-control right" type="text" placeholder="Buscar subcategoria" v-model="nombre_subcat">
+                        </div>
+                    </tr>
+                    <tr>
                         <th scope="col">Nombre Subcategoria</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(item, index) in subcategorias" :key="index">
+                    <tr v-for="(item, index) in buscarSubcategorias" :key="index">
                         <td>{{ item.nombre_sub }}</td>
                         <td>
                             <div class="row">
@@ -235,6 +240,7 @@ import EventBus from "../eventBus";
 export default {
     data() {
         return {
+            nombre_subcat:"",
             id_cat: 0,
             subcategorias: [],
             subcategoria: { id_subcategoria: "", nombre_sub: "" }
@@ -272,6 +278,13 @@ export default {
         boton(item) {
             EventBus.$emit("idsubcategoria", item);
         },
+    },
+    computed: {
+        buscarSubcategorias: function() {
+            return this.subcategorias.filter(item =>
+                item.nombre_sub.toLowerCase().includes(this.nombre_subcat.toLowerCase())
+            );
+        }
     }
 };
 </script>

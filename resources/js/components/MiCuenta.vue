@@ -139,6 +139,36 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label" for="password"
+                            >Contraseña</label
+                        >
+                        <input
+                            id="password"
+                            class="form-control"
+                            placeholder="Contraseña"
+                            v-model="usuario.password"
+                            type="password"
+                        />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label" for="cpassword"
+                            >Confirmar contraseña</label
+                        >
+                        <input
+                            id="cpassword"
+                            class="form-control"
+                            placeholder="Confirmar contraseña"
+                            v-model="usuario.cpassword"
+                            type="password"
+                        />
+                    </div>
+                </div>
+            </div>
             <button type="submit" class="btn btn-azul">
                 Guardar cambios
             </button>
@@ -180,7 +210,9 @@ export default {
                 apellido: "",
                 cargo: "",
                 telefono: "",
-                email: ""
+                email: "",
+                password:"",
+                cpassword:""
             }
         };
     },
@@ -191,7 +223,15 @@ export default {
     },
     methods: {
         editarFormulario() {
-            axios.put(`/usuarios/${this.usuario.id}`, this.usuario);
+            if(this.usuario.password === this.usuario.cpassword){
+                axios.put(`/usuarios/${this.usuario.id}`, this.usuario).then(res=>{
+                toastr.success("Información actualizada");
+                this.usuario.password="";
+                this.usuario.cpassword="";
+            });
+            }else{
+                toastr.error("Los campos de contraseña no coinciden");
+            }
         }
     }
 };

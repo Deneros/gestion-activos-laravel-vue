@@ -5,6 +5,11 @@
                 <div>
                     <table class="table align-items-center">
                         <thead class="thead-light">
+                            <tr>
+                                <div class="input-group input-group-sm mb-3">
+                                    <input class="form-control right" type="text" placeholder="Buscar subcategoria" v-model="busq_items">
+                                </div>
+                            </tr>
                             <tr >
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Serial</th>
@@ -16,7 +21,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(item, index) in items" :key="index">
+                            <tr v-for="(item, index) in buscarItems" :key="index">
                                 <td>{{ item.nombre_item }}</td>
                                 <td>{{ item.serial }}</td>
                                 <td>{{ item.descripcion_item }}</td>
@@ -151,6 +156,7 @@ import datables from "datatables";
 export default {
     data() {
         return {
+            busq_items:"",
             iditem:0,
             idsub:0,
             items:[],
@@ -206,7 +212,8 @@ export default {
         },
         editarItem(item){
             axios.put(`/items/${this.iditem}`, this.activo)
-                .then(res=>{    
+                .then(res=>{
+                    this.activo.mantenimiento = "";    
                     toastr.success("Item Actualizado");
                     console.log(res.data)
                     axios.get("/items").then(res => {
@@ -214,6 +221,18 @@ export default {
                     })
                 })
         },
+    },
+    computed: {
+        buscarItems: function() {
+            return this.items.filter((item) =>{
+                return item.nombre_item.toLowerCase().includes(this.busq_items.toLowerCase()) ||
+                item.serial.toLowerCase().includes(this.busq_items.toLowerCase()) ||
+                item.descripcion_item.toLowerCase().includes(this.busq_items.toLowerCase()) ||
+                item.estado.toLowerCase().includes(this.busq_items.toLowerCase()) ||
+                item.ubicacion.toLowerCase().includes(this.busq_items.toLowerCase()) ||
+                item.A_cargo.toLowerCase().includes(this.busq_items.toLowerCase()) 
+            });
+        }
     }
 };
 </script>

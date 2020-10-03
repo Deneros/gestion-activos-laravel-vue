@@ -32,8 +32,8 @@ class LoginController extends Controller
             return redirect()->route('home');
         }else {
             
-            // return view('auth.login');
-            return 'error';
+            return view('auth.login');
+            // return 'error';
         }
     }
 

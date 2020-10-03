@@ -162,7 +162,24 @@ class itemController extends Controller
             $historial = Historial::find($idhistorial[0]->id_historial);
             $historial->fecha_traspaso = Carbon::now();
             $historial->save();
+
+            $historial = new Historial();
+            $historial -> fecha_inscripcion = Carbon::now();
+            $historial -> save();
+
+            $a_cargo = DB::select("SELECT id FROM users WHERE nombre = '$request->usuarioCargo'");
+
+            $usuariosh =  new UsuariosHistorial();
+            $usuariosh -> id_usuario = $a_cargo[0]->id;
+            $usuariosh -> id_historial = Historial::latest()->first()->id;
+            $usuariosh -> save();
+
+            $itemsh = new ItemsHistorial();
+            $itemsh -> id_item = $id;
+            $itemsh -> id_historial = Historial::latest()->first()->id;
+            $itemsh -> save();
         }
+
         if(is_null($request->mantenimiento)){
             return $item; 
         }else{

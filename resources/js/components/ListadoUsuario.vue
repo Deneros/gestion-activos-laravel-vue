@@ -115,8 +115,14 @@ export default {
       this.usuarios = res.data;
       this.mytable();
     });
+    
   },
-
+  mounted(){
+    EventBus.$on("usuario", data => {
+            this.usuarios = data;
+            // this.mytable();
+    });
+  },
   methods: {
     boton(item) {
       EventBus.$emit("modificarUsuario", item);

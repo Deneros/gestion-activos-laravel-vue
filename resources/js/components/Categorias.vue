@@ -355,7 +355,7 @@ export default {
     computed: {
         buscarCategorias: function() {
             return this.categorias.filter(item =>
-                item.nombre_cat.includes(this.nombre_categoria)
+                item.nombre_cat.toLowerCase().includes(this.nombre_categoria.toLowerCase())
             );
         }
     }

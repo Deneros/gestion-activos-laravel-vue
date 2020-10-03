@@ -8,6 +8,7 @@
               </a>
             </li>
             </ul>
+
             <!-- Divider -->
             @if(Auth::user()->tipo_usuario == "Admin")
             <hr class="my-3">
@@ -89,6 +90,11 @@
               </a>
             </li>
             </ul>
+<<<<<<< HEAD
           </ul>
           @endif
+=======
+            </ul>
+          
+>>>>>>> 0af1e51863dbb26fec063a1977cc26fecc7634b8
         </div>

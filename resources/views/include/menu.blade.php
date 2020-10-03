@@ -90,11 +90,6 @@
               </a>
             </li>
             </ul>
-<<<<<<< HEAD
           </ul>
           @endif
-=======
-            </ul>
-          
->>>>>>> 0af1e51863dbb26fec063a1977cc26fecc7634b8
         </div>

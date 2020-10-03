@@ -3271,11 +3271,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-<<<<<<< HEAD
-=======
-//
-//
->>>>>>> 0af1e51863dbb26fec063a1977cc26fecc7634b8
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -68550,7 +68545,9 @@ var render = function() {
                                       { staticClass: "modal-body" },
                                       [_c("editarDatos")],
                                       1
-                                    )
+                                    ),
+                                    _vm._v(" "),
+                                    _vm._m(4, true)
                                   ])
                                 ]
                               )
@@ -68614,7 +68611,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "btn-inner--icon" }, [
-      _c("i", { staticClass: "ni ni-settings" })
+      _c("i", { staticClass: "ni ni-atom" })
     ])
   },
   function() {
@@ -68645,7 +68642,6 @@ var staticRenderFns = [
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
     ])
-<<<<<<< HEAD
   },
   function() {
     var _vm = this
@@ -68665,8 +68661,6 @@ var staticRenderFns = [
         ]
       )
     ])
-=======
->>>>>>> 0af1e51863dbb26fec063a1977cc26fecc7634b8
   }
 ]
 render._withStripped = true
@@ -84497,8 +84491,8 @@ var bus = new Vue();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.5 prueba pdf\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.5 prueba pdf\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

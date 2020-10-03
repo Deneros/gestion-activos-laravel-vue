@@ -264,7 +264,8 @@ export default {
         editarCategoria() {
             axios.put(`/subcategorias/${this.subcategoria.id_subcategoria}`,this.subcategoria).then(res => {
                 axios.get(`/subcategorias`).then(res => {
-                this.subcategorias = res.data;
+                    toastr.success("Subcategoria Registrada");
+                    this.subcategorias = res.data;
                 });
             });
         },

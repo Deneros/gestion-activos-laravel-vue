@@ -13,7 +13,7 @@ class CreateEstadosDescripcionTable extends Migration
      */
     public function up()
     {
-        Schema::create('estados_descripcion', function (Blueprint $table) {
+        Schema::create('estados', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_item');
             $table->foreign('id_item')->references('id')->on('items');

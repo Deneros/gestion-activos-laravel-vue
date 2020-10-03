@@ -131,6 +131,7 @@ export default {
         });
         
     },
+    
     methods: {
         boton(item) {
             EventBus.$emit("modificarUsuario", item);

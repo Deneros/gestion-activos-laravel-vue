@@ -127,8 +127,7 @@ export default {
                 this.item.usuarioCargo=""; 
 
                 axios.post("/items", params).then(res => {
-                    console.log(res.data);
-                // this.items.push(res.data);
+                this.items.push(res.data);
             });
 
              toastr.success('Item Registrado'); 

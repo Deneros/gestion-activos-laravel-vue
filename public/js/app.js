@@ -2892,6 +2892,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     guardarItem: function guardarItem() {
+      var _this2 = this;
+
       if (this.item.nombre_item.trim() === "" || this.item.serial.trim() === "" || this.item.descripcion.trim() === "" || this.item.estado.trim() === "" || this.item.ubicacion.trim() === "") {
         toastr.error('Debe rellenar todos los campos');
       } else {
@@ -2911,7 +2913,7 @@ __webpack_require__.r(__webpack_exports__);
         this.item.ubicacion = "";
         this.item.usuarioCargo = "";
         axios.post("/items", params).then(function (res) {
-          console.log(res.data); // this.items.push(res.data);
+          _this2.items.push(res.data);
         });
         toastr.success('Item Registrado');
       }
@@ -3071,6 +3073,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3085,6 +3096,7 @@ __webpack_require__.r(__webpack_exports__);
         serial: '',
         descripcion: '',
         estado: '',
+        mantenimiento: '',
         ubicacion: '',
         usuarioCargo: '',
         subcategoria: ''
@@ -3094,6 +3106,9 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
+    axios.get("/items").then(function (res) {
+      _this.items = res.data;
+    });
     _eventBus__WEBPACK_IMPORTED_MODULE_0__["default"].$on("idsubcategoria", function (data) {
       _this.idsub = data.id;
     });
@@ -3101,18 +3116,12 @@ __webpack_require__.r(__webpack_exports__);
       _this.usuarios = res.data;
     });
   },
-  mounted: function mounted() {
+  mounted: function mounted() {},
+  updated: function updated() {
     var _this2 = this;
 
-    axios.get("/items").then(function (res) {
-      _this2.items = res.data;
-    });
-  },
-  beforeUpdate: function beforeUpdate() {
-    var _this3 = this;
-
     axios.get("/Admin/listitems/".concat(this.idsub)).then(function (res) {
-      _this3.items = res.data;
+      _this2.items = res.data;
     });
   },
   methods: {
@@ -3132,11 +3141,13 @@ __webpack_require__.r(__webpack_exports__);
       this.iditem = item.id;
     },
     editarItem: function editarItem(item) {
-      var _this4 = this;
+      var _this3 = this;
 
       axios.put("/items/".concat(this.iditem), this.activo).then(function (res) {
+        toastr.success("Item Actualizado");
+        console.log(res.data);
         axios.get("/items").then(function (res) {
-          _this4.items = res.data;
+          _this3.items = res.data;
         });
       });
     }
@@ -3591,6 +3602,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.put("/subcategorias/".concat(this.subcategoria.id_subcategoria), this.subcategoria).then(function (res) {
         axios.get("/subcategorias").then(function (res) {
+          toastr.success("Subcategoria Registrada");
           _this4.subcategorias = res.data;
         });
       });
@@ -4535,6 +4547,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4546,7 +4576,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       reporte2: [],
       usuarios: [],
       items: [],
-      usuarioCargo: "",
+      A_cargo: "",
       activo: ""
     };
   },
@@ -4573,7 +4603,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var doc;
+        var doc, logo;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -4584,20 +4614,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 2:
-                _context.next = 4;
-                return _eventBus__WEBPACK_IMPORTED_MODULE_1__["default"].$emit("reporte1", _this2.reporte1);
-
-              case 4:
                 doc = new jspdf__WEBPACK_IMPORTED_MODULE_2__["default"](); // const contentHtml = this.$refs.content.innerHTML;
                 // doc.fromHTML(contentHtml, 15, 15, {
                 // width: 1000
                 // });
 
-                doc.text("Usuarios", 15, 10);
+                logo = new Image();
+                logo.src = "/assets/img/icons/header.png";
+                doc.addImage(logo, "JPEG", 25, 10, 148, 25);
                 doc.autoTable({
-                  html: '#my-table'
+                  html: "#my-table",
+                  margin: {
+                    top: 40
+                  }
                 });
-                doc.save("reporte.pdf");
+                doc.save("reporte de items sin usuario a cargo.pdf");
 
               case 8:
               case "end":
@@ -4610,11 +4641,84 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     activoUsuario: function activoUsuario() {
       var _this3 = this;
 
-      axios.get("/reporte2").then(function (res) {
-        _this3.reporte2 = res.data;
-      });
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var doc, logo;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (!(_this3.A_cargo.trim() === "")) {
+                  _context2.next = 4;
+                  break;
+                }
+
+                toastr.error("El campo de usuarios no puede estar vacio");
+                _context2.next = 12;
+                break;
+
+              case 4:
+                _context2.next = 6;
+                return axios.get("/reporte2/".concat(_this3.A_cargo)).then(function (res) {
+                  _this3.reporte1 = res.data;
+                });
+
+              case 6:
+                doc = new jspdf__WEBPACK_IMPORTED_MODULE_2__["default"]();
+                logo = new Image();
+                logo.src = "/assets/img/icons/header.png";
+                doc.addImage(logo, "JPEG", 25, 10, 148, 25);
+                doc.autoTable({
+                  html: "#my-table",
+                  margin: {
+                    top: 40
+                  }
+                });
+                doc.save("reporte de activos asignados a un usuario.pdf");
+
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     },
-    mantenimiento: function mantenimiento() {}
+    mantenimiento: function mantenimiento() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var doc, logo;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios.get("/reporte3").then(function (res) {
+                  console.log(res.data);
+                  _this4.reporte2 = res.data;
+                });
+
+              case 2:
+                doc = new jspdf__WEBPACK_IMPORTED_MODULE_2__["default"]();
+                logo = new Image();
+                logo.src = '/assets/img/icons/header.png';
+                doc.addImage(logo, 'JPEG', 25, 10, 148, 25);
+                doc.autoTable({
+                  html: '#my-table2',
+                  margin: {
+                    top: 40
+                  }
+                });
+                doc.save("reporte de activos en reincidencia de mantenimiento.pdf");
+
+              case 8:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    }
   }
 });
 
@@ -68107,6 +68211,83 @@ var render = function() {
                                           )
                                         ]),
                                         _vm._v(" "),
+                                        _vm.activo.estado === "Mantenimiento"
+                                          ? _c("div", { staticClass: "row" }, [
+                                              _c(
+                                                "div",
+                                                { staticClass: "col-md-12" },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass: "form-group"
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "label",
+                                                        {
+                                                          staticClass:
+                                                            "form-control-label",
+                                                          attrs: {
+                                                            for: "descriMante"
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            "Descripcion de Mantenimiento:"
+                                                          )
+                                                        ]
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c("textarea", {
+                                                        directives: [
+                                                          {
+                                                            name: "model",
+                                                            rawName: "v-model",
+                                                            value:
+                                                              _vm.activo
+                                                                .mantenimiento,
+                                                            expression:
+                                                              "activo.mantenimiento"
+                                                          }
+                                                        ],
+                                                        staticClass:
+                                                          "form-control",
+                                                        attrs: {
+                                                          id: "descriMante",
+                                                          rows: "3"
+                                                        },
+                                                        domProps: {
+                                                          value:
+                                                            _vm.activo
+                                                              .mantenimiento
+                                                        },
+                                                        on: {
+                                                          input: function(
+                                                            $event
+                                                          ) {
+                                                            if (
+                                                              $event.target
+                                                                .composing
+                                                            ) {
+                                                              return
+                                                            }
+                                                            _vm.$set(
+                                                              _vm.activo,
+                                                              "mantenimiento",
+                                                              $event.target
+                                                                .value
+                                                            )
+                                                          }
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ])
+                                          : _vm._e(),
+                                        _vm._v(" "),
                                         _c("div", { staticClass: "row" }, [
                                           _c(
                                             "div",
@@ -70459,59 +70640,9 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "pl-lg-4" }, [
+              _vm._m(0),
+              _vm._v(" "),
               _c("form", [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "form-control-label",
-                          attrs: { for: "item" }
-                        },
-                        [_vm._v("Items:")]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.activo,
-                            expression: "activo"
-                          }
-                        ],
-                        staticClass: "form-control form-control",
-                        attrs: { type: "text", list: "item" },
-                        domProps: { value: _vm.activo },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.activo = $event.target.value
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "datalist",
-                        { attrs: { id: "item" } },
-                        _vm._l(_vm.items, function(item, index) {
-                          return _c("option", { key: index }, [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(item.nombre_item) +
-                                "\n                      "
-                            )
-                          ])
-                        }),
-                        0
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
                 _c("div", { staticClass: "form-group row" }, [
                   _c(
                     "button",
@@ -70545,7 +70676,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "pl-lg-4" }, [
-              _vm._m(0),
+              _vm._m(1),
               _vm._v(" "),
               _c("div", { staticClass: "form-group row" }, [
                 _c(
@@ -70592,19 +70723,19 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.usuarioCargo,
-                          expression: "usuarioCargo"
+                          value: _vm.A_cargo,
+                          expression: "A_cargo"
                         }
                       ],
                       staticClass: "form-control form-control",
                       attrs: { type: "text", list: "usuarios" },
-                      domProps: { value: _vm.usuarioCargo },
+                      domProps: { value: _vm.A_cargo },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.usuarioCargo = $event.target.value
+                          _vm.A_cargo = $event.target.value
                         }
                       }
                     }),
@@ -70652,7 +70783,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "row", staticStyle: { display: "none" } }, [
+    _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "table-responsive" }, [
         _c("div", [
           _c(
@@ -70662,7 +70793,7 @@ var render = function() {
               attrs: { id: "my-table" }
             },
             [
-              _vm._m(1),
+              _vm._m(2),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -70691,13 +70822,67 @@ var render = function() {
             ]
           )
         ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "table-responsive" }, [
+        _c("div", [
+          _c(
+            "table",
+            {
+              staticClass: "table align-items-center",
+              attrs: { id: "my-table2" }
+            },
+            [
+              _vm._m(3),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                { staticClass: "list" },
+                _vm._l(_vm.reporte2, function(item, index) {
+                  return _c("tr", { key: index }, [
+                    _c("td", [_vm._v(_vm._s(item.nombre_item))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.serial))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.estado))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.created_at))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.descripcion))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.ubicacion))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.A_cargo))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.nombre_cat))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(item.nombre_sub))])
+                  ])
+                }),
+                0
+              )
+            ]
+          )
+        ])
       ])
-    ]),
-    _vm._v(" "),
-    _c("div", { ref: "content" })
+    ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("div", { staticClass: "form-group mb-0" }, [
+        _c("label", { staticClass: "form-control-label d-block mb-3" }, [
+          _vm._v(
+            "Informe de los items (Activos) que no estan asignados a\n                    ningun usuario"
+          )
+        ])
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -70731,6 +70916,32 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Ubicación")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("A cargo")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-light" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre Item")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Serial")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Estado")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fecha")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Descripción")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Ubicación")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("A cargo")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Categoria")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Subcategoria")])
       ])
     ])
   }

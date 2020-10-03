@@ -3271,20 +3271,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3308,7 +3294,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     mytable: function mytable() {
       $(document).ready(function () {
-        $("#user-table").DataTable();
+        $("#user-table").dataTable({
+          language: {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+          }
+        });
       });
     }
   }
@@ -4133,39 +4123,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4188,37 +4145,55 @@ __webpack_require__.r(__webpack_exports__);
     agregar: function agregar() {
       var _this = this;
 
-      //Validaciones
-      if (this.usuario.tipo_usuario.trim() === "" || this.usuario.tipo_identificacion.trim() === "" || this.usuario.no_identificacion.trim() === "" || this.usuario.nombre.trim() === "" || this.usuario.cargo.trim() === "" || this.usuario.telefono.trim() === "" || this.usuario.email.trim() === "" || this.usuario.password.trim() === "" || this.usuario.Confirmar_Contrasena.trim() === "") {
-        toastr.error('Debe rellenar todos los campos');
+      var texto = new RegExp("^[ñA-Za-z _]*[ñA-Za-z][ñA-Za-z _]*$", "i"); //Validaciones
+
+      if (this.usuario.tipo_usuario.trim() !== "" || this.usuario.tipo_identificacion.trim() !== "" || this.usuario.no_identificacion.trim() !== "" || this.usuario.nombre.trim() !== "" || this.usuario.cargo.trim() !== "" || this.usuario.telefono.trim() !== "" || this.usuario.email.trim() !== "" || this.usuario.password.trim() !== "" || this.usuario.Confirmar_Contrasena.trim() !== "") {
+        if (texto.test(this.usuario.nombre)) {
+          if (texto.test(this.usuario.cargo)) {
+            if (this.usuario.password.trim() === this.usuario.Confirmar_Contrasena.trim()) {
+              // Guardar datos de los campos
+              var params = {
+                tipo_usuario: this.usuario.tipo_usuario,
+                tipo_identificacion: this.usuario.tipo_identificacion,
+                no_identificacion: this.usuario.no_identificacion,
+                nombre: this.usuario.nombre,
+                cargo: this.usuario.cargo,
+                telefono: this.usuario.telefono,
+                email: this.usuario.email,
+                password: this.usuario.password
+              }; //Limpiar los campos
+
+              this.usuario.tipo_usuario = "";
+              this.usuario.tipo_identificacion = "";
+              this.usuario.no_identificacion = "";
+              this.usuario.nombre = "";
+              this.usuario.cargo = "";
+              this.usuario.telefono = "";
+              this.usuario.email = "";
+              this.usuario.password = "";
+              this.usuario.Confirmar_Contrasena = ""; //Envio de los datos a traves de Axios
+
+              axios.post("/usuarios", params).then(function (res) {
+                _this.usuarios.push(res.data);
+              });
+              toastr.success("Usuario Registrado");
+            } else {
+              toastr.error("Las contraseñas no coinciden");
+            }
+          } else {
+            toastr.error("El campo de Cargo no debe tener numeros");
+          }
+        } else {
+          toastr.error("El campo de Nombre completo no debe tener numeros");
+        }
       } else {
-        // Guardar datos de los campos
-        var params = {
-          tipo_usuario: this.usuario.tipo_usuario,
-          tipo_identificacion: this.usuario.tipo_identificacion,
-          no_identificacion: this.usuario.no_identificacion,
-          nombre: this.usuario.nombre,
-          cargo: this.usuario.cargo,
-          telefono: this.usuario.telefono,
-          email: this.usuario.email,
-          password: this.usuario.password
-        }; //Limpiar los campos
-
-        this.usuario.tipo_usuario = "";
-        this.usuario.tipo_identificacion = "";
-        this.usuario.no_identificacion = "";
-        this.usuario.nombre = "";
-        this.usuario.cargo = "";
-        this.usuario.telefono = "";
-        this.usuario.email = "";
-        this.usuario.password = "";
-        this.usuario.Confirmar_Contrasena = ""; //Envio de los datos a traves de Axios
-
-        axios.post("/usuarios", params).then(function (res) {
-          _this.usuarios.push(res.data);
-        });
-        toastr.success('Usuario Registrado');
+        toastr.error("Debe rellenar todos los campos");
       }
+    },
+    validar: function validar() {
+      var texto = new RegExp("^[ñA-Za-z _]*[ñA-Za-z][ñA-Za-z _]*$", "i");
+      console.log(this.usuario.nombre);
+      console.log(texto.test(this.usuario.nombre));
     }
   }
 });
@@ -68715,7 +68690,7 @@ var staticRenderFns = [
         { staticClass: "modal-title", attrs: { id: "modal-title-default" } },
         [
           _vm._v(
-            "\n                                                            Editar usuario\n                                                        "
+            "\n                              Editar usuario\n                            "
           )
         ]
       ),
@@ -68742,12 +68717,12 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "btn btn-link  ml-auto",
+          staticClass: "btn btn-link ml-auto",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
         [
           _vm._v(
-            "\n                                                            Cerrar\n                                                        "
+            "\n                              Cerrar\n                            "
           )
         ]
       )
@@ -70079,7 +70054,7 @@ var render = function() {
                         hidden: ""
                       }
                     },
-                    [_vm._v("Escoja una opcion")]
+                    [_vm._v("\n              Escoja una opcion\n            ")]
                   ),
                   _vm._v(" "),
                   _c("option", [_vm._v("Admin")]),
@@ -70147,7 +70122,11 @@ var render = function() {
                           hidden: ""
                         }
                       },
-                      [_vm._v("Escoja una opcion")]
+                      [
+                        _vm._v(
+                          "\n                Escoja una opcion\n              "
+                        )
+                      ]
                     ),
                     _vm._v(" "),
                     _c("option", [_vm._v("Cedula de Ciudadania")]),
@@ -70183,7 +70162,7 @@ var render = function() {
                   staticClass: "form-control",
                   attrs: {
                     id: "no_identificacion",
-                    type: "text",
+                    type: "number",
                     name: "no_identificacion"
                   },
                   domProps: { value: _vm.usuario.no_identificacion },
@@ -70292,7 +70271,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { id: "telefono", type: "text", name: "telefono" },
+                  attrs: { id: "telefono", type: "number", name: "telefono" },
                   domProps: { value: _vm.usuario.telefono },
                   on: {
                     input: function($event) {
@@ -70435,7 +70414,7 @@ var staticRenderFns = [
         _c(
           "button",
           { staticClass: "btn btn-azul", attrs: { type: "submit" } },
-          [_vm._v("\n                    Registrar \n                ")]
+          [_vm._v("Registrar")]
         )
       ])
     ])

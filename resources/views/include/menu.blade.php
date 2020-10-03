@@ -9,6 +9,7 @@
             </li>
             </ul>
             <!-- Divider -->
+            @if(Auth::user()->tipo_usuario == "Admin")
             <hr class="my-3">
             <!-- Heading -->
             <h6 class="navbar-heading p-0 text-Default">
@@ -23,7 +24,7 @@
               </a>
             </li>
             </ul>
-
+            @endif
             <!-- Divider -->
             <hr class="my-3">
             <!-- Heading -->
@@ -31,13 +32,16 @@
               <span class="docs-normal">INVENTARIO</span>
             </h6>
 
-            <ul class="navbar-nav mb-md-3">
-            <li class="nav-item">
+            <ul class="navbar-nav mb-md-3">   
+
+            @if(Auth::user()->tipo_usuario == "Admin")
+            <li class="nav-item" >
               <a class="nav-link {{ (request()->is('categoria*')) ? 'active' : '' }}" href="{{ route('vistacategoria') }}">
                 <i class="ni ni-bullet-list-67 text-Default"></i>
                 <span class="nav-link-text">Categorias</span>
               </a>
             </li>
+            @endif
 
             <li class="nav-item">
               <a class="nav-link {{ (request()->is('inventario*')) ? 'active' : '' }}" href="{{ route('vistainventariototal') }}">
@@ -69,7 +73,7 @@
               </a>
             </li>
             </ul>
-
+            @if(Auth::user()->tipo_usuario == "Admin")
             <!-- Divider -->
             <hr class="my-3">
             <!-- Heading -->
@@ -86,5 +90,5 @@
             </li>
             </ul>
           </ul>
-          
+          @endif
         </div>

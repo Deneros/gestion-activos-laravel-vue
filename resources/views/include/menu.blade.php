@@ -8,6 +8,7 @@
               </a>
             </li>
             </ul>
+
             <!-- Divider -->
             <hr class="my-3">
             <!-- Heading -->
@@ -85,6 +86,6 @@
               </a>
             </li>
             </ul>
-          </ul>
+            </ul>
           
         </div>

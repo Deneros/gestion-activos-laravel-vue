@@ -2,7 +2,7 @@
     
     <div class="card">
         <div class="card-header border-0">
-            <div class="input-daterange datepicker row align-items-center">
+            <!-- <div class="input-daterange datepicker row align-items-center">
 
                     <div class="form-group col-md-2">
                         <label class="form-control-label d-block mb-3">Escoge el rango de fechas</label> 
@@ -44,7 +44,7 @@
           </button>
         </div>
         
-      </div>
+      </div> -->
       <!-- <div class="row align-items-center">
                 <div class="form-group col-md-3">
                     <label for="example-date-input" class="form-control-label">Fecha inicio</label>

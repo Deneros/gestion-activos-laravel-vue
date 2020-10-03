@@ -47,7 +47,7 @@
                                                 @click="boton(item)"
                                             >
                                                 <span class="btn-inner--icon"
-                                                    ><i class="ni ni-atom"></i
+                                                    ><i class="ni ni-settings"></i
                                                 ></span>
                                             </button>
                                             <div
@@ -87,18 +87,6 @@
 
                                                         <div class="modal-body">
                                                             <editarDatos></editarDatos>
-                                                        </div>
-
-                                                        <div
-                                                            class="modal-footer"
-                                                        >
-                                                            <button
-                                                                type="button"
-                                                                class="btn btn-link  ml-auto"
-                                                                data-dismiss="modal"
-                                                            >
-                                                                Cerrar
-                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>

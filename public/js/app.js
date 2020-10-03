@@ -3262,18 +3262,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -66202,7 +66190,10 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text", placeholder: "Buscar Usuarios" },
+                        attrs: {
+                          type: "text",
+                          placeholder: "Buscar categoria"
+                        },
                         domProps: { value: _vm.nombre_categoria },
                         on: {
                           input: function($event) {
@@ -66598,7 +66589,10 @@ var render = function() {
       [
         _c(
           "div",
-          { staticClass: "modal-dialog modal-xl", attrs: { role: "document" } },
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
           [
             _c("div", { staticClass: "modal-content" }, [
               _vm._m(8),
@@ -66634,7 +66628,7 @@ var staticRenderFns = [
         },
         [
           _c("span", { staticClass: "btn-inner--icon" }, [
-            _c("i", { staticClass: "ni ni-bullet-list-67" })
+            _c("i", { staticClass: "ni ni-fat-add" })
           ]),
           _vm._v(" "),
           _c("span", { staticClass: "btn-inner--text" }, [
@@ -67197,12 +67191,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card" }, [
     _c("div", { staticClass: "card-header border-0" }, [
-      _vm._m(0),
-      _vm._v(" "),
       _c("div", { staticClass: "table-responsive" }, [
         _c("div", [
           _c("table", { staticClass: "table align-items-center" }, [
-            _vm._m(1),
+            _vm._m(0),
             _vm._v(" "),
             _c(
               "tbody",
@@ -67226,76 +67218,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "input-daterange datepicker row align-items-center" },
-      [
-        _c("div", { staticClass: "form-group col-md-2" }, [
-          _c("label", { staticClass: "form-control-label d-block mb-3" }, [
-            _vm._v("Escoge el rango de fechas")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-md-3" }, [
-          _c("div", { staticClass: "input-group" }, [
-            _c("div", { staticClass: "input-group-prepend" }, [
-              _c("span", { staticClass: "input-group-text" }, [
-                _c("i", { staticClass: "ni ni-calendar-grid-58" })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control form-control-sm",
-              attrs: {
-                placeholder: "Start date",
-                type: "text",
-                value: "06/18/2020"
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-md-3" }, [
-          _c("div", { staticClass: "input-group" }, [
-            _c("div", { staticClass: "input-group-prepend" }, [
-              _c("span", { staticClass: "input-group-text" }, [
-                _c("i", { staticClass: "ni ni-calendar-grid-58" })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control form-control-sm",
-              attrs: {
-                placeholder: "End date",
-                type: "text",
-                value: "06/22/2020"
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-md-3" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-icon btn-azul btn-sm",
-              attrs: { type: "button", title: "Buscar" }
-            },
-            [
-              _vm._v("\n          Buscar\n          "),
-              _c("span", { staticClass: "btn-inner--icon" }, [
-                _c("i", { staticClass: "fas fa-search" })
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -68455,9 +68377,7 @@ var render = function() {
                                       { staticClass: "modal-body" },
                                       [_c("editarDatos")],
                                       1
-                                    ),
-                                    _vm._v(" "),
-                                    _vm._m(4, true)
+                                    )
                                   ])
                                 ]
                               )
@@ -68521,7 +68441,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "btn-inner--icon" }, [
-      _c("i", { staticClass: "ni ni-atom" })
+      _c("i", { staticClass: "ni ni-settings" })
     ])
   },
   function() {
@@ -68550,25 +68470,6 @@ var staticRenderFns = [
           }
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-link  ml-auto",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [
-          _vm._v(
-            "\n                                                            Cerrar\n                                                        "
-          )
-        ]
       )
     ])
   }
@@ -84367,8 +84268,8 @@ var bus = new Vue();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.5 prueba pdf\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Deneros\Desktop\IOApp\IOAppArgon Version 1.5 prueba pdf\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Camila\Desktop\proy\IOAppArgon\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

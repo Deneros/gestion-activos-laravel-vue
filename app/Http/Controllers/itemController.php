@@ -5,6 +5,7 @@ use App\Item;
 use App\Historial;
 use App\ItemsHistorial;
 use App\UsuariosHistorial;
+use App\Estado;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -108,9 +109,8 @@ class itemController extends Controller
             $itemsh -> save();
 
         }
-         
-        
-
+            
+        return $item;
     }
 
     /**
@@ -124,12 +124,6 @@ class itemController extends Controller
         $items = \DB::table('items')->select('id','nombre_item', 'serial', 'descripcion_item', 'estado', 'ubicacion', 'A_cargo', 'id_subcategoria')->where('id_subcategoria',$id)->get();
         return $items;
         
-        // $inventario = DB::table('items')
-        //     ->join ('subcategorias','items.id_subcategoria','=','subcategorias.id_subcategoria')
-        //     ->join ('catagorias', 'subcategorias.id_categoria','=','categorias.id_categoria')
-        //     ->select('items.*','subcategorias.id_subcategoria','subcategorias.nombre_sub','categorias.id_categoria','categorias.nombre_cat')
-        //     ->get();
-        // return $inventario; 
     }
 
     /**
@@ -167,9 +161,20 @@ class itemController extends Controller
             $idhistorial = \DB::table('items_historial')->select('id_historial')->where('id_item',$id)->get();
             $historial = Historial::find($idhistorial[0]->id_historial);
             $historial->fecha_traspaso = Carbon::now();
-            $historial->save();   
+            $historial->save();
         }
-        return  $id;   
+        if(is_null($request->mantenimiento)){
+            return $item; 
+        }else{
+            $estado = new Estado();
+            $estado ->id_item = $id;
+            $estado ->estado = $request->estado;
+            $estado ->descripcion = $request->mantenimiento;
+            $estado ->save();
+            return $estado;
+        }
+        return $item;
+          
     }
 
     /**

@@ -99,6 +99,14 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <div class="row" v-if="activo.estado === 'Mantenimiento'" >
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label class="form-control-label" for="descriMante">Descripcion de Mantenimiento:</label>
+                                                                                <textarea class="form-control" id="descriMante" rows="3" v-model="activo.mantenimiento" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
@@ -116,6 +124,7 @@
                                                                                     <option placeholder="A cargo" v-for="(usuario, index) in usuarios" :key="index">{{usuario.nombre}}</option>                      
                                                                                 </datalist>
                                                                         </div>
+                                                                            
                                                                     </div>
                                                                 </div>
                                                                     <button type="submit" class="btn btn-azul">Guardar</button>
@@ -151,13 +160,17 @@ export default {
                 serial:'',
                 descripcion:'',
                 estado:'',
+                mantenimiento:'',
                 ubicacion:'',
                 usuarioCargo:'',
                 subcategoria:''
             }
         };
     },
-    created() {       
+    created() {      
+        axios.get("/items").then(res => {
+            this.items = res.data;
+        }); 
         EventBus.$on("idsubcategoria", data => {
             this.idsub = data.id;
         });
@@ -168,11 +181,9 @@ export default {
         
     },
     mounted() {
-        axios.get("/items").then(res => {
-            this.items = res.data;
-        });
+        
     },
-    beforeUpdate() {
+    updated() {
         axios.get(`/Admin/listitems/${this.idsub}`).then(res => {
             this.items = res.data;
         });
@@ -196,11 +207,13 @@ export default {
         editarItem(item){
             axios.put(`/items/${this.iditem}`, this.activo)
                 .then(res=>{    
+                    toastr.success("Item Actualizado");
+                    console.log(res.data)
                     axios.get("/items").then(res => {
                         this.items = res.data;
                     })
                 })
-        }
+        },
     }
 };
 </script>

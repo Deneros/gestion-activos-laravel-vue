@@ -33,7 +33,8 @@ Route::resource('/historiales','historialController');
 
 //Rutas Reportes 
 Route::get('/reporte1','reportesController@usuariosAsignacion');
-Route::get('/reporte2','reportesController@activoCargo');
+Route::get('/reporte2/{cargo}','reportesController@activoCargo');
+Route::get('/reporte3','reportesController@reincidencia');
 
 
 //Retornar vistas 

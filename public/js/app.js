@@ -4643,7 +4643,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 
 
@@ -67885,7 +67884,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control right",
-                    attrs: { type: "text", placeholder: "Buscar subcategoria" },
+                    attrs: { type: "text", placeholder: "Buscar Items" },
                     domProps: { value: _vm.busq_items },
                     on: {
                       input: function($event) {
@@ -68748,7 +68747,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "btn-inner--icon" }, [
-      _c("i", { staticClass: "ni ni-atom" })
+      _c("i", { staticClass: "ni ni-settings" })
     ])
   },
   function() {
@@ -70947,7 +70946,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "row", staticStyle: { display: "none" } }, [
       _c("div", { staticClass: "table-responsive" }, [
         _c("div", [
           _c(
@@ -71041,7 +71040,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "form-group mb-0" }, [
         _c("label", { staticClass: "form-control-label d-block mb-3" }, [
           _vm._v(
-            "Informe de los items (Activos) que no estan asignados a\n                    ningun usuario"
+            "Informe de los items que tienen reincidencia de mantenimiento"
           )
         ])
       ])

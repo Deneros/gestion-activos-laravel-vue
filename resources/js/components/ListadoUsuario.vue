@@ -43,7 +43,7 @@
                         @click="boton(item)"
                       >
                         <span class="btn-inner--icon"
-                          ><i class="ni ni-atom"></i
+                          ><i class="ni ni-settings"></i
                         ></span>
                       </button>
                       <div

@@ -29,7 +29,7 @@ class LoginController extends Controller
 
         if(Auth::attempt($credentials)){
             // return 'tu sesion ha iniciado correctamente';
-            return redirect()->route('home');
+            return redirect()->route('vistainventariototal');
         }else {
             
             return view('auth.login');

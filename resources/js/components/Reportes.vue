@@ -13,8 +13,7 @@
               <div class="form-group row">
                   <div class="form-group mb-0">
                     <label class="form-control-label d-block mb-3"
-                      >Informe de los items (Activos) que no estan asignados a
-                      ningun usuario</label
+                      >Informe de los items que tienen reincidencia de mantenimiento</label
                     >
                   </div>
                 </div>
@@ -111,7 +110,7 @@
         </div>
       </div>
     </div>
-     <div class="row" ><!-- style="display: none"-->
+     <div class="row" style="display: none"><!-- style="display: none"-->
       <div class="table-responsive">
         <div>
           <table class="table align-items-center" id="my-table">

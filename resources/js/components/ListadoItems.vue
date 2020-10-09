@@ -7,7 +7,7 @@
                         <thead class="thead-light">
                             <tr>
                                 <div class="input-group input-group-sm mb-3">
-                                    <input class="form-control right" type="text" placeholder="Buscar subcategoria" v-model="busq_items">
+                                    <input class="form-control right" type="text" placeholder="Buscar Items" v-model="busq_items">
                                 </div>
                             </tr>
                             <tr >

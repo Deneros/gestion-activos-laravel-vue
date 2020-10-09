@@ -16,12 +16,12 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
                 'tipo_usuario'=> 'Admin',
                 'tipo_identificacion' => 'Cedula de Ciudadania',
-                'no_identificacion' => 98745612,
-                'nombre' => 'Camila Piedrahita',
-                'cargo' => 'Profesora',
+                'no_identificacion' => 987456412,
+                'nombre' => 'Nicolas Admin Muñoz',
+                'cargo' => 'Director',
                 'telefono' => 6543218,
-                'email' => 'kami199924maria@gmail.com',
-                'password' => bcrypt('camila'),
+                'email' => 'nicolas.velez99@hotmail.com',
+                'password' => bcrypt('4465790n'),
         ]);
 
     }
